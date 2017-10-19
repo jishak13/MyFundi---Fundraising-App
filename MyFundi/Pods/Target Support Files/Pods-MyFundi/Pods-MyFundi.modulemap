@@ -1,0 +1,6 @@
+framework module Pods_MyFundi {
+  umbrella header "Pods-MyFundi-umbrella.h"
+
+  export *
+  module * { export * }
+}
