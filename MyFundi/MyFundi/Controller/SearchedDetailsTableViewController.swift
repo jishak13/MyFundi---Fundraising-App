@@ -151,10 +151,24 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
         self.filterResults = self.postArray.filter{ post in
             
             let postTitle = post!["title"] as? String
+//            let postCaption = post!["caption"] as? String
             
-            return(postTitle?.lowercased().contains(searchText.lowercased()))!
+            return (postTitle?.lowercased().contains(searchText.lowercased()))!
         }
         tableView.reloadData()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let showSearchResultViewController = segue.destination as! SearchedDetailsTableViewController
+        
+        showSearchResultViewController.loggedInUser = self.loggedInUser
+        
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//
+//            let post = postArray[indexPath.row]
+//            
+//        }
+    }
+    
     
 }

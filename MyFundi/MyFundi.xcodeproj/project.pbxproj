@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2648CF561F999CDA00DA38E7 /* PostInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2648CF551F999CDA00DA38E7 /* PostInfoVC.swift */; };
 		2655F0C21F83684B003323EF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655F0C11F83684B003323EF /* Post.swift */; };
+		265AAAE41F9BCCEE003AC6CE /* PostInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265AAAE31F9BCCEE003AC6CE /* PostInfo.swift */; };
 		26732A151F808C8C00365AE5 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A141F808C8C00365AE5 /* FancyView.swift */; };
 		26732A181F808D4B00365AE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A171F808D4B00365AE5 /* Constants.swift */; };
 		26732A1A1F808EFE00365AE5 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A191F808EFE00365AE5 /* RoundButton.swift */; };
@@ -33,7 +35,9 @@
 
 /* Begin PBXFileReference section */
 		21AAB1E23E94C4E884242A83 /* Pods-MyFundi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.release.xcconfig"; sourceTree = "<group>"; };
+		2648CF551F999CDA00DA38E7 /* PostInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfoVC.swift; sourceTree = "<group>"; };
 		2655F0C11F83684B003323EF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		265AAAE31F9BCCEE003AC6CE /* PostInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostInfo.swift; sourceTree = "<group>"; };
 		26732A141F808C8C00365AE5 /* FancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		26732A171F808D4B00365AE5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		26732A191F808EFE00365AE5 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 		26E2B7161F8056A100AC390F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				265AAAE31F9BCCEE003AC6CE /* PostInfo.swift */,
 				2655F0C11F83684B003323EF /* Post.swift */,
 				C1B0AD1A1F93F6C5000E02C0 /* User.swift */,
 			);
@@ -159,6 +164,7 @@
 				26E2B7051F80467F00AC390F /* SignInVC.swift */,
 				26732A241F81F5FD00365AE5 /* FeedVC.swift */,
 				C1579FB51F93E60D00331C1F /* ProfileVC.swift */,
+				2648CF551F999CDA00DA38E7 /* PostInfoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,7 +339,9 @@
 			files = (
 				26732A271F82D88500365AE5 /* CircleView.swift in Sources */,
 				26732A1C1F80909A00365AE5 /* FancyField.swift in Sources */,
+				2648CF561F999CDA00DA38E7 /* PostInfoVC.swift in Sources */,
 				C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */,
+				265AAAE41F9BCCEE003AC6CE /* PostInfo.swift in Sources */,
 				26E2B7061F80467F00AC390F /* SignInVC.swift in Sources */,
 				C1579FB41F93DF1500331C1F /* ProfileHistoryCell.swift in Sources */,
 				2655F0C21F83684B003323EF /* Post.swift in Sources */,

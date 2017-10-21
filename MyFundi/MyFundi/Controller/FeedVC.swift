@@ -16,6 +16,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var addImage: CircleView!
     @IBOutlet weak var captionField: FancyField!
     
+    //Search bar variables
+    var loggedInUser: AnyObject?
+    var loggedInUserData: NSDictionary?
+    
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
@@ -24,6 +28,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
 
         var userID = (Auth.auth().currentUser?.uid)!
         tableView.delegate = self
@@ -151,6 +157,15 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         addImage.image = UIImage(named: "add-image")
         
         tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "searchResultSegue")
+        {
+            let showSeachResultViewController = segue.destination as? SearchedDetailsTableViewController
+
+            showSeachResultViewController?.loggedInUser = self.loggedInUser as? Auth
+        }
     }
     
     @IBAction func profileImageTapped(_ sender: Any) {
