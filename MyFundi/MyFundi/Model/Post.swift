@@ -16,6 +16,8 @@ class Post {
     private var _currentDonation: Float!
     private var _donationGoal: Float!
     private var _title: String!
+    private var _startDate: String!
+    private var _endDate: String!
     private var _postKey: String!
     private var _postRef: DatabaseReference!
     
@@ -46,14 +48,23 @@ class Post {
     var postKey: String {
         return _postKey
     }
+    var StartDate: String {
+        return _startDate
+    }
     
-    init(caption: String, imageUrl: String, likes: Int, currentDonation: Float, donationGoal: Float, title: String) {
+    var EndDate: String {
+        return _endDate
+    }
+    
+    init(caption: String, imageUrl: String, likes: Int, currentDonation: Float, donationGoal: Float, title: String,startDate:String,endDate:String) {
         self._caption = caption
         self._imageUrl = imageUrl
         self._likes = likes
         self._currentDonation = currentDonation
         self._donationGoal = donationGoal
         self._title = title
+        self._startDate = startDate
+        self._endDate = endDate
     }
     
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
@@ -82,7 +93,12 @@ class Post {
         if let title = postData["title"] as? String {
             self._title = title
         }
-        
+        if let startDate = postData["date"] as? String {
+            self._startDate = startDate
+        }
+        if let endDate = postData["endingDate"] as? String {
+            self._endDate = endDate
+        }
         _postRef = DataService.ds.REF_FUNDRAISERS.child(_postKey)
         
     }

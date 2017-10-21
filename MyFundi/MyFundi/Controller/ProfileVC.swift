@@ -12,6 +12,7 @@ import SwiftKeychainWrapper
 
 class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editNameImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -22,9 +23,15 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     var fundraiserKeys = [String]()
     var editingName = false
     var userID: String = ""
+    var count = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
+        
+        print("My View has loaded \(count) times")
+        count = count + 1
         
         editNameImage.image = UIImage(named:"edit")!
         userID = (Auth.auth().currentUser?.uid)!
@@ -37,6 +44,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         imagePicker.delegate = self
         nameTextField.isEnabled = false
         nameTextField.allowsEditingTextAttributes = false
+        
+        
         DataService.ds.REF_USERS.observe(.value) { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
                 for snap in snapshot{
@@ -50,7 +59,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                             if let fundraisers =  userDict["fundraisers"] as? [String:AnyObject]  {
                                 for fund in fundraisers{
                                     self.fundraiserKeys.append(fund.key)
-                                    print("JOE: Fundraisers Found for User: \(snap.key)")
+                                    print("JOE: Fundraisers Found for User: \(fund.key)")
                                     
                                 }
                                    self.loadFundraisers()
@@ -62,9 +71,14 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                         
                     }
                 }
+                self.tableView.reloadData()
             }
         }
 }
+    
+    @objc func reloadTableData(sender: AnyObject){
+      self.tableView.reloadData()
+    }
     func configureUser(userName: String, imageUrl:String) {
         print("JOE: Configuring user Profile")
         self.nameTextField.isEnabled = true

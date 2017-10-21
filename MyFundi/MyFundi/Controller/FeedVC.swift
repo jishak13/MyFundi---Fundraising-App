@@ -25,7 +25,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var userID = (Auth.auth().currentUser?.uid)!
+        let userID = (Auth.auth().currentUser?.uid)
         tableView.delegate = self
         tableView.dataSource = self
         

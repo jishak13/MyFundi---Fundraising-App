@@ -54,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: AnyObject) ->
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) ->
         Bool {
             return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
     }
