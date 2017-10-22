@@ -12,7 +12,9 @@ import SwiftKeychainWrapper
 
 class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var dateLabel: UILabel!
+//   
+//    @IBOutlet weak var dateLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var editNameImage: UIImageView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -28,7 +30,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
+      
         
         print("My View has loaded \(count) times")
         count = count + 1

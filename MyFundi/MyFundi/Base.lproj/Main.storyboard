@@ -820,6 +820,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="goalText" destination="H02-kg-MhD" id="xkb-BT-L8l"/>
+                                </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Image_50" translatesAutoresizingMaskIntoConstraints="NO" id="wjl-vB-X7a">
                                 <rect key="frame" x="16" y="147" width="343" height="160"/>
@@ -834,19 +837,22 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="titleText" destination="Aks-9R-6kW" id="Hcu-JH-Qjt"/>
+                                </connections>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1P-yT-iPv">
-                                <rect key="frame" x="16" y="323" width="343" height="128"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="343" id="m9k-De-sgA"/>
-                                    <constraint firstAttribute="height" constant="128" id="r3b-dh-SRR"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-I8-sPx" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU4-1Q-DTE" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="117" y="558" width="140" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.56470588235294117" alpha="0.54248715753424659" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.0" green="0.16078431372549018" blue="0.51764705882352935" alpha="0.87" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="PostBtnTapped:" destination="z8P-ya-cp2" eventType="touchUpInside" id="LuF-h1-jAd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yTd-I8-sPx">
                                 <rect key="frame" x="270" y="282" width="89" height="25"/>
                                 <color key="backgroundColor" red="0.049972821027040482" green="0.16351424157619476" blue="0.51776671409606934" alpha="0.54248715753424659" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -873,17 +879,16 @@
                                     <!--2037-12-31 11:00:00 +0000-->
                                 </date>
                             </datePicker>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qU4-1Q-DTE" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="117" y="558" width="140" height="36"/>
-                                <color key="backgroundColor" red="1" green="0.37647058823529411" blue="0.56470588235294117" alpha="0.54248715753424659" colorSpace="custom" customColorSpace="displayP3"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Submit">
-                                    <color key="titleColor" red="0.0" green="0.16078431372549018" blue="0.51764705882352935" alpha="0.87" colorSpace="custom" customColorSpace="displayP3"/>
-                                </state>
-                                <connections>
-                                    <action selector="PostBtnTapped:" destination="z8P-ya-cp2" eventType="touchUpInside" id="LuF-h1-jAd"/>
-                                </connections>
-                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eim poen legum odioque civiuda." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="e1P-yT-iPv">
+                                <rect key="frame" x="16" y="323" width="343" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="343" id="m9k-De-sgA"/>
+                                    <constraint firstAttribute="height" constant="128" id="r3b-dh-SRR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>

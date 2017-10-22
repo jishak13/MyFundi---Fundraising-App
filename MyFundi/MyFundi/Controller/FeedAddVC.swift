@@ -10,11 +10,6 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-extension Notification.Name {
-    
-    static let reload = Notification.Name("reload")
-    
-}
 
 
 
@@ -28,28 +23,28 @@ UINavigationControllerDelegate{
     @IBOutlet weak var NumOfRequest: FancyField!
     
     @IBOutlet weak var ExpDatePicker: UIDatePicker!
-    @IBOutlet weak var ExpirationDate: FancyField!
+   
     
     
     var userID: String = ""
-    
-    var posts = [Post]()
-//    var formattedDate: Date!
     let currDate = Date()
     var stringExpiration: String!
     var dateFormatter: DateFormatter!
     
-    static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         userID = (Auth.auth().currentUser?.uid)!
         
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy"
         
-       dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
-     //Current time zone
+//         alertController = UIAlertController(title: "Campaign Error", message:
+//            "Hello, world!", preferredStyle: UIAlertControllerStyle.alert)
+//        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        
+        TitleTxt.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
     
@@ -75,34 +70,57 @@ UINavigationControllerDelegate{
         present(imagePickerControl, animated: true, completion: nil)
     }
     
+    func checkInput() -> Bool {
+        
+        
+        var validInput = false
+    
+        if  TitleTxt.text != "" {
+            validInput = true
+        } else {
+            TitleTxt.layer.borderColor = UIColor.red as! CGColor
+            validInput =  false
+        }
+        if  ImageChoose.image != nil {
+            validInput = true
+        } else {
+             ImageChoose.layer.borderColor = UIColor.red as! CGColor
+//            alertController.message = "Image for the campaign must be entered."
+//            self.present(alertController, animated: true, completion: nil)
+            validInput =  false
+        }
+        if  DescriptionTxt.text != "" {
+            validInput = true
+        } else {
+            DescriptionTxt.layer.borderColor = UIColor.red as! CGColor
+//            alertController.message = "Caption for the campaign must be entered."
+//            self.present(alertController, animated: true, completion: nil)
+            validInput =  false
+        }
+        
+        if  NumOfRequest.text != "" {
+            validInput = true
+        } else {
+              NumOfRequest.layer.borderColor = UIColor.red as! CGColor
+//            alertController.message = "Goal for the campaign must be entered."
+//            self.present(alertController, animated: true, completion: nil)
+            validInput =  false
+        }
+        
+        return validInput
+        
+    }
+    
     @IBAction func PostBtnTapped(_ sender: UIButton) {
+       
+        
         
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
         
-        guard let title = TitleTxt.text else {
-            print("Title must be entered.")
-            return
-        }
-        
-        guard let img = ImageChoose.image else {
-            print("Image must be selected.")
-            return
-        }
-        
-        guard let description = DescriptionTxt.text else  {
-            print("Description must be entered.")
-            return
-       }
-        
-        guard let request = NumOfRequest.text else {
-            print("Donation Goal must be entered.")
-            return
-        }
-        guard let exDate = stringExpiration  else {
-            print("Donation Goal must be entered.")
-            return
-        }
-        
+        if checkInput() {
+            
+            let img: UIImage = ImageChoose.image!
+            
         if let imgData = UIImageJPEGRepresentation(img, 0.2) {
             let imgUid = NSUUID().uuidString
             let metaData = StorageMetadata()
@@ -115,48 +133,52 @@ UINavigationControllerDelegate{
                     print("JOe: Successfully uploaded post image to firebase storage")
                     let downloadURL = metaData?.downloadURL()?.absoluteString
                     if let url = downloadURL {
-                        postToFirebase(imgUrl: url)
+//                        self.postToFirebase(imgUrl: url)
                     }
                 }
             }
+            }
+        }
+        
     }
     
-        func postToFirebase(imgUrl: String) {
-       
-       
-            print("JOE the date in a string format is \(stringExpiration)")
-
-            var goal = (NumOfRequest.text as! NSString).floatValue
-
-            print("JOE: GOAL \(goal)")
-            var stringCurrDate = dateFormatter.string(from: currDate)
-            print("JOE: Current Date is \(stringCurrDate)")
-            
-        let post: Dictionary<String, AnyObject> = [
-            "caption": DescriptionTxt.text! as AnyObject,
-            "imageUrl": imgUrl as AnyObject,
-            "likes": 0 as AnyObject,
-            "currentDonation": 0 as AnyObject,
-            "donationGoal": goal as AnyObject,
-            "expirationDate": stringExpiration as AnyObject,
-            "date": stringCurrDate as AnyObject,
-            "title": TitleTxt.text!  as AnyObject
-        ]
-        
-        let firebasePost = DataService.ds.REF_FUNDRAISERS.childByAutoId()
-       var fundKey = firebasePost.key
-        firebasePost.setValue(post)
-        
-        
-        TitleTxt.text = ""
-        ImageChoose.image = UIImage(named: "add-image")
-        NumOfRequest.text = ""
-        DescriptionTxt.text = ""
-            
-        UpdateFireBaseUser(fundKey:fundKey)
-        NotificationCenter.default.post(name: .reload, object: nil)
-    }
-       
+//        func postToFirebase(imgUrl: String) {
+//
+//            var goal: Float!
+//            var stringCurrDate: String!
+////            print("JOE the date in a string format is \(stringExpiration)")
+//
+//            goal = (NumOfRequest.text! as NSString).floatValue
+//
+//            print("JOE: GOAL \(goal)")
+//             stringCurrDate = dateFormatter.string(from: currDate)
+//            print("JOE: Current Date is \(stringCurrDate)")
+//
+//        let post: Dictionary<String, AnyObject> = [
+//            "caption": DescriptionTxt.text! as AnyObject,
+//            "imageUrl": imgUrl as AnyObject,
+//            "likes": 0 as AnyObject,
+//            "currentDonation": 0 as AnyObject,
+//            "donationGoal": goal as AnyObject,
+//            "expirationDate": stringExpiration as AnyObject,
+//            "date": stringCurrDate as AnyObject,
+//            "title": TitleTxt.text!  as AnyObject
+//        ]
+//
+//        let firebasePost = DataService.ds.REF_FUNDRAISERS.childByAutoId()
+//        var fundKey = firebasePost.key
+//        firebasePost.setValue(post)
+//
+//
+//        TitleTxt.text = ""
+//        ImageChoose.image = UIImage(named: "add-image")
+//        NumOfRequest.text = ""
+//        DescriptionTxt.text = ""
+//
+//        UpdateFireBaseUser(fundKey:fundKey)
+//
+//    }
+//
         func dateformatterDateString(dateString: String) -> NSDate? {
             
             let dateFormatter: DateFormatter = DateFormatter()
@@ -187,4 +209,4 @@ UINavigationControllerDelegate{
     */
 
 }
-}
+
