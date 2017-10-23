@@ -26,13 +26,16 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     var editingName = false
     var userID: String = ""
     var count = 0
-    
+    var user : User!
+    var userRef: DatabaseReference!
     override func viewDidLoad() {
         super.viewDidLoad()
 }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        posts = [Post]()
+        fundraiserKeys = [String]()
         viewLoadSetup()
         
     }
@@ -44,6 +47,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         
         editNameImage.image = UIImage(named:"edit")!
         userID = (Auth.auth().currentUser?.uid)!
+        userRef = DataService.ds.REF_USERS.child(self.userID)
         print("JOE Current user ID is:" + userID)
         //        var posts = [Post]()
         tableView.delegate = self
@@ -53,39 +57,32 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         imagePicker.delegate = self
         nameTextField.isEnabled = false
         nameTextField.allowsEditingTextAttributes = false
-        
-        
-        DataService.ds.REF_USERS.observe(.value) { (snapshot) in
-            if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
-                for snap in snapshot{
-                    if self.userID == snap.key{
-                        if let userDict = snap.value as? Dictionary<String,AnyObject>{
-                            let user = User(userKey: self.userID, userData: userDict)
-                            print("\(user)")
-                            self.fundraiserKeys = [String]()
-                            
-                            //Configure the users picture for the profile
-                            self.configureUser(userName:user.Name,imageUrl:user.ImageUrl)
-                            if let fundraisers =  userDict["fundraisers"] as? [String:AnyObject]  {
-                                for fund in fundraisers{
-                                    self.fundraiserKeys.append(fund.key)
-                                    print("JOE: Fundraisers Found for User: \(fund.key)")
-                                    
-                                }
-                                print("JOE TOtal fundraisers: \(self.fundraiserKeys.count)")
-                                self.loadFundraisers()
-                            }
-                            else {
-                                print("Joe: Fundraisers not found for user: \(snap.key)")
-                            }
+       
+            
+            userRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                if let userDict = snapshot.value as? Dictionary<String,AnyObject> {
+                    print ("JOE: USER DICT \(userDict)")
+                    self.user = User(userKey: self.userID, userData: userDict)
+                     self.configureUser(userName:self.user.Name,imageUrl: self.user.ImageUrl)
+                    if let fundraisers =  userDict["fundraisers"] as? [String:AnyObject]  {
+                        for fund in fundraisers{
+                           self.fundraiserKeys.append(fund.key)
+                            print("JOE: Fundraisers Found for User: \(fund.key)")
                         }
+                      print("JOE TOtal fundraisers: \(self.fundraiserKeys.count)")
+                        self.loadFundraisers()
                         
-                    }
+                        }
+                       else {
+                        }
                 }
                 self.tableView.reloadData()
-            }
+                
+                
+            })
+        
         }
-    }
+            
 
     
     @objc func reloadTableData(sender: AnyObject){
@@ -134,6 +131,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     func loadFundraisers(){
      self.posts = [Post]()
     DataService.ds.REF_FUNDRAISERS.observe(.value, with: { (snapshot) in
+        
                 if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                     for snap in snapshot {
                         for fundKey in self.fundraiserKeys{
@@ -203,7 +201,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 }
             }
         }
-
+      
     }
     //Updates the user record when ever called
     func updateFirebaseProfileName(name: String) {
