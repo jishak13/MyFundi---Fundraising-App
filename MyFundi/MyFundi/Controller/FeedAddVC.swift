@@ -10,11 +10,18 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
-extension Notification.Name {
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
     
-    static let reload = Notification.Name("reload")
-    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
+
 
 
 
@@ -24,7 +31,7 @@ UINavigationControllerDelegate{
     
     @IBOutlet weak var TitleTxt: FancyField!
     @IBOutlet weak var ImageChoose: UIImageView!
-    @IBOutlet weak var DescriptionTxt: UITextView!
+    @IBOutlet weak var DescriptionTxt: FancyTextView!
     @IBOutlet weak var NumOfRequest: FancyField!
     
     @IBOutlet weak var ExpDatePicker: UIDatePicker!
@@ -46,7 +53,8 @@ UINavigationControllerDelegate{
         super.viewDidLoad()
         userID = (Auth.auth().currentUser?.uid)!
         
-        
+        self.hideKeyboardWhenTappedAround()
+
        dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
      //Current time zone
@@ -60,7 +68,7 @@ UINavigationControllerDelegate{
     
    
     
-    
+  
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         ImageChoose.image = selectedImage
@@ -75,62 +83,85 @@ UINavigationControllerDelegate{
         present(imagePickerControl, animated: true, completion: nil)
     }
     
+    
+    
     @IBAction func PostBtnTapped(_ sender: UIButton) {
         
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
         
-        guard let title = TitleTxt.text else {
-            print("Title must be entered.")
-            return
-        }
         
-        guard let img = ImageChoose.image else {
-            print("Image must be selected.")
-            return
-        }
-        
-        guard let description = DescriptionTxt.text else  {
-            print("Description must be entered.")
-            return
-       }
-        
-        guard let request = NumOfRequest.text else {
-            print("Donation Goal must be entered.")
-            return
-        }
-        guard let exDate = stringExpiration  else {
-            print("Donation Goal must be entered.")
-            return
-        }
-        
-        if let imgData = UIImageJPEGRepresentation(img, 0.2) {
-            let imgUid = NSUUID().uuidString
-            let metaData = StorageMetadata()
-            metaData.contentType = "image/jpeg"
+        if TitleTxt.text == "" {
+            TitleTxt.errorBorder()
+         
             
-            DataService.ds.REF_FUND_IMGS.child(imgUid).putData(imgData, metadata: metaData) { (metaData, error) in
-                if error  != nil {
-                    print("JOE: unable to upload  post image to firebase storage")
-                } else {
-                    print("JOe: Successfully uploaded post image to firebase storage")
-                    let downloadURL = metaData?.downloadURL()?.absoluteString
-                    if let url = downloadURL {
-                        postToFirebase(imgUrl: url)
+        }
+        else {
+            TitleTxt.normalBorder()
+        }
+        
+         if DescriptionTxt.text == "" {
+            DescriptionTxt.errorBorder()
+         
+        }
+         else {
+            DescriptionTxt.normalBorder()
+        }
+        
+        
+         if NumOfRequest.text == "" {
+            NumOfRequest.errorBorder()
+       
+        }
+         else {
+            NumOfRequest.normalBorder()
+        }
+        if ImageChoose.image != nil{
+            
+            let img = ImageChoose.image!
+            if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+                let imgUid = NSUUID().uuidString
+                let metaData = StorageMetadata()
+                metaData.contentType = "image/jpeg"
+                
+                DataService.ds.REF_FUND_IMGS.child(imgUid).putData(imgData, metadata: metaData) { (metaData, error) in
+                    if error  != nil {
+                        print("JOE: unable to upload  post image to firebase storage")
+                    } else {
+                        print("JOe: Successfully uploaded post image to firebase storage")
+                        let downloadURL = metaData?.downloadURL()?.absoluteString
+                        if let url = downloadURL {
+                           self.postToFirebase(imgUrl: url)
+                        }
                     }
                 }
             }
+            
+        } else {
+           
+        var alertController = UIAlertController(title: "Campaign Field Missing", message: "Please select an image", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+
+            self.present(alertController, animated: true, completion: nil)
+
+        }
+       
     }
+        
+       
     
         func postToFirebase(imgUrl: String) {
-       
-       
-            print("JOE the date in a string format is \(stringExpiration)")
-
+            
             var goal = (NumOfRequest.text as! NSString).floatValue
-
-            print("JOE: GOAL \(goal)")
             var stringCurrDate = dateFormatter.string(from: currDate)
-            print("JOE: Current Date is \(stringCurrDate)")
+       
+//
+//            print("JOE the date in a string format is \(stringExpiration)")
+//
+//
+//
+//            print("JOE: GOAL \(goal)")
+//
+//            print("JOE: Current Date is \(stringCurrDate)")
             
         let post: Dictionary<String, AnyObject> = [
             "caption": DescriptionTxt.text! as AnyObject,
@@ -154,7 +185,7 @@ UINavigationControllerDelegate{
         DescriptionTxt.text = ""
             
         UpdateFireBaseUser(fundKey:fundKey)
-        NotificationCenter.default.post(name: .reload, object: nil)
+        
     }
        
         func dateformatterDateString(dateString: String) -> NSDate? {
@@ -187,4 +218,4 @@ UINavigationControllerDelegate{
     */
 
 }
-}
+

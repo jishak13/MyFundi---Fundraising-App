@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
+
+
 class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
@@ -27,16 +29,23 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewLoadSetup()
         
-        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
-        
+    }
+    
+    func viewLoadSetup(){
+        hideKeyboardWhenTappedAround()
         print("My View has loaded \(count) times")
         count = count + 1
         
         editNameImage.image = UIImage(named:"edit")!
         userID = (Auth.auth().currentUser?.uid)!
         print("JOE Current user ID is:" + userID)
-//        var posts = [Post]()
+        //        var posts = [Post]()
         tableView.delegate = self
         tableView.dataSource = self
         imagePicker = UIImagePickerController()
@@ -54,15 +63,17 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                             let user = User(userKey: self.userID, userData: userDict)
                             print("\(user)")
                             self.fundraiserKeys = [String]()
+                            
                             //Configure the users picture for the profile
-                       self.configureUser(userName:user.Name,imageUrl:user.ImageUrl)
+                            self.configureUser(userName:user.Name,imageUrl:user.ImageUrl)
                             if let fundraisers =  userDict["fundraisers"] as? [String:AnyObject]  {
                                 for fund in fundraisers{
                                     self.fundraiserKeys.append(fund.key)
                                     print("JOE: Fundraisers Found for User: \(fund.key)")
                                     
                                 }
-                                   self.loadFundraisers()
+                                print("JOE TOtal fundraisers: \(self.fundraiserKeys.count)")
+                                self.loadFundraisers()
                             }
                             else {
                                 print("Joe: Fundraisers not found for user: \(snap.key)")
@@ -74,7 +85,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                 self.tableView.reloadData()
             }
         }
-}
+    }
+
     
     @objc func reloadTableData(sender: AnyObject){
       self.tableView.reloadData()
@@ -130,6 +142,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                                     let key = snap.key
                                     let post = Post(postKey: key, postData: postDict)
                                     self.posts.append(post)
+                                    
                                 }
                             }
                         }
