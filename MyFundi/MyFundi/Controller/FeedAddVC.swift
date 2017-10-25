@@ -92,7 +92,7 @@ UINavigationControllerDelegate{
         
         if TitleTxt.text == "" {
             TitleTxt.errorBorder()
-         
+            
             
         }
         else {

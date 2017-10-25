@@ -22,6 +22,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likeImage: UIImageView!
     
     var post: Post!
+    var user: User!
     var likesRef : DatabaseReference!
     
     override func awakeFromNib() {
@@ -49,8 +50,9 @@ class PostCell: UITableViewCell {
         })
     }
     
-    func configureCell(post: Post, img: UIImage? = nil) {
+    func configureCell(post: Post, user: User,img: UIImage? = nil, profImg: UIImage? = nil) {
         self.post = post
+        self.user = user
         likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         
         self.caption.text = post.caption
@@ -58,7 +60,7 @@ class PostCell: UITableViewCell {
         self.currentDonationLbl.text = "\(post.currentDonation)"
         self.donationGoalLbl.text = "\(post.donationGoal)"
         self.fundraiserLbl.text = post.title
-//        let profRef = Storage.storage().reference(forURL: user)
+      
         
         
         if img != nil {
@@ -74,6 +76,25 @@ class PostCell: UITableViewCell {
                         if let img = UIImage(data: imgData) {
                             self.postImg.image = img
                             FeedVC.imageCache.setObject(img, forKey: post.imageUrl as AnyObject)
+                        }
+                    }
+                }
+            })
+        }
+        
+        if profImg != nil {
+            self.profileImg.image = img
+        } else {
+            let ref = Storage.storage().reference(forURL: self.user.ImageUrl)
+            ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                if error != nil {
+                    print("KHALID: Unable to download image from firebase storage")
+                } else {
+                    print("KHALID: Image downloaded from firebase storage")
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.profileImg.image = img
+                            FeedVC.profileImageCache.setObject(img, forKey: user.ImageUrl as AnyObject)
                         }
                     }
                 }

@@ -481,6 +481,9 @@
                                     </imageView>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESS-o2-fO4">
                                         <rect key="frame" x="0.0" y="210" width="200" height="37"/>
+                                        <accessibility key="accessibilityConfiguration">
+                                            <bool key="isElement" value="NO"/>
+                                        </accessibility>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="Utu-xU-wYy"/>
                                         </constraints>
