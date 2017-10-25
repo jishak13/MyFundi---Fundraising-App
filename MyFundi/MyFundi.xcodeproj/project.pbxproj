@@ -30,6 +30,7 @@
 		C1579FB41F93DF1500331C1F /* ProfileHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */; };
 		C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579FB51F93E60D00331C1F /* ProfileVC.swift */; };
 		C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B0AD1A1F93F6C5000E02C0 /* User.swift */; };
+		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHistoryCell.swift; sourceTree = "<group>"; };
 		C1579FB51F93E60D00331C1F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		C1B0AD1A1F93F6C5000E02C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFundraiserDetailsVC.swift; sourceTree = "<group>"; };
 		D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -162,6 +164,7 @@
 				26E2B7051F80467F00AC390F /* SignInVC.swift */,
 				26732A241F81F5FD00365AE5 /* FeedVC.swift */,
 				C1579FB51F93E60D00331C1F /* ProfileVC.swift */,
+				C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -345,6 +348,7 @@
 				26732A1E1F8091C800365AE5 /* FancyButton.swift in Sources */,
 				C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */,
 				26732A2D1F83511500365AE5 /* DataService.swift in Sources */,
+				C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */,
 				26732A251F81F5FD00365AE5 /* FeedVC.swift in Sources */,
 				C1394D111F982C3F002AC9AE /* FeedAddVC.swift in Sources */,
 				26E2B7041F80467F00AC390F /* AppDelegate.swift in Sources */,

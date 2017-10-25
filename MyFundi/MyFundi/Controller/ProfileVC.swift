@@ -28,6 +28,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     var count = 0
     var user : User!
     var userRef: DatabaseReference!
+    var selectedPost: Post!
     override func viewDidLoad() {
         super.viewDidLoad()
 }
@@ -126,6 +127,13 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             updateFirebaseProfileName(name: nameTextField.text!)
         }
         
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      
+        
+        self.selectedPost = posts[indexPath.row]
+        print("SELECTED POST: \(self.selectedPost.postKey)")
+        performSegue(withIdentifier: "showFundraiserDetailsVC", sender: self)
     }
     
     func loadFundraisers(){
@@ -232,6 +240,16 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         try! Auth.auth().signOut()
         performSegue(withIdentifier: "goToSignInFromProf", sender: nil)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showFundraiserDetailsVC" {
+            if let profileDetails = segue.destination as? ProfileFundraiserDetailsVC {
+                profileDetails.post = self.selectedPost
+            }
+        }
+    }
+   
+   
+}
     
   
-}
+

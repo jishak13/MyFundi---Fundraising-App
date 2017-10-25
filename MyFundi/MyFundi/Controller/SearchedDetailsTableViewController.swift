@@ -146,6 +146,7 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
         filterContent(searchText: self.searchController.searchBar.text!)
         
     }
+
     
     func filterContent(searchText: String){
         self.filterResults = self.postArray.filter{ post in

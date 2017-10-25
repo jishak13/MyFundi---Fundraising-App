@@ -626,6 +626,7 @@
                         <outlet property="tableView" destination="59N-Eq-3aB" id="r0T-Dv-uKc"/>
                         <segue destination="We2-Kd-4Cg" kind="show" identifier="goToFeedFromProf" id="lrs-Gf-ulY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromProf" id="3AY-5i-bwn"/>
+                        <segue destination="lZy-MN-Zci" kind="show" identifier="showFundraiserDetailsVC" id="UJU-01-J7S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVO-Od-Se8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -649,7 +650,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1541.5999999999999" y="298.2008995502249"/>
+            <point key="canvasLocation" x="1397" y="298"/>
         </scene>
         <!--Results-->
         <scene sceneID="ouT-62-WfJ">
@@ -708,23 +709,7 @@
         <!--View Controller-->
         <scene sceneID="KmP-IL-KdJ">
             <objects>
-                <viewController id="Pi3-5C-OeV" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="vLA-nB-b2v">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Show Fundraiser" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoQ-F5-hCw">
-                                <rect key="frame" x="123" y="323" width="128" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="g1P-U6-LWp"/>
-                    </view>
-                </viewController>
+                <viewController id="Pi3-5C-OeV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Ng-oy-WbQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3408.8000000000002" y="-570.76461769115451"/>
@@ -947,7 +932,177 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doo-kh-gCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1588.4057971014495" y="1045.9239130434783"/>
+            <point key="canvasLocation" x="1436" y="1088"/>
+        </scene>
+        <!--FundraiserDetails-->
+        <scene sceneID="uOq-3A-JhA">
+            <objects>
+                <viewController id="lZy-MN-Zci" userLabel="FundraiserDetails" customClass="ProfileFundraiserDetailsVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yTu-bl-Pwh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovR-eU-IQx" customClass="FancyView" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8z-eV-NCk">
+                                        <rect key="frame" x="95" y="20" width="225" height="38"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="31"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-rA-Xta">
+                                        <rect key="frame" x="353" y="20" width="45" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="mOI-9e-byy"/>
+                                            <constraint firstAttribute="height" constant="38" id="rnO-1o-q7y"/>
+                                        </constraints>
+                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
+                                        <connections>
+                                            <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="0ga-cy-tat"/>
+                                            <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="vgq-DI-W3k"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-MW-tHa">
+                                        <rect key="frame" x="8" y="24" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backPressed:" destination="lZy-MN-Zci" eventType="touchUpInside" id="QNF-n0-J6x"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="H6p-rA-Xta" firstAttribute="top" secondItem="ovR-eU-IQx" secondAttribute="top" constant="20" id="Jdl-t3-l2a"/>
+                                    <constraint firstAttribute="trailing" secondItem="H6p-rA-Xta" secondAttribute="trailing" constant="16" id="Um8-vR-hWG"/>
+                                    <constraint firstItem="H6p-rA-Xta" firstAttribute="centerY" secondItem="h8z-eV-NCk" secondAttribute="centerY" id="VPq-8k-7xJ"/>
+                                    <constraint firstItem="h8z-eV-NCk" firstAttribute="centerX" secondItem="ovR-eU-IQx" secondAttribute="centerX" id="itz-QV-unO"/>
+                                    <constraint firstAttribute="height" constant="65" id="mCN-Pr-K8J"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r8c-ig-ytr" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="67" y="81" width="279" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Ne-VX-60M">
+                                <rect key="frame" x="16" y="127" width="382" height="160"/>
+                                <color key="backgroundColor" red="0.0" green="0.16078431369999999" blue="0.76288519970000002" alpha="0.17422945209999999" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="Nzx-eU-TzL"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" indicatorStyle="black" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mj4-Wv-CFK" customClass="FancyTextView" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="16" y="303" width="382" height="100"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="JNk-PR-uxZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
+                            </textView>
+                            <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9pq-JS-hKO">
+                                <rect key="frame" x="47" y="440" width="320" height="134"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="134" id="b3q-k5-kYH"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="530302689.06133598">
+                                    <!--2017-10-21 18:18:09 +0000-->
+                                </date>
+                                <date key="minimumDate" timeIntervalSinceReferenceDate="-978267600">
+                                    <!--1970-01-01 11:00:00 +0000-->
+                                </date>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNo-0N-J3O" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="117" y="643" width="179" height="36"/>
+                                <color key="backgroundColor" red="1" green="0.37647058820000001" blue="0.56470588239999997" alpha="0.54248715749999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="0.0" green="0.16078431369999999" blue="0.51764705879999995" alpha="0.87" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Donation Expiration Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARg-lV-XE5">
+                                <rect key="frame" x="32" y="411" width="350" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p0-a4-Mqt" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="309" y="262" width="89" height="25"/>
+                                <color key="backgroundColor" red="0.049972821030000003" green="0.1635142416" blue="0.51776671409999997" alpha="0.54248715749999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="JbX-Ge-Kca"/>
+                                    <constraint firstAttribute="height" constant="25" id="W9J-eg-lLZ"/>
+                                </constraints>
+                                <state key="normal" title="   Edit" image="icons8-Camera_25"/>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UqH-L1-7T8">
+                                <rect key="frame" x="117" y="587" width="11" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Campaign Goal " textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayD-fG-pF3" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="145" y="582" width="123" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" red="0.9294275045" green="0.92941010000000002" blue="0.92942190170000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="9pq-JS-hKO" firstAttribute="centerX" secondItem="yTu-bl-Pwh" secondAttribute="centerX" id="0tk-kP-hKd"/>
+                            <constraint firstItem="ayD-fG-pF3" firstAttribute="centerX" secondItem="yTu-bl-Pwh" secondAttribute="centerX" id="1Fg-9K-eyI"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" secondItem="nNo-0N-J3O" secondAttribute="trailing" constant="118" id="1Ut-VW-OjR"/>
+                            <constraint firstItem="UqH-L1-7T8" firstAttribute="top" secondItem="9pq-JS-hKO" secondAttribute="bottom" constant="13" id="1q5-p5-dBv"/>
+                            <constraint firstItem="9Ne-VX-60M" firstAttribute="leading" secondItem="54t-As-PP9" secondAttribute="leading" constant="16" id="4CR-0b-obz"/>
+                            <constraint firstItem="9Ne-VX-60M" firstAttribute="top" secondItem="r8c-ig-ytr" secondAttribute="bottom" constant="16" id="6UE-qd-b8l"/>
+                            <constraint firstItem="8p0-a4-Mqt" firstAttribute="top" secondItem="r8c-ig-ytr" secondAttribute="bottom" constant="151" id="8of-G9-YnS"/>
+                            <constraint firstItem="nNo-0N-J3O" firstAttribute="leading" secondItem="54t-As-PP9" secondAttribute="leading" constant="117" id="EeY-9i-Gdx"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" secondItem="r8c-ig-ytr" secondAttribute="trailing" constant="68" id="GQA-rV-eKL"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" secondItem="UqH-L1-7T8" secondAttribute="trailing" constant="286.32999999999998" id="GYJ-57-J2b"/>
+                            <constraint firstItem="r8c-ig-ytr" firstAttribute="top" secondItem="ovR-eU-IQx" secondAttribute="bottom" constant="16" id="J0c-Ap-DmC"/>
+                            <constraint firstItem="r8c-ig-ytr" firstAttribute="leading" secondItem="54t-As-PP9" secondAttribute="leading" constant="67" id="QDC-x6-yyg"/>
+                            <constraint firstItem="9pq-JS-hKO" firstAttribute="top" secondItem="ARg-lV-XE5" secondAttribute="bottom" constant="8" id="U3b-0M-Mjg"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ayD-fG-pF3" secondAttribute="trailing" id="Uci-es-utW"/>
+                            <constraint firstItem="ARg-lV-XE5" firstAttribute="leading" secondItem="54t-As-PP9" secondAttribute="leading" constant="32" id="VdW-WV-vjK"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" secondItem="8p0-a4-Mqt" secondAttribute="trailing" constant="16" id="XPK-W4-Whs"/>
+                            <constraint firstItem="nNo-0N-J3O" firstAttribute="top" secondItem="UqH-L1-7T8" secondAttribute="bottom" constant="35" id="Yp8-ZY-PZ5"/>
+                            <constraint firstItem="ARg-lV-XE5" firstAttribute="top" secondItem="mj4-Wv-CFK" secondAttribute="bottom" constant="8" id="ZQf-IZ-v8U"/>
+                            <constraint firstItem="mj4-Wv-CFK" firstAttribute="leading" secondItem="9Ne-VX-60M" secondAttribute="leading" id="Zh4-yR-FhL"/>
+                            <constraint firstItem="ayD-fG-pF3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="54t-As-PP9" secondAttribute="leading" id="c7q-wR-w1a"/>
+                            <constraint firstItem="ovR-eU-IQx" firstAttribute="leading" secondItem="54t-As-PP9" secondAttribute="leading" id="eoZ-6t-YCJ"/>
+                            <constraint firstItem="mj4-Wv-CFK" firstAttribute="top" secondItem="9Ne-VX-60M" secondAttribute="bottom" constant="16" id="fWE-O0-o7Y"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" secondItem="ARg-lV-XE5" secondAttribute="trailing" constant="32" id="gPw-pO-ECM"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="bottom" secondItem="nNo-0N-J3O" secondAttribute="bottom" constant="8" id="hJ1-DZ-XUJ"/>
+                            <constraint firstItem="54t-As-PP9" firstAttribute="trailing" secondItem="9Ne-VX-60M" secondAttribute="trailing" constant="16" id="kVg-wq-5z9"/>
+                            <constraint firstItem="UqH-L1-7T8" firstAttribute="leading" secondItem="54t-As-PP9" secondAttribute="leading" constant="117" id="noI-ZA-OdU"/>
+                            <constraint firstItem="ovR-eU-IQx" firstAttribute="top" secondItem="yTu-bl-Pwh" secondAttribute="top" id="ouT-H9-COm"/>
+                            <constraint firstItem="ovR-eU-IQx" firstAttribute="trailing" secondItem="54t-As-PP9" secondAttribute="trailing" id="rHl-iC-0LL"/>
+                            <constraint firstItem="mj4-Wv-CFK" firstAttribute="trailing" secondItem="8p0-a4-Mqt" secondAttribute="trailing" id="vbr-kA-jQi"/>
+                            <constraint firstItem="ayD-fG-pF3" firstAttribute="top" secondItem="9pq-JS-hKO" secondAttribute="bottom" constant="8" id="xCd-oH-AY7"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="54t-As-PP9"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Post" image="icons8-Add-25" landscapeImage="icons8-Add-25" selectedImage="icons8-Add-25" id="Ie5-fW-6ZW"/>
+                    <connections>
+                        <outlet property="captionTextView" destination="mj4-Wv-CFK" id="Gc5-tg-17c"/>
+                        <outlet property="expirationDateTime" destination="9pq-JS-hKO" id="67s-N3-szE"/>
+                        <outlet property="fundraiserImage" destination="9Ne-VX-60M" id="8KI-dE-rN6"/>
+                        <outlet property="goalTextField" destination="ayD-fG-pF3" id="okc-XU-2aW"/>
+                        <outlet property="titleTextField" destination="r8c-ig-ytr" id="UfK-hF-7da"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9q-ac-Ugm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2803" y="298"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="LmW-lX-aEq">
@@ -1311,6 +1466,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="lrs-Gf-ulY"/>
         <segue reference="lX8-0T-3TV"/>
-        <segue reference="VdD-2h-53k"/>
+        <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>
