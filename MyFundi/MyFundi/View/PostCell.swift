@@ -13,6 +13,7 @@ class PostCell: UITableViewCell {
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var fundraiserLbl: UILabel!
+    @IBOutlet weak var donationProgress: UIProgressView!
     @IBOutlet weak var postImg: UIImageView!
     @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
@@ -60,7 +61,7 @@ class PostCell: UITableViewCell {
         self.currentDonationLbl.text = "\(post.currentDonation)"
         self.donationGoalLbl.text = "\(post.donationGoal)"
         self.fundraiserLbl.text = post.title
-      
+        self.donationProgress.setProgress((post.currentDonation/post.donationGoal), animated: false)
         
         
         if img != nil {

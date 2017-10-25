@@ -370,6 +370,7 @@
                                             <outlet property="caption" destination="rkX-Mk-ciu" id="tnw-5k-5BW"/>
                                             <outlet property="currentDonationLbl" destination="sUt-OT-cvn" id="Qdz-D2-q0k"/>
                                             <outlet property="donationGoalLbl" destination="MDK-R5-lk5" id="cgE-j4-mh9"/>
+                                            <outlet property="donationProgress" destination="m9j-5H-0Gf" id="Yzo-tU-52g"/>
                                             <outlet property="fundraiserLbl" destination="b50-xf-Fg0" id="nKD-x1-pL9"/>
                                             <outlet property="likeImage" destination="A8T-si-e7t" id="XZO-0O-rWY"/>
                                             <outlet property="likesLbl" destination="nPj-Sf-Ed9" id="wYP-lF-a9K"/>
@@ -1310,6 +1311,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="lrs-Gf-ulY"/>
         <segue reference="lX8-0T-3TV"/>
-        <segue reference="3AY-5i-bwn"/>
+        <segue reference="VdD-2h-53k"/>
     </inferredMetricsTieBreakers>
 </document>
