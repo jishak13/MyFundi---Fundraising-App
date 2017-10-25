@@ -88,6 +88,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     @objc func reloadTableData(sender: AnyObject){
       self.tableView.reloadData()
     }
+    
     func configureUser(userName: String, imageUrl:String) {
         print("JOE: Configuring user Profile")
         self.nameTextField.isEnabled = true

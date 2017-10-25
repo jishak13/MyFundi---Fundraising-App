@@ -49,7 +49,7 @@ class PostCell: UITableViewCell {
         })
     }
     
-    func configureCell(post: Post, img: UIImage? = nil) {
+    func configureCell(post: Post, img: UIImage? = nil,profImage: String? = nil) {
         self.post = post
         likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         
@@ -58,8 +58,8 @@ class PostCell: UITableViewCell {
         self.currentDonationLbl.text = "\(post.currentDonation)"
         self.donationGoalLbl.text = "\(post.donationGoal)"
         self.fundraiserLbl.text = post.title
-//        let profRef = Storage.storage().reference(forURL: user)
-        
+
+       
         
         if img != nil {
             self.postImg.image = img
@@ -74,6 +74,26 @@ class PostCell: UITableViewCell {
                         if let img = UIImage(data: imgData) {
                             self.postImg.image = img
                             FeedVC.imageCache.setObject(img, forKey: post.imageUrl as AnyObject)
+                        }
+                    }
+                }
+            })
+            
+            
+          
+            
+        }
+        if profImage != nil {
+            let ref = Storage.storage().reference(forURL: profImage!)
+            ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
+                if error != nil {
+                    print("JOE: Unable to download image from firebase storage")
+                } else {
+                    print("JOE: Image downloaded from firebase storage")
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.profileImg.image = img
+                            
                         }
                     }
                 }

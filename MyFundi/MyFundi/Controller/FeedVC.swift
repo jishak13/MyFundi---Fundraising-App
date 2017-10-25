@@ -19,8 +19,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     var posts = [Post]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
+    static var profileImageCache: NSCache<AnyObject,UIImage> = NSCache()
     var imageSelected = false
     var user: User!
+    var users = [User]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,27 +35,56 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
                 
-       
+        self.getUsers()
+        print("JOE: \(users)")
+        self.getFundraisers()
+        
+  
+    }
+    func getFundraisers()  {
+        
         DataService.ds.REF_FUNDRAISERS.observe(.value, with: { (snapshot) in
+            
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
-                
-                var posts = [Post]()
-                
                 for snap in snapshot {
-                    print("SNAP: \(snap)")
                     
-                    if let postDict = snap.value as? Dictionary<String, AnyObject> {
-                        let key = snap.key
-                        let post = Post(postKey: key, postData: postDict)
-                        posts.append(post)
+                            if let postDict = snap.value as? Dictionary<String, AnyObject> {
+                                let key = snap.key
+                                let post = Post(postKey: key, postData: postDict)
+                                self.posts.append(post)
+                                
+                         
                     }
                 }
-                self.posts = posts
-                self.tableView.reloadData()
             }
+            self.tableView.reloadData()
         })
+        
+       
     }
     
+    
+    func getUsers() {
+ 
+        DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                var users = [User]()
+                for snap in snapshot {
+                    
+                    let newUser = snap.value as? Dictionary<String,AnyObject>
+                    var user = User(userKey: snap.key, userData: newUser!)
+                    
+                    self.users.append(user)
+                    print("USER: \(user.FundraiserKeys)")
+                }
+                
+            }
+          
+            
+        })
+        
+        
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -66,13 +97,20 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let post = posts[indexPath.row]
+        var userImageUrl: String
+    
+        
+       userImageUrl =  self.getProfileImageForPost(postkey: post.postKey)
+        
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
-            
+
             if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject) {
-                cell.configureCell(post: post, img: img)
+                print("JOE: \(userImageUrl)")
+                cell.configureCell(post: post, img: img,profImage: userImageUrl)
             } else {
-                cell.configureCell(post: post)
+                 print("JOE: \(userImageUrl)")
+                cell.configureCell(post: post,profImage: userImageUrl)
             }
             return cell
         } else {
@@ -80,7 +118,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
     }
 
-    
+    func getProfileImageForPost(postkey: String) -> String {
+        var image : String = ""
+        for user in users {
+            for funds in user.FundraiserKeys {
+                if funds == postkey {
+                    image = user.ImageUrl
+                }
+            }
+        }
+        return image
+    }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             addImage.image = image

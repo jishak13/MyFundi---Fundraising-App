@@ -467,7 +467,7 @@
                                             <constraint firstAttribute="width" constant="150" id="gVV-q7-Q1f"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Camera_25" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-2I-dQg">
+                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Camera_25" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-2I-dQg" customClass="CircleView" customModule="MyFundi" customModuleProvider="target">
                                         <rect key="frame" x="80" y="160" width="40" height="40"/>
                                         <color key="backgroundColor" red="0.088035866618156433" green="0.23218519985675812" blue="0.56482058763504028" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
