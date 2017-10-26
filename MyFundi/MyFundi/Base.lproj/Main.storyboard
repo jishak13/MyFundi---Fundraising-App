@@ -4,7 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -145,20 +145,20 @@
         <scene sceneID="9bS-3W-goa">
             <objects>
                 <viewController id="Bum-bE-rxR" customClass="FeedVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="ahx-7g-aox">
+                    <view key="view" contentMode="scaleToFill" id="ahx-7g-aox">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fJw-EE-65C" customClass="FancyView" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fJw-EE-65C" customClass="FancyView" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="133" width="375" height="65"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6H-Qz-I4H">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6H-Qz-I4H">
                                         <rect key="frame" x="156" y="20.5" width="64" height="37.5"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUL-Ao-dI9">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUL-Ao-dI9">
                                         <rect key="frame" x="314" y="20" width="45" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="MQ3-ab-9Cb"/>
@@ -188,8 +188,8 @@
                                     <constraint firstAttribute="trailing" secondItem="yUL-Ao-dI9" secondAttribute="trailing" constant="16" id="aeT-tB-a8y"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lbp-ez-O1t">
-                                <rect key="frame" x="0.0" y="81" width="375" height="404"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Lbp-ez-O1t">
+                                <rect key="frame" x="0.0" y="203" width="375" height="404"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="404" id="cbe-cq-rVJ"/>
@@ -352,25 +352,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7rN-wr-i8y">
-                                <rect key="frame" x="0.0" y="485" width="375" height="60"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7rN-wr-i8y">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
-                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="M7a-9F-bUV">
+                                    <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="M7a-9F-bUV">
                                         <rect key="frame" x="20" y="10" width="335" height="40"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="home-64" translatesAutoresizingMaskIntoConstraints="NO" id="EyR-7r-ia3">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="home-64" translatesAutoresizingMaskIntoConstraints="NO" id="EyR-7r-ia3">
                                                 <rect key="frame" x="0.0" y="0.0" width="43" height="40"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
                                             </imageView>
-                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="VectorBootWhite" translatesAutoresizingMaskIntoConstraints="NO" id="yXq-lF-4HQ">
+                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VectorBootWhite" translatesAutoresizingMaskIntoConstraints="NO" id="yXq-lF-4HQ">
                                                 <rect key="frame" x="73" y="0.0" width="43" height="40"/>
                                                 <gestureRecognizers/>
                                                 <connections>
                                                     <outletCollection property="gestureRecognizers" destination="hmM-hh-fPU" appends="YES" id="l05-Wg-iu1"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="plus-64" translatesAutoresizingMaskIntoConstraints="NO" id="iDP-N6-if7">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plus-64" translatesAutoresizingMaskIntoConstraints="NO" id="iDP-N6-if7">
                                                 <rect key="frame" x="146" y="0.0" width="43" height="40"/>
                                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <gestureRecognizers/>
@@ -378,10 +378,10 @@
                                                     <outletCollection property="gestureRecognizers" destination="BA7-XH-MKa" appends="YES" id="roB-Rs-Gnz"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="bell-2-64 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="AeH-gn-el9">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bell-2-64 (1)" translatesAutoresizingMaskIntoConstraints="NO" id="AeH-gn-el9">
                                                 <rect key="frame" x="219" y="0.0" width="43" height="40"/>
                                             </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="services-64" translatesAutoresizingMaskIntoConstraints="NO" id="L75-NW-9JD">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="services-64" translatesAutoresizingMaskIntoConstraints="NO" id="L75-NW-9JD">
                                                 <rect key="frame" x="292" y="0.0" width="43" height="40"/>
                                             </imageView>
                                         </subviews>
@@ -1035,7 +1035,8 @@
         <image name="sign-out" width="92" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vrw-fH-N3m"/>
-        <segue reference="VdD-2h-53k"/>
+        <segue reference="q3o-7o-dHr"/>
+        <segue reference="lrs-Gf-ulY"/>
+        <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>
