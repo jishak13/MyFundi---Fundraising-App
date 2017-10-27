@@ -54,6 +54,7 @@ class PostCell: UITableViewCell {
     func configureCell(post: Post, user: User,img: UIImage? = nil, profImg: UIImage? = nil) {
         self.post = post
         self.user = user
+        print("user image URL: \(self.user.ImageUrl)")
         likesRef = DataService.ds.REF_USER_CURRENT.child("likes").child(post.postKey)
         
         self.caption.text = post.caption
@@ -63,11 +64,12 @@ class PostCell: UITableViewCell {
         self.fundraiserLbl.text = post.title
         self.donationProgress.setProgress((post.currentDonation/post.donationGoal), animated: false)
         
-        
+       
         if img != nil {
             self.postImg.image = img
         } else {
-            let ref = Storage.storage().reference(forURL: post.imageUrl)
+       
+            let ref = Storage.storage().reference(forURL: self.post.imageUrl)
             ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
                 if error != nil {
                     print("KHALID: Unable to download image from firebase storage")
@@ -76,7 +78,7 @@ class PostCell: UITableViewCell {
                     if let imgData = data {
                         if let img = UIImage(data: imgData) {
                             self.postImg.image = img
-                            FeedVC.imageCache.setObject(img, forKey: post.imageUrl as AnyObject)
+                            FeedVC.imageCache.setObject(img, forKey: self.post.imageUrl as AnyObject)
                         }
                     }
                 }
@@ -95,7 +97,7 @@ class PostCell: UITableViewCell {
                     if let imgData = data {
                         if let img = UIImage(data: imgData) {
                             self.profileImg.image = img
-                            FeedVC.profileImageCache.setObject(img, forKey: user.ImageUrl as AnyObject)
+                            FeedVC.profileImageCache.setObject(img, forKey: self.user.ImageUrl as AnyObject)
                         }
                     }
                 }

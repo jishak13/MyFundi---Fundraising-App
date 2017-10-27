@@ -83,13 +83,19 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
    
         let post = posts[indexPath.row]
-     self.getUser(post: post.postKey)
+        let postingUser: User = self.getUser(post: post.postKey)
+        
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject), let profImg = FeedVC.profileImageCache.object(forKey: user.ImageUrl as AnyObject){
-                cell.configureCell(post: post,user: self.user, img: img, profImg: profImg)
-            } else {
-                cell.configureCell(post: post, user: self.user)
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject), let profImg = FeedVC.profileImageCache.object(forKey: postingUser.ImageUrl as AnyObject){
+                cell.configureCell(post: post, user: postingUser, img: img, profImg: profImg)
+            } else if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject){
+                cell.configureCell(post: post, user: postingUser,img: img)
+            } else if  let profImg = FeedVC.profileImageCache.object(forKey: postingUser.ImageUrl as AnyObject) {
+                cell.configureCell(post: post, user: postingUser,profImg: profImg)
+            }
+            else {
+                cell.configureCell(post: post, user: postingUser)
             }
             return cell
         } else {
@@ -97,18 +103,23 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
     }
 
-    func getUser(post: String) {
-       
-      
+    func getUser(post: String) -> User {
+        var userObj: User!
+        
+        var userFound:Bool = false
    
-        for user in users {
-            for funds in user.FundraiserKeys{
-                if post == funds{
-                    self.user = user
+        while userFound == false {
+            for user in users {
+                for funds in user.FundraiserKeys{
+                    if post == funds{
+                        userObj = user
+                        userFound = true
+                    }
                 }
             }
         }
-      
+        userFound = false
+      return userObj
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {

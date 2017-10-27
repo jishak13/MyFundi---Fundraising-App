@@ -42,6 +42,7 @@ class ProfileFundraiserDetailsVC: UIViewController {
         ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
             if error != nil {
                 print("KHALID: Unable to download image from firebase storage")
+
             } else {
                 print("KHALID: Image downloaded from firebase storage")
                 if let imgData = data {
@@ -53,7 +54,14 @@ class ProfileFundraiserDetailsVC: UIViewController {
             }
         })
         
-        expirationDateTime.date = dateFormatter.date(from: (post?.EndDate)!)!
+        let stringdate: String =  (post?.EndDate)!
+        print(stringdate)
+      let date = dateFormatter.date(from: "\(stringdate)")
+            print(date)
+            expirationDateTime.date = date!
+        
+       
+        
     }
     
     @IBAction func backPressed(_ sender: Any) {
