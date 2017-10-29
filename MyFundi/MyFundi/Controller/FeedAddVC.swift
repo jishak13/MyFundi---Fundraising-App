@@ -216,8 +216,10 @@ UINavigationControllerDelegate{
     
         func UpdateFireBaseUser(fundKey: String){
             
-            let newUserFund = DataService.ds.REF_USERS.child(userID).child("fundraisers").childByAutoId().key
-            DataService.ds.REF_USERS.child(userID).child("fundraisers").child(newUserFund).setValue(true)
+   
+            DataService.ds.REF_USERS.child(userID).child("fundraisers").child(fundKey).setValue(true)
+        
+
 
         }
     
