@@ -677,10 +677,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="He9-B8-Hg7" detailTextLabel="jHc-cR-5Hb" rowHeight="77" style="IBUITableViewCellStyleSubtitle" id="FI6-d5-9th">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="77"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FI6-d5-9th" id="xJU-4A-wlM">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="76.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="76.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="He9-B8-Hg7">

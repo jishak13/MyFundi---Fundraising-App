@@ -170,7 +170,9 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                             if let donateDict = snap.value as? Dictionary<String, AnyObject> {
                                 let key = snap.key
                                 let donation = Donation(donationKey: key, donationDict: donateDict)
+                                
                                 self.donations.append(donation)
+                                print("JOE: \(self.donations.count)")
                                 
                             }
                         }
@@ -217,7 +219,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        print("JOE INDEX PATH: \(indexPath.row)")
+        
         if tableSegment.selectedSegmentIndex == 0 {
             let post = posts[indexPath.row]
             
@@ -229,7 +232,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
             } else {
                 return PostCell()
             }
-        }else{
+        } else {
+            
             let donation = donations[indexPath.row]
             
             let postRef = DataService.ds.REF_FUNDRAISERS.child(donation.FundraiserKey)
