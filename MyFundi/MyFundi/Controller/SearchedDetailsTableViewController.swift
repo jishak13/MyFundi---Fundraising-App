@@ -13,7 +13,7 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
 
     
     var loggedInUser: Auth?
-    
+    var selectedPost: Post!
 
     let searchController = UISearchController(searchResultsController: nil)
     
@@ -21,6 +21,7 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
     
     var postArray = [NSDictionary?]()
     var filterResults = [NSDictionary?]()
+    var posts = [Post]()
     
     var databaseRef = Database.database().reference()
     
@@ -38,6 +39,14 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
         
         databaseRef.child("fundraisers").queryOrdered(byChild: "title").observe(.childAdded, with: { (snapshot) in
             
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshot {
+                    if let postDic = snap.value as? Dictionary<String, AnyObject> {
+                        let post = Post(postKey: snap.key, postData: postDic)
+                        self.posts.append(post)
+                    }
+                }
+            }
             self.postArray.append(snapshot.value as? NSDictionary)
             
             //insert the rows
@@ -140,6 +149,20 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("KHALID: \(posts.count)")
+        performSegue(withIdentifier: "searchToDetails", sender: self)
+        self.selectedPost = posts[indexPath.row]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "searchToDetails" {
+            if let ResultDetails = segue.destination as? ResultDetailsVC {
+                ResultDetails.post = self.selectedPost
+            }
+        }
+    }
 
     @IBAction func dissmissResultsView(_ sender: AnyObject) {
         dismiss(animated: true, completion: nil)
