@@ -706,25 +706,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Results" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZRY-rP-QGH">
-                                        <rect key="frame" x="161" y="20.666666666666668" width="93.666666666666686" height="37.333333333333329"/>
+                                        <rect key="frame" x="161" y="24.999999999999996" width="93.666666666666686" height="44.666666666666657"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="On1-M2-fAs">
-                                        <rect key="frame" x="353" y="20" width="45" height="38"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="oXu-ez-qIQ"/>
-                                            <constraint firstAttribute="height" constant="38" id="zZh-4O-Ki7"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                        <connections>
-                                            <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="Xyu-dG-54L"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDo-s3-M0L">
-                                        <rect key="frame" x="0.0" y="24" width="81" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NDo-s3-M0L">
+                                        <rect key="frame" x="16" y="25" width="52" height="44"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
                                         <state key="normal" title="Back">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -736,11 +724,12 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.31458497050000001" green="0.40632742640000002" blue="0.76250702140000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="On1-M2-fAs" firstAttribute="top" secondItem="W1h-g0-AJM" secondAttribute="top" constant="20" id="3B4-EH-38T"/>
-                                    <constraint firstItem="On1-M2-fAs" firstAttribute="centerY" secondItem="ZRY-rP-QGH" secondAttribute="centerY" id="3sU-se-3nH"/>
+                                    <constraint firstItem="NDo-s3-M0L" firstAttribute="centerY" secondItem="ZRY-rP-QGH" secondAttribute="centerY" id="Jx7-3t-PxI"/>
                                     <constraint firstAttribute="height" constant="65" id="V9h-zP-hCZ"/>
-                                    <constraint firstAttribute="trailing" secondItem="On1-M2-fAs" secondAttribute="trailing" constant="16" id="XfR-cU-URn"/>
                                     <constraint firstItem="ZRY-rP-QGH" firstAttribute="centerX" secondItem="W1h-g0-AJM" secondAttribute="centerX" id="do5-re-CVs"/>
+                                    <constraint firstItem="NDo-s3-M0L" firstAttribute="top" secondItem="G4S-cI-WDE" secondAttribute="top" constant="5" id="gEE-Fy-rLk"/>
+                                    <constraint firstItem="NDo-s3-M0L" firstAttribute="leading" secondItem="G4S-cI-WDE" secondAttribute="leading" constant="16" id="hEw-nr-hLe"/>
+                                    <constraint firstItem="ZRY-rP-QGH" firstAttribute="top" secondItem="G4S-cI-WDE" secondAttribute="top" constant="5" id="mH8-yX-Bat"/>
                                 </constraints>
                                 <viewLayoutGuide key="safeArea" id="G4S-cI-WDE"/>
                             </view>
