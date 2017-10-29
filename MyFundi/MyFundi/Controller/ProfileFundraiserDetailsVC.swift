@@ -20,24 +20,26 @@ class ProfileFundraiserDetailsVC: UIViewController {
     @IBOutlet weak var expirationDateTime: UIDatePicker!
     
     @IBOutlet weak var editImage: FancyButton!
+    
     @IBOutlet weak var goalTextField: FancyField!
     
     @IBOutlet weak var editPostImage: UIImageView!
+    
     var post: Post?
     var dateFormatter: DateFormatter!
     var detailsButton: DetailsPageButton!
     var editMode: Bool  = false
     var stringExpiration: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
         self.setFields()
-        let submit = UIButton.self as? DetailsPageButton
-        submit?.HideButton()
         // Do any additional setup after loading the view.
     }
+    
     func setFields() {
         
         titleTextField.text  = post?.title
@@ -61,7 +63,6 @@ class ProfileFundraiserDetailsVC: UIViewController {
         
         expirationDateTime.date = dateFormatter.date(from: (post?.EndDate)!)!
     }
-    
     
     @IBAction func editFundraiserTapped(_ sender: Any) {
       

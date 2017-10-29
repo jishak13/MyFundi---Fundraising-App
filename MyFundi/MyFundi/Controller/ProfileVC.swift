@@ -49,6 +49,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         posts = [Post]()
         fundraiserKeys = [String]()
         viewLoadSetup()
+        self.tableView.reloadData()
+        
         
     }
     
@@ -60,7 +62,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         editNameImage.image = UIImage(named:"icons8-edit")!
         userID = (Auth.auth().currentUser?.uid)!
         userRef = DataService.ds.REF_USERS.child(self.userID)
-        print("JOE Current user ID is:" + userID)
+        print("JOE Current user ID is: " + userID)
         //        var posts = [Post]()
         tableView.delegate = self
         tableView.dataSource = self
@@ -103,11 +105,6 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         }
             
 
-    @IBAction func editFundraiserTapped(_ sender: Any) {
-    }
-    
-    @IBAction func deleteFundraiserTapped(_ sender: Any) {
-    }
     @objc func reloadTableData(sender: AnyObject){
       self.tableView.reloadData()
     }
@@ -221,7 +218,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
        
-        if tableSegment.selectedSegmentIndex == 0{
+        if tableSegment.selectedSegmentIndex == 0 {
             let post = posts[indexPath.row]
             
             if let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHistoryCell") as? ProfileHistoryCell {
