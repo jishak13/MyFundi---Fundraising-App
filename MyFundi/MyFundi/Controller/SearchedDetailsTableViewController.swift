@@ -9,11 +9,12 @@
 import UIKit
 import Firebase
 
-class SearchedDetailsTableViewController: UITableViewController, UISearchResultsUpdating {
+class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UISearchResultsUpdating {
 
     
     var loggedInUser: Auth?
     
+
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var searchResultTableView: UITableView!
@@ -26,11 +27,14 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchResultTableView.delegate = self
+        searchResultTableView.dataSource = self
 
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
-        tableView.tableHeaderView = searchController.searchBar
+        searchResultTableView.tableHeaderView = searchController.searchBar
         
         databaseRef.child("fundraisers").queryOrdered(byChild: "title").observe(.childAdded, with: { (snapshot) in
             
@@ -57,12 +61,12 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+     func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if searchController.isActive && searchController.searchBar.text != ""{
             return filterResults.count
@@ -72,7 +76,7 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let post: NSDictionary?
@@ -147,6 +151,9 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
         
     }
 
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     func filterContent(searchText: String){
         self.filterResults = self.postArray.filter{ post in
@@ -155,7 +162,7 @@ class SearchedDetailsTableViewController: UITableViewController, UISearchResults
             
             return(postTitle?.lowercased().contains(searchText.lowercased()))!
         }
-        tableView.reloadData()
+        searchResultTableView.reloadData()
     }
     
 }
