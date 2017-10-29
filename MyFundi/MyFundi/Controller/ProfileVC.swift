@@ -20,19 +20,30 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var nameTextField: UITextField!
     
+    @IBOutlet weak var tableSegment: UISegmentedControl!
+    
     var imagePicker: UIImagePickerController!
+    
     var posts = [Post]()
+    var donations = [Donation]()
     var fundraiserKeys = [String]()
+    var donationKeys = [String]()
     var editingName = false
     var userID: String = ""
     var count = 0
     var user : User!
     var userRef: DatabaseReference!
     var selectedPost: Post!
+    var tmpPost: Post!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 }
     
+    @IBAction func tableSwitched(_ sender: Any) {
+        self.tableView.reloadData()
+        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         posts = [Post]()
@@ -46,7 +57,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         print("My View has loaded \(count) times")
         count = count + 1
         
-        editNameImage.image = UIImage(named:"edit")!
+        editNameImage.image = UIImage(named:"icons8-edit")!
         userID = (Auth.auth().currentUser?.uid)!
         userRef = DataService.ds.REF_USERS.child(self.userID)
         print("JOE Current user ID is:" + userID)
@@ -56,8 +67,9 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         imagePicker = UIImagePickerController()
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
-        nameTextField.isEnabled = false
-        nameTextField.allowsEditingTextAttributes = false
+        nameTextField.isUserInteractionEnabled = false
+//        nameTextField.isEnabled = false
+//        nameTextField.allowsEditingTextAttributes = false
        
             
             userRef.observeSingleEvent(of: .value, with: { (snapshot) in
@@ -74,8 +86,14 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                         self.loadFundraisers()
                         
                         }
-                       else {
+                    if let donations = userDict["donations"] as? [String:AnyObject] {
+                        for donation in donations {
+                            self.donationKeys.append(donation.key)
+                            print("JOE: Donations found for user: \(donation.key)")
+                            
                         }
+                        self.loadDonations()
+                    }
                 }
                 self.tableView.reloadData()
                 
@@ -85,11 +103,16 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         }
             
 
+    @IBAction func editFundraiserTapped(_ sender: Any) {
+    }
     
+    @IBAction func deleteFundraiserTapped(_ sender: Any) {
+    }
     @objc func reloadTableData(sender: AnyObject){
       self.tableView.reloadData()
     }
     func configureUser(userName: String, imageUrl:String) {
+        
         print("JOE: Configuring user Profile")
         self.nameTextField.isEnabled = true
         self.nameTextField.text = userName
@@ -113,16 +136,15 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         if editingName == false{
             
             editNameImage.image = UIImage(named:"checkmark")!
-            nameTextField.isEnabled = true
+            nameTextField.isUserInteractionEnabled = true
             nameTextField.allowsEditingTextAttributes = true
             nameTextField.becomeFirstResponder()
             editingName = true
         }
         else {
             
-            editNameImage.image = UIImage(named:"edit")!
-            nameTextField.isEnabled = false
-            nameTextField.allowsEditingTextAttributes = false
+            editNameImage.image = UIImage(named:"icons8-edit")!
+            nameTextField.isUserInteractionEnabled = false
             editingName = false
             updateFirebaseProfileName(name: nameTextField.text!)
         }
@@ -130,10 +152,37 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       
+        if tableSegment.selectedSegmentIndex == 0 {
+            self.selectedPost = posts[indexPath.row]
+            print("SELECTED POST: \(self.selectedPost.postKey)")
+            performSegue(withIdentifier: "showFundraiserDetailsVC", sender: self)
+        }
+        else {
+            print("Donation Selected")
+        }
         
-        self.selectedPost = posts[indexPath.row]
-        print("SELECTED POST: \(self.selectedPost.postKey)")
-        performSegue(withIdentifier: "showFundraiserDetailsVC", sender: self)
+    }
+    func loadDonations() {
+        self.donations = [Donation]()
+        DataService.ds.REF_DONATIONS.observe(.value, with: { (snapshot) in
+            
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshot {
+                    for donateKey in self.donationKeys{
+                        if snap.key == donateKey{
+                            if let donateDict = snap.value as? Dictionary<String, AnyObject> {
+                                let key = snap.key
+                                let donation = Donation(donationKey: key, donationDict: donateDict)
+                                self.donations.append(donation)
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            self.tableView.reloadData()
+        })
+        
     }
     
     func loadFundraisers(){
@@ -171,18 +220,42 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         return posts.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let post = posts[indexPath.row]
-        
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHistoryCell") as? ProfileHistoryCell {
+       
+        if tableSegment.selectedSegmentIndex == 0{
+            let post = posts[indexPath.row]
             
-                cell.configureCell(post: post)
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHistoryCell") as? ProfileHistoryCell {
+                
+                cell.configureFundraiserCell(post: post)
                 return cell
+                
+            } else {
+                return PostCell()
+            }
+        }else{
+            let donation = donations[indexPath.row]
             
-        } else {
-            return PostCell()
+            let postRef = DataService.ds.REF_FUNDRAISERS.child(donation.FundraiserKey)
+            postRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                if  let postDict = snapshot.value as? Dictionary<String,AnyObject> {
+                    
+                   self.tmpPost = Post(postKey: donation.FundraiserKey, postData: postDict)
+                    print("JOE: \(self.tmpPost.title)")
+                }
+            })
+            
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileHistoryCell") as? ProfileHistoryCell {
+                
+                cell.configureDonationCell(donation: donation)
+                return cell
+                
+            } else {
+                return PostCell()
+            }
         }
+        
     }
-    
+   
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
             profileImage.image = image

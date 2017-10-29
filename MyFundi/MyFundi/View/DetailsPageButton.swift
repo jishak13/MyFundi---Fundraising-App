@@ -1,14 +1,14 @@
 //
-//  RoundButton.swift
+//  DetailsPageButton.swift
 //  MyFundi
 //
-//  Created by Khalid Al Ibrahim on 9/30/17.
+//  Created by Joseph  Ishak on 10/29/17.
 //  Copyright © 2017 Bachmanity. All rights reserved.
 //
 
 import UIKit
 
-class RoundButton: UIButton {
+class DetailsPageButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -17,14 +17,13 @@ class RoundButton: UIButton {
         layer.shadowOpacity = 0.8
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        imageView?.contentMode = .scaleAspectFit
+        layer.cornerRadius = 2
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        layer.cornerRadius = self.frame.width / 2
+    func HideButton(){
+        layer.isHidden = true
     }
-    
-
+    func ShowButton() {
+        layer.isHidden = false
+    }
 }

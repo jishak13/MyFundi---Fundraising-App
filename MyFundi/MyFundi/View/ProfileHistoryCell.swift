@@ -15,6 +15,7 @@ class ProfileHistoryCell: UITableViewCell {
     @IBOutlet weak var amountLabel: UILabel!
  
     var post: Post!
+    var donation: Donation!
     
     override func awakeFromNib() {
         
@@ -22,8 +23,10 @@ class ProfileHistoryCell: UITableViewCell {
         // Initialization code
     }
     
-    func configureCell(post: Post, img: UIImage? = nil) {
+    func configureFundraiserCell(post: Post, img: UIImage? = nil) {
+      
         self.post = post
+        
         self.titleLabel.text = post.title
         self.amountLabel.text = "\(post.donationGoal)"
         self.dateLabel.text = post.StartDate 
@@ -31,6 +34,16 @@ class ProfileHistoryCell: UITableViewCell {
         
         
     }
+    func configureDonationCell(donation: Donation,postTitle: String = "", img:UIImage? = nil){
+        
+        self.donation = donation
+        
+        print("JOE2: \(postTitle)")
+//        self.titleLabel.text = postTitle
+        self.amountLabel.text = "\(donation.DonationAmount)"
+        self.dateLabel.text = self.donation.DonationDate
+    }
+    
 
 
 }

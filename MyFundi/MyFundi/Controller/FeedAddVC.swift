@@ -83,12 +83,10 @@ UINavigationControllerDelegate{
         present(imagePickerControl, animated: true, completion: nil)
     }
     
-    
-    
-    @IBAction func PostBtnTapped(_ sender: UIButton) {
+    func validateFields() -> Bool {
         
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
-        
+        var valid: Bool = false
         
         if TitleTxt.text == "" {
             TitleTxt.errorBorder()
@@ -96,26 +94,51 @@ UINavigationControllerDelegate{
             
         }
         else {
+            valid = true
             TitleTxt.normalBorder()
         }
         
-         if DescriptionTxt.text == "" {
+        if DescriptionTxt.text == "" {
             DescriptionTxt.errorBorder()
-         
+            
         }
-         else {
+        else {
+            valid = true
             DescriptionTxt.normalBorder()
         }
         
         
-         if NumOfRequest.text == "" {
+        if NumOfRequest.text == "" {
             NumOfRequest.errorBorder()
-       
+            
         }
-         else {
+        else {
+            valid = true
             NumOfRequest.normalBorder()
         }
-        if ImageChoose.image != nil{
+        
+        if ImageChoose.image == nil {
+                
+            let alertController = UIAlertController(title: "Campaign Field Missing", message: "Please select an image", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+                
+            } else
+        {
+            valid = true
+        }
+        
+          return valid
+        }
+  
+    
+    
+    
+    @IBAction func PostBtnTapped(_ sender: UIButton) {
+        
+        if(self.validateFields()) {
+            
             
             let img = ImageChoose.image!
             if let imgData = UIImageJPEGRepresentation(img, 0.2) {
@@ -130,25 +153,16 @@ UINavigationControllerDelegate{
                         print("JOe: Successfully uploaded post image to firebase storage")
                         let downloadURL = metaData?.downloadURL()?.absoluteString
                         if let url = downloadURL {
-                           self.postToFirebase(imgUrl: url)
+                            self.postToFirebase(imgUrl: url)
                         }
                     }
                 }
             }
             
-        } else {
-           
-        var alertController = UIAlertController(title: "Campaign Field Missing", message: "Please select an image", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-
-            self.present(alertController, animated: true, completion: nil)
-
         }
        
     }
-        
-       
-    
+
         func postToFirebase(imgUrl: String) {
             
             var goal = (NumOfRequest.text as! NSString).floatValue

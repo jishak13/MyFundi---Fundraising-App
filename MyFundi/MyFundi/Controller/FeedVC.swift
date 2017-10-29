@@ -86,8 +86,8 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
      self.getUser(post: post.postKey)
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject), let profImg = FeedVC.profileImageCache.object(forKey: user.ImageUrl as AnyObject){
-                cell.configureCell(post: post,user: self.user, img: img, profImg: profImg)
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject){
+                cell.configureCell(post: post,user: self.user, img: img)
             } else {
                 cell.configureCell(post: post, user: self.user)
             }

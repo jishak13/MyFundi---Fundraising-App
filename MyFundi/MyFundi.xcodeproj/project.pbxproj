@@ -29,6 +29,8 @@
 		C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C7B391F9D6DA100C181AB /* FancyTextView.swift */; };
 		C1579FB41F93DF1500331C1F /* ProfileHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */; };
 		C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579FB51F93E60D00331C1F /* ProfileVC.swift */; };
+		C16A1E681FA3DA8D0044B125 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A1E671FA3DA8D0044B125 /* Donation.swift */; };
+		C16A1E6A1FA6495C0044B125 /* DetailsPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */; };
 		C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B0AD1A1F93F6C5000E02C0 /* User.swift */; };
 		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		C13C7B391F9D6DA100C181AB /* FancyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextView.swift; sourceTree = "<group>"; };
 		C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHistoryCell.swift; sourceTree = "<group>"; };
 		C1579FB51F93E60D00331C1F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C16A1E671FA3DA8D0044B125 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageButton.swift; sourceTree = "<group>"; };
 		C1B0AD1A1F93F6C5000E02C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFundraiserDetailsVC.swift; sourceTree = "<group>"; };
 		D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +141,7 @@
 			children = (
 				2655F0C11F83684B003323EF /* Post.swift */,
 				C1B0AD1A1F93F6C5000E02C0 /* User.swift */,
+				C16A1E671FA3DA8D0044B125 /* Donation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -152,6 +157,7 @@
 				26732A281F82FE6700365AE5 /* PostCell.swift */,
 				C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */,
 				C13C7B391F9D6DA100C181AB /* FancyTextView.swift */,
+				C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -354,7 +360,9 @@
 				26E2B7041F80467F00AC390F /* AppDelegate.swift in Sources */,
 				26732A151F808C8C00365AE5 /* FancyView.swift in Sources */,
 				26732A181F808D4B00365AE5 /* Constants.swift in Sources */,
+				C16A1E681FA3DA8D0044B125 /* Donation.swift in Sources */,
 				26732A291F82FE6700365AE5 /* PostCell.swift in Sources */,
+				C16A1E6A1FA6495C0044B125 /* DetailsPageButton.swift in Sources */,
 				C1394D0F1F982497002AC9AE /* SearchedDetailsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
