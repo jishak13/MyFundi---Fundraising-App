@@ -216,7 +216,12 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        if tableSegment.selectedSegmentIndex == 0{
+            return posts.count
+        }else{
+            return donations.count
+        }
+   
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("JOE INDEX PATH: \(indexPath.row)")
