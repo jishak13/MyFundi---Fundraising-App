@@ -96,7 +96,7 @@ class Post {
         if let startDate = postData["date"] as? String {
             self._startDate = startDate
         }
-        if let endDate = postData["endingDate"] as? String {
+        if let endDate = postData["expirationDate"] as? String {
             self._endDate = endDate
         }
         _postRef = DataService.ds.REF_FUNDRAISERS.child(_postKey)
