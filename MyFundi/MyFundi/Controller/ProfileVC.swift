@@ -211,9 +211,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     func numberOfSections(in tableView: UITableView) -> Int {
        return 1
     }
-    @IBAction func homeImageTapped(_ sender: AnyObject) {
-        performSegue(withIdentifier: "goToFeedFromProf", sender: nil)
-    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableSegment.selectedSegmentIndex == 0{

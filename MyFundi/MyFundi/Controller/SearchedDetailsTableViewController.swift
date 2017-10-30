@@ -37,7 +37,7 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
         searchResultTableView.tableHeaderView = searchController.searchBar
         
         databaseRef.child("fundraisers").queryOrdered(byChild: "title").observe(.childAdded, with: { (snapshot) in
-            
+            print("JOE: \(snapshot.value)")
             self.postArray.append(snapshot.value as? NSDictionary)
             
             //insert the rows
@@ -83,6 +83,7 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
         if searchController.isActive && searchController.searchBar.text != ""{
             
             post = filterResults[indexPath.row]
+            
         } else {
             post = self.postArray[indexPath.row]
         }

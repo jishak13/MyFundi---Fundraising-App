@@ -1108,6 +1108,9 @@
                                     <constraint firstAttribute="height" constant="25" id="W9J-eg-lLZ"/>
                                 </constraints>
                                 <state key="normal" title="   Edit" image="icons8-Camera_25"/>
+                                <connections>
+                                    <action selector="editImagePressed:" destination="lZy-MN-Zci" eventType="touchUpInside" id="XY7-Su-332"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9294275045" green="0.92941010000000002" blue="0.92942190170000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
