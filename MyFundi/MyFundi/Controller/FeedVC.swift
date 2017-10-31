@@ -17,15 +17,17 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var captionField: FancyField!
     
     var posts = [Post]()
+    var users = [User]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
+     static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
     var imageSelected = false
     var user: User!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        var userID = (Auth.auth().currentUser?.uid)!
+        let userID = (Auth.auth().currentUser?.uid)
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -33,7 +35,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         imagePicker.allowsEditing = true
         imagePicker.delegate = self
                 
-       
+        
+        DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                var users = [User]()
+                for snap in snapshot{
+                    if let userDict = snap.value as? Dictionary<String,AnyObject> {
+                        let key = snap.key
+                        let user = User(userKey: key, userData: userDict)
+                        users.append(user)
+                    }
+                }
+                self.users = users
+            }
+        })
+        
         DataService.ds.REF_FUNDRAISERS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 
@@ -64,15 +81,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+   
         let post = posts[indexPath.row]
+        self.getUser(post: post.postKey)
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
             
-            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject) {
-                cell.configureCell(post: post, img: img)
+            if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject){
+                cell.configureCell(post: post,user: self.user, img: img)
             } else {
-                cell.configureCell(post: post)
+                cell.configureCell(post: post, user: self.user)
             }
             return cell
         } else {
@@ -80,6 +98,19 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         }
     }
 
+    func getUser(post: String) {
+       
+      
+   
+        for user in users {
+            for funds in user.FundraiserKeys{
+                if post == funds{
+                    self.user = user
+                }
+            }
+        }
+      
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerEditedImage] as? UIImage {

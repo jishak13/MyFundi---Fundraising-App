@@ -18,6 +18,14 @@ class FancyField: UITextField {
         layer.cornerRadius = 2.0
     }
 
+    func normalBorder() {
+        layer.borderColor = UIColor(displayP3Red: SHADOW_GRAY, green: SHADOW_GRAY, blue: SHADOW_GRAY, alpha: 0.2).cgColor
+        layer.borderWidth = 1
+    }
+    func errorBorder(){
+        layer.borderColor = UIColor.red.cgColor
+        layer.borderWidth = 1
+    }
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 10, dy: 5)
     }

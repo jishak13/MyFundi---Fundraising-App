@@ -98,7 +98,7 @@ class SignInVC: UIViewController {
         DataService.ds.createFirebaseDBUser(uid: id, userData: userData)
         let keychainResult =  KeychainWrapper.standard.set(id, forKey: KEY_UID)
         print("KHALID: Data saved to keychain \(keychainResult)")
-        performSegue(withIdentifier: "goToFeed", sender: nil)
+        performSegue(withIdentifier: "showTabController", sender: nil)
     }
     
 }
