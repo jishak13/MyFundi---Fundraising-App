@@ -951,13 +951,27 @@
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="wiv-iK-cn4"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-Dq-Htz">
+                                        <rect key="frame" x="16" y="20" width="52" height="38"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backBtn:" destination="3QY-7u-4ue" eventType="touchUpInside" id="Q0a-w8-xUc"/>
+                                            <action selector="backBtn:" destination="btu-mG-045" eventType="touchUpInside" id="bUg-mf-ZZa"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
+                                    <constraint firstItem="zgS-Dq-Htz" firstAttribute="leading" secondItem="0A9-YI-oXg" secondAttribute="leading" constant="16" id="9SJ-9n-Cg9"/>
                                     <constraint firstItem="tWx-ys-wIp" firstAttribute="top" secondItem="0A9-YI-oXg" secondAttribute="top" constant="20" id="CtE-Sb-Mic"/>
                                     <constraint firstAttribute="trailing" secondItem="tWx-ys-wIp" secondAttribute="trailing" constant="16" id="LFH-Vk-RZ9"/>
+                                    <constraint firstItem="zgS-Dq-Htz" firstAttribute="centerY" secondItem="32c-7e-KBS" secondAttribute="centerY" id="cZM-fN-K9p"/>
                                     <constraint firstItem="32c-7e-KBS" firstAttribute="centerX" secondItem="0A9-YI-oXg" secondAttribute="centerX" id="gJq-eQ-aZ1"/>
                                     <constraint firstItem="tWx-ys-wIp" firstAttribute="centerY" secondItem="32c-7e-KBS" secondAttribute="centerY" id="jW4-HE-6me"/>
+                                    <constraint firstItem="zgS-Dq-Htz" firstAttribute="top" secondItem="0A9-YI-oXg" secondAttribute="top" constant="20" id="kah-af-ryA"/>
                                     <constraint firstAttribute="height" constant="65" id="xSL-Jd-hlp"/>
                                 </constraints>
                             </view>
