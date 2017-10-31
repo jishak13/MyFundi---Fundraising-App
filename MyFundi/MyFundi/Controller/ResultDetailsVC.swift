@@ -42,6 +42,8 @@ class ResultDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("JOE: \(post?.caption)")
+        // Do any additional setup after loading the view.
+        print("JOE: \(post?.caption)")
         
         searchUser(postKey: (post?.postKey)!)
         print("KHALID3: \(user?.Name)")
@@ -50,7 +52,7 @@ class ResultDetailsVC: UIViewController {
         configureInfo(post: post!)
         
         
-        
+
     }
     
     @IBAction func backBtn(_ sender: Any) {
