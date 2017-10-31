@@ -12,7 +12,7 @@ import Firebase
 class ResultDetailsVC: UIViewController {
 
     var post: Post?
-    var user: User!
+    var currentUser: User!
   
     @IBOutlet weak var profileImage: CircleView!
     
@@ -36,7 +36,11 @@ class ResultDetailsVC: UIViewController {
     
     @IBOutlet weak var currentRaisedProgress: UIProgressView!
    
+    @IBOutlet weak var percentageLabel: UILabel!
+    
     @IBAction func donateNowPressed(_ sender: Any) {
+        
+     
     }
     
     override func viewDidLoad() {
@@ -45,12 +49,32 @@ class ResultDetailsVC: UIViewController {
         // Do any additional setup after loading the view.
         print("JOE: \(post?.caption)")
         
-        searchUser(postKey: (post?.postKey)!)
-        print("KHALID3: \(user?.Name)")
+        
+        DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                for snap in snapshot{
+                    if let userDict = snap.value as? Dictionary<String,AnyObject> {
+                        for fund in (userDict["fundraisers"] as? [String:AnyObject])! {
+                            if fund.key == self.post?.postKey {
+                                let key = snap.key
+                                let  user = User(userKey: key, userData: userDict)
+                                self.configureInfo(post: self.post!,user: user)
+                                
+                                
+                              
+                            }
+                        }
+                        
+                    }
+                }
+            }
+        })
         
         
-        configureInfo(post: post!)
+      
         
+        
+      
         
 
     }
@@ -62,31 +86,13 @@ class ResultDetailsVC: UIViewController {
 
     func searchUser(postKey: String) {
         print("Khalid1: \(postKey)")
-        DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
-            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
-                
-                var user = [User]()
-                for snap in snapshot{
-                    print("KHALID2: \(snap.value)")
-                    if let userDict = snap.value as? Dictionary<String,AnyObject> {
-                        for fund in (userDict["fundraisers"] as? [String:AnyObject])! {
-                            if fund.key == postKey {
-                                let key = snap.key
-                                let user = User(userKey: key, userData: userDict)
-                                self.user = user
-                                print("KHALID4: \(self.user?.Name)")
-                            }
-                        }
-
-                    }
-                }
-            }
-        })
+        
+   
     }
     
     func configureInfo(post: Post, user: User? = nil, fundraiserImg: UIImage? = nil, profileImg: UIImage? = nil) {
-        self.post = post
-        self.user = user
+       
+      
         
         
         self.captionTextView.text = post.caption
@@ -96,6 +102,7 @@ class ResultDetailsVC: UIViewController {
         self.expireDateLabel.text = post.EndDate
         self.raisedAmountLabel.text = "\(post.currentDonation)"
         self.goalAmountLabel.text = "\(post.donationGoal)"
+        self.percentageLabel.text = "\((post.currentDonation/post.donationGoal)*100)%"
         self.currentRaisedProgress.setProgress((post.currentDonation/post.donationGoal), animated: true)
  
         let ref = Storage.storage().reference(forURL: post.imageUrl)
@@ -107,6 +114,20 @@ class ResultDetailsVC: UIViewController {
                 if let imgData = data {
                     if let img = UIImage(data: imgData) {
                         self.fundraiserImage.image = img
+                    }
+                }
+            }
+        }
+        
+        let ref1 = Storage.storage().reference(forURL: (user?.ImageUrl)!)
+        ref1.getData(maxSize: 2 * 1024 * 1024) { (data, error) in
+            if error != nil {
+                print("KHALID: unable to download image from Firebase storage")
+            } else {
+                print("KHALID: Image downloaded from Firebase Storage")
+                if let imgData = data {
+                    if let img = UIImage(data: imgData) {
+                        self.profileImage.image = img
                     }
                 }
             }
