@@ -13,14 +13,14 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
 
     
     var loggedInUser: Auth?
-    var selectedPost:  NSDictionary!
+    var selectedPost:  Post!
 
     let searchController = UISearchController(searchResultsController: nil)
     
     @IBOutlet var searchResultTableView: UITableView!
     
-    var postArray = [NSDictionary?]()
-    var filterResults = [NSDictionary?]()
+    var postArray = [Post]()
+    var filterResults = [Post]()
     var posts = [Post]()
     
     var databaseRef = Database.database().reference()
@@ -37,22 +37,28 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
         definesPresentationContext = true
         searchResultTableView.tableHeaderView = searchController.searchBar
         
-        databaseRef.child("fundraisers").queryOrdered(byChild: "title").observe(.childAdded, with: { (snapshot) in
-            print("JOE: \(snapshot.value)")
-            self.postArray.append(snapshot.value as? NSDictionary)
-            
-            //insert the rows
-            
-            self.searchResultTableView.insertRows(at: [IndexPath(row:self.postArray.count-1, section: 0)], with: UITableViewRowAnimation.automatic)
-            
-        }) { (error) in
-            print(error.localizedDescription)
-        }
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+//        databaseRef.child("fundraisers").queryOrdered(byChild: "title").observe(.childAdded, with: { (snapshot) in
+//            print("JOE: \(snapshot.value)")
+        
+        DataService.ds.REF_FUNDRAISERS.observe(.value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                var posts = [Post]()
+                
+                for snap in snapshot {
+                    if let postDic = snap.value as? Dictionary<String, AnyObject> {
+                        print("KHALID: \(snap.value)")
+                        let key = snap.key
+                        let post = Post(postKey: key, postData: postDic)
+                        self.postArray.append(post)
+                    }
+                }
+                self.posts = posts
+                self.searchResultTableView.reloadData()
+            }
+//            self.searchResultTableView.insertRows(at: [IndexPath(row:self.postArray.count, section: 0)], with: UITableViewRowAnimation.automatic)
+        })
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     override func didReceiveMemoryWarning() {
@@ -80,7 +86,7 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        let post: NSDictionary?
+        let post: Post?
         if searchController.isActive && searchController.searchBar.text != ""{
             
             post = filterResults[indexPath.row]
@@ -89,8 +95,8 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
             post = self.postArray[indexPath.row]
         }
         
-        cell.textLabel?.text = post?["title"] as? String
-        cell.detailTextLabel?.text = post?["caption"] as? String
+        cell.textLabel?.text = post?.title
+        cell.detailTextLabel?.text = post?.caption
         
         
         
@@ -182,9 +188,9 @@ class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate,
     func filterContent(searchText: String){
         self.filterResults = self.postArray.filter{ post in
             
-            let postTitle = post!["title"] as? String
+//            let postTitle = post.title
             
-            return(postTitle?.lowercased().contains(searchText.lowercased()))!
+            return(post.title.lowercased().contains(searchText.lowercased()))
         }
         searchResultTableView.reloadData()
     }
