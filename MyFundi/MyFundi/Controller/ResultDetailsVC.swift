@@ -52,6 +52,11 @@ class ResultDetailsVC: UIViewController {
         
         
     }
+    
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
 
     func searchUser(postKey: String) {
         print("Khalid1: \(postKey)")
