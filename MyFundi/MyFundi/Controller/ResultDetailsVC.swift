@@ -10,16 +10,42 @@ import UIKit
 
 class ResultDetailsVC: UIViewController {
 
-    var post: Post?
+    var post: NSDictionary?
+  
+    @IBOutlet weak var profileImage: CircleView!
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
+    @IBOutlet weak var fundraiserTitleLabel: UILabel!
+    
+    @IBOutlet weak var fundraiserImage: UIImageView!
+    
+    @IBOutlet weak var captionTextView: FancyTextView!
+    
+    @IBOutlet weak var postDateLabel: UILabel!
+    
+    @IBOutlet weak var expireDateLabel: UILabel!
+    
+    
+    @IBOutlet weak var raisedAmountLabel: UILabel!
+    
+    @IBOutlet weak var goalAmountLabel: UILabel!
+    
+    
+    @IBOutlet weak var currentRaisedProgress: UIProgressView!
+   
+    @IBAction func donateNowPressed(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+print("JOE: \(self.post!["caption"])")
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
+        override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     

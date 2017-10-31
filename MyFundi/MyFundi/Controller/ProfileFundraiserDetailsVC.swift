@@ -226,7 +226,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
             self.present(alertController, animated: true, completion: nil)
             
         }
-        backPressed(self)
+//        backPressed(self)
     }
     func deletePost() {
         let uid = Auth.auth().currentUser!.uid
