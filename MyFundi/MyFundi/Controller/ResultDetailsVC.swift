@@ -39,7 +39,7 @@ class ResultDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-print("JOE: \(self.post!["caption"])")
+        print("JOE: \(self.post!["postKey"])")
         // Do any additional setup after loading the view.
     }
 
