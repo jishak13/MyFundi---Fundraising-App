@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2655F0C21F83684B003323EF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655F0C11F83684B003323EF /* Post.swift */; };
+		26689D2E1FA91A6D0064635F /* SignInVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26689D2D1FA91A6D0064635F /* SignInVCTest.swift */; };
 		26732A151F808C8C00365AE5 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A141F808C8C00365AE5 /* FancyView.swift */; };
 		26732A181F808D4B00365AE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A171F808D4B00365AE5 /* Constants.swift */; };
 		26732A1A1F808EFE00365AE5 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A191F808EFE00365AE5 /* RoundButton.swift */; };
@@ -36,9 +37,22 @@
 		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		26689D281FA9167C0064635F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26E2B6F81F80467E00AC390F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26E2B6FF1F80467E00AC390F;
+			remoteInfo = MyFundi;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		21AAB1E23E94C4E884242A83 /* Pods-MyFundi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.release.xcconfig"; sourceTree = "<group>"; };
 		2655F0C11F83684B003323EF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		26689D231FA9167C0064635F /* MyFundiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFundiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		26689D271FA9167C0064635F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26689D2D1FA91A6D0064635F /* SignInVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVCTest.swift; sourceTree = "<group>"; };
 		26732A141F808C8C00365AE5 /* FancyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyView.swift; sourceTree = "<group>"; };
 		26732A171F808D4B00365AE5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		26732A191F808EFE00365AE5 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
@@ -74,6 +88,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		26689D201FA9167C0064635F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26E2B6FD1F80467E00AC390F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -85,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26689D241FA9167C0064635F /* MyFundiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				26689D271FA9167C0064635F /* Info.plist */,
+				26689D2D1FA91A6D0064635F /* SignInVCTest.swift */,
+			);
+			path = MyFundiUITests;
+			sourceTree = "<group>";
+		};
 		26732A161F808D3600365AE5 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				26E2B7021F80467F00AC390F /* MyFundi */,
+				26689D241FA9167C0064635F /* MyFundiUITests */,
 				26E2B7011F80467F00AC390F /* Products */,
 				F3796F4F2D7BC7D31CFA0100 /* Pods */,
 				75C99D1472CDE2CC58503BFE /* Frameworks */,
@@ -115,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				26E2B7001F80467F00AC390F /* MyFundi.app */,
+				26689D231FA9167C0064635F /* MyFundiUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -200,6 +232,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		26689D221FA9167C0064635F /* MyFundiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26689D2C1FA9167C0064635F /* Build configuration list for PBXNativeTarget "MyFundiUITests" */;
+			buildPhases = (
+				26689D1F1FA9167C0064635F /* Sources */,
+				26689D201FA9167C0064635F /* Frameworks */,
+				26689D211FA9167C0064635F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26689D291FA9167C0064635F /* PBXTargetDependency */,
+			);
+			name = MyFundiUITests;
+			productName = MyFundiUITests;
+			productReference = 26689D231FA9167C0064635F /* MyFundiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		26E2B6FF1F80467E00AC390F /* MyFundi */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 26E2B7121F80467F00AC390F /* Build configuration list for PBXNativeTarget "MyFundi" */;
@@ -230,6 +280,12 @@
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Bachmanity;
 				TargetAttributes = {
+					26689D221FA9167C0064635F = {
+						CreatedOnToolsVersion = 9.0.1;
+						LastSwiftMigration = 0900;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 26E2B6FF1F80467E00AC390F;
+					};
 					26E2B6FF1F80467E00AC390F = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
@@ -255,11 +311,19 @@
 			projectRoot = "";
 			targets = (
 				26E2B6FF1F80467E00AC390F /* MyFundi */,
+				26689D221FA9167C0064635F /* MyFundiUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		26689D211FA9167C0064635F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26E2B6FE1F80467E00AC390F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,6 +406,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		26689D1F1FA9167C0064635F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26689D2E1FA91A6D0064635F /* SignInVCTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		26E2B6FC1F80467E00AC390F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -373,6 +445,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		26689D291FA9167C0064635F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26E2B6FF1F80467E00AC390F /* MyFundi */;
+			targetProxy = 26689D281FA9167C0064635F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		26E2B7071F80467F00AC390F /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -393,6 +473,39 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		26689D2A1FA9167C0064635F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9D29KNE2D7;
+				INFOPLIST_FILE = MyFundiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Bachman.MyFundiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyFundi;
+			};
+			name = Debug;
+		};
+		26689D2B1FA9167C0064635F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9D29KNE2D7;
+				INFOPLIST_FILE = MyFundiUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Bachman.MyFundiUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MyFundi;
+			};
+			name = Release;
+		};
 		26E2B7101F80467F00AC390F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -541,6 +654,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		26689D2C1FA9167C0064635F /* Build configuration list for PBXNativeTarget "MyFundiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26689D2A1FA9167C0064635F /* Debug */,
+				26689D2B1FA9167C0064635F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		26E2B6FB1F80467E00AC390F /* Build configuration list for PBXProject "MyFundi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
