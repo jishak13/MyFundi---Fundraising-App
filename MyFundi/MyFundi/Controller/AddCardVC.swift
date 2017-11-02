@@ -32,6 +32,12 @@ class AddCardVC: UIViewController, UITableViewDelegate , UITableViewDataSource{
     var methodKeys = [String]()
     var count: Int = 0
     
+    
+    @IBAction func cancelBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
     @IBAction func submitPressed(_ sender: Any) {
         if validateValues() {
             let card: Dictionary<String, AnyObject> = [
