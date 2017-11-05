@@ -23,7 +23,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
      static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
     var imageSelected = false
     var user: User!
-
+    var donatePost:Post!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -41,6 +41,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
                 
                 var users = [User]()
                 for snap in snapshot{
+                    
                     if let userDict = snap.value as? Dictionary<String,AnyObject> {
                         let key = snap.key
                         let user = User(userKey: key, userData: userDict)
@@ -70,7 +71,22 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
         })
     }
+    @IBAction func donatePressed(_ sender: AnyObject) {
+        
+        print("JOE12: \(sender.tag)")
+        donatePost = posts[sender.tag]
+        performSegue(withIdentifier: "goToDonateVC", sender: self)
+
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDonateVC" {
+            if let donate = segue.destination as? DonateVC {
+                donate.post = self.donatePost
+                donate.sender = "Feed"
+            }
+        }
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -86,6 +102,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         self.getUser(post: post.postKey)
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+            
+            cell.donateButton.addTarget(self, action: #selector(donatePressed(_:)), for: .touchUpInside)
+            
+            cell.donateButton.tag = indexPath.row
             
             if let img = FeedVC.imageCache.object(forKey: post.imageUrl as AnyObject){
                 cell.configureCell(post: post,user: self.user, img: img)

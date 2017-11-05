@@ -40,7 +40,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEd-wE-y8t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-509" y="659"/>
+            <point key="canvasLocation" x="-1039" y="502"/>
         </scene>
         <!--Sign InVC-->
         <scene sceneID="tne-QT-ifu">
@@ -167,7 +167,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2319" y="245"/>
+            <point key="canvasLocation" x="-2317" y="501"/>
         </scene>
         <!--Home-->
         <scene sceneID="9bS-3W-goa">
@@ -321,6 +321,9 @@
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gzu-lP-Dw6">
                                                                     <rect key="frame" x="0.0" y="0.0" width="84" height="30"/>
                                                                     <state key="normal" title="Donate Now"/>
+                                                                    <connections>
+                                                                        <action selector="donatePressed:" destination="Bum-bE-rxR" eventType="touchUpInside" id="40F-gO-PRF"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <constraints>
@@ -370,6 +373,7 @@
                                         <connections>
                                             <outlet property="caption" destination="rkX-Mk-ciu" id="tnw-5k-5BW"/>
                                             <outlet property="currentDonationLbl" destination="sUt-OT-cvn" id="Qdz-D2-q0k"/>
+                                            <outlet property="donateButton" destination="gzu-lP-Dw6" id="Txn-zd-d8B"/>
                                             <outlet property="donationGoalLbl" destination="MDK-R5-lk5" id="cgE-j4-mh9"/>
                                             <outlet property="donationProgress" destination="m9j-5H-0Gf" id="Yzo-tU-52g"/>
                                             <outlet property="fundraiserLbl" destination="b50-xf-Fg0" id="nKD-x1-pL9"/>
@@ -404,6 +408,7 @@
                     <connections>
                         <outlet property="tableView" destination="Lbp-ez-O1t" id="aGm-Ob-fI8"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignIn" id="VdD-2h-53k"/>
+                        <segue destination="DB7-do-9Rw" kind="show" identifier="goToDonateVC" id="lVA-g4-5qV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtP-bd-IwJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -418,7 +423,157 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="262" y="-457"/>
+            <point key="canvasLocation" x="1051" y="-649"/>
+        </scene>
+        <!--DonateVC-->
+        <scene sceneID="Xxx-Sv-YH0">
+            <objects>
+                <viewController id="DB7-do-9Rw" customClass="DonateVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Roq-O1-eZK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cVl-p4-FKq" customClass="FancyView" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donate" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTs-Ld-vZM">
+                                        <rect key="frame" x="160.66666666666666" y="20.666666666666671" width="94.333333333333343" height="24.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="31"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz9-kZ-rb1">
+                                        <rect key="frame" x="353" y="13.666666666666664" width="45" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="Xum-mH-nRS"/>
+                                            <constraint firstAttribute="width" constant="45" id="jWj-Kv-zc6"/>
+                                        </constraints>
+                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
+                                        <connections>
+                                            <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="ycD-We-Nej"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ll-5P-zoU">
+                                        <rect key="frame" x="26" y="4" width="52" height="61"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="26"/>
+                                        <state key="normal" title="Back">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="backBtn:" destination="3QY-7u-4ue" eventType="touchUpInside" id="Hcw-Bf-ak3"/>
+                                            <action selector="backBtn:" destination="btu-mG-045" eventType="touchUpInside" id="m6x-pL-DYe"/>
+                                            <action selector="backPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="jvg-gm-av8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.33272615075111389" green="0.40606909990310669" blue="0.73735153675079346" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="TTs-Ld-vZM" firstAttribute="top" secondItem="cVl-p4-FKq" secondAttribute="top" constant="20.670000000000002" id="02H-Oa-gBy"/>
+                                    <constraint firstAttribute="trailing" secondItem="tz9-kZ-rb1" secondAttribute="trailing" constant="16" id="5Ua-I2-30v"/>
+                                    <constraint firstItem="tz9-kZ-rb1" firstAttribute="centerY" secondItem="TTs-Ld-vZM" secondAttribute="centerY" id="7dy-hu-teQ"/>
+                                    <constraint firstAttribute="height" constant="65" id="9JC-ku-P3F"/>
+                                    <constraint firstItem="tz9-kZ-rb1" firstAttribute="centerY" secondItem="cVl-p4-FKq" secondAttribute="centerY" id="EfA-uk-qlB"/>
+                                    <constraint firstItem="TTs-Ld-vZM" firstAttribute="centerX" secondItem="cVl-p4-FKq" secondAttribute="centerX" id="TUF-AJ-VtW"/>
+                                    <constraint firstItem="TTs-Ld-vZM" firstAttribute="centerX" secondItem="cVl-p4-FKq" secondAttribute="centerX" id="zV1-XE-GmA"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JqE-NQ-vBJ">
+                                <rect key="frame" x="16" y="90" width="382" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kW-qd-jTh">
+                                        <rect key="frame" x="0.0" y="21" width="382" height="28.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,000,000,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uoo-yP-QBk">
+                                        <rect key="frame" x="8" y="67" width="90" height="15.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ee7-cM-86m">
+                                        <rect key="frame" x="117" y="76" width="150" height="19.333333333333329"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="19.329999999999998" id="r1Y-uc-Gep"/>
+                                        </constraints>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4,000,000,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAH-rl-lEA">
+                                        <rect key="frame" x="284" y="67" width="90" height="15.666666666666671"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Ee7-cM-86m" secondAttribute="trailing" constant="115" id="3XM-gG-QA9"/>
+                                    <constraint firstAttribute="trailing" secondItem="5kW-qd-jTh" secondAttribute="trailing" id="6Kh-wU-IHl"/>
+                                    <constraint firstItem="uoo-yP-QBk" firstAttribute="top" secondItem="5kW-qd-jTh" secondAttribute="bottom" constant="17.329999999999998" id="9uu-Ya-Gkb"/>
+                                    <constraint firstItem="cAH-rl-lEA" firstAttribute="top" secondItem="5kW-qd-jTh" secondAttribute="bottom" constant="17.329999999999998" id="CH9-28-eRz"/>
+                                    <constraint firstItem="uoo-yP-QBk" firstAttribute="leading" secondItem="JqE-NQ-vBJ" secondAttribute="leading" constant="8" id="PBD-rr-i5y"/>
+                                    <constraint firstAttribute="trailing" secondItem="cAH-rl-lEA" secondAttribute="trailing" constant="8" id="e1y-Qe-UYG"/>
+                                    <constraint firstItem="5kW-qd-jTh" firstAttribute="top" secondItem="JqE-NQ-vBJ" secondAttribute="top" constant="21" id="gwb-JH-7BC"/>
+                                    <constraint firstItem="Ee7-cM-86m" firstAttribute="leading" secondItem="JqE-NQ-vBJ" secondAttribute="leading" constant="117" id="jgS-EO-IoF"/>
+                                    <constraint firstItem="5kW-qd-jTh" firstAttribute="leading" secondItem="JqE-NQ-vBJ" secondAttribute="leading" id="uVc-Uj-giK"/>
+                                    <constraint firstItem="Ee7-cM-86m" firstAttribute="top" secondItem="5kW-qd-jTh" secondAttribute="bottom" constant="26.329999999999998" id="yD1-6Q-0O5"/>
+                                </constraints>
+                            </view>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount to Donate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6up-em-W2b" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="40" y="261" width="334" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="amountValueChanged:" destination="DB7-do-9Rw" eventType="valueChanged" id="rE6-Y3-log"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ct-tg-ROn">
+                                <rect key="frame" x="72" y="332" width="270" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Choose a payment Method"/>
+                                <connections>
+                                    <action selector="chooseMethodPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="wwc-FO-ijO"/>
+                                </connections>
+                            </button>
+                            <pickerView hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AYe-xr-Ekv">
+                                <rect key="frame" x="8" y="381" width="398" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXL-cL-dgQ">
+                                <rect key="frame" x="96" y="605" width="222" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit Donation"/>
+                                <connections>
+                                    <action selector="donateNowPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="68n-RM-fEH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90198010206222534" green="0.90196311473846436" blue="0.90197461843490601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="cVl-p4-FKq" firstAttribute="top" secondItem="Roq-O1-eZK" secondAttribute="top" id="F7l-dc-Y6E"/>
+                            <constraint firstItem="JqE-NQ-vBJ" firstAttribute="top" secondItem="cVl-p4-FKq" secondAttribute="bottom" constant="25" id="GPR-ng-VmO"/>
+                            <constraint firstItem="cVl-p4-FKq" firstAttribute="trailing" secondItem="x0G-Xp-zH2" secondAttribute="trailing" id="OyW-hD-0H5"/>
+                            <constraint firstItem="JqE-NQ-vBJ" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="16" id="Tgr-ST-Y3L"/>
+                            <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="JqE-NQ-vBJ" secondAttribute="trailing" constant="16" id="chr-IX-ibN"/>
+                            <constraint firstItem="cVl-p4-FKq" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" id="hNI-Q8-NBF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="x0G-Xp-zH2"/>
+                    </view>
+                    <connections>
+                        <outlet property="cardPicker" destination="AYe-xr-Ekv" id="HMX-L5-pGr"/>
+                        <outlet property="donateAmountTextField" destination="6up-em-W2b" id="6hN-gw-Ykw"/>
+                        <outlet property="goalLabel" destination="cAH-rl-lEA" id="6aq-LA-2LA"/>
+                        <outlet property="progressView" destination="Ee7-cM-86m" id="Vgp-rN-Adn"/>
+                        <outlet property="raisedLabel" destination="uoo-yP-QBk" id="zMz-aW-W4C"/>
+                        <outlet property="titleLabel" destination="5kW-qd-jTh" id="Ec1-n7-Wzi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acE-K8-g3v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2374" y="-649"/>
         </scene>
         <!--My Fundi-->
         <scene sceneID="AUg-rb-cKg">
@@ -645,11 +800,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVO-Od-Se8" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pVC-Ba-txJ"/>
-                <tapGestureRecognizer id="Vew-vk-6aZ" userLabel="HomeTap">
-                    <connections>
-                        <action selector="homeImageTapped:" destination="kr4-Ni-ixZ" id="Tf1-1W-nYS"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="Vew-vk-6aZ" userLabel="HomeTap"/>
                 <tapGestureRecognizer id="qBy-Y2-HLM" userLabel="ProfileTap"/>
                 <tapGestureRecognizer id="DHg-wf-SXK" userLabel="BellTap"/>
                 <tapGestureRecognizer id="lud-kK-x9A" userLabel="GearTap"/>
@@ -664,7 +815,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1394.2028985507247" y="297.554347826087"/>
+            <point key="canvasLocation" x="1051" y="207"/>
         </scene>
         <!--Searched Details Table View Controller-->
         <scene sceneID="ccE-2r-GLl">
@@ -755,7 +906,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nka-Pu-vns" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="342" y="-1331"/>
+            <point key="canvasLocation" x="1051" y="-1560"/>
         </scene>
         <!--Post-->
         <scene sceneID="lYb-hR-AzM">
@@ -924,7 +1075,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doo-kh-gCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436" y="1088"/>
+            <point key="canvasLocation" x="1051" y="1052"/>
         </scene>
         <!--Result DetailsVC-->
         <scene sceneID="EaS-6j-VHN">
@@ -1165,11 +1316,12 @@
                         <outlet property="profileImage" destination="Eek-0j-7Mw" id="zOO-Xv-ngC"/>
                         <outlet property="raisedAmountLabel" destination="ak9-ap-0xQ" id="rFV-Uw-OTT"/>
                         <outlet property="userNameLabel" destination="ifM-UH-SJf" id="jVm-ve-qos"/>
+                        <segue destination="DB7-do-9Rw" kind="show" identifier="goToDonateFromSearch" id="749-SK-JO0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uz-H6-5qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1392.753623188406" y="-1426.6304347826087"/>
+            <point key="canvasLocation" x="2374" y="-1559"/>
         </scene>
         <!--FundraiserDetails-->
         <scene sceneID="uOq-3A-JhA">
@@ -1364,7 +1516,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2802.898550724638" y="297.554347826087"/>
+            <point key="canvasLocation" x="2374" y="206"/>
         </scene>
         <!--Notifications-->
         <scene sceneID="LmW-lX-aEq">
@@ -1418,7 +1570,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFC-Gb-IGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350" y="1900"/>
+            <point key="canvasLocation" x="1051" y="1899"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="G1V-zN-Uyx">
@@ -1721,7 +1873,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NCy-ai-Dyw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1052" y="2739"/>
+            <point key="canvasLocation" x="2374" y="2657"/>
         </scene>
         <!--Settings-->
         <scene sceneID="W7a-s9-V5Z">
@@ -1781,7 +1933,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ada-LM-a8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-394" y="1899"/>
+            <point key="canvasLocation" x="1032" y="2707"/>
         </scene>
         <!--Add CardVC-->
         <scene sceneID="JB9-55-89U">
@@ -1801,11 +1953,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nLm-rk-Vnk">
-                                        <rect key="frame" x="329.33333333333331" y="27.333333333333329" width="64" height="38"/>
+                                        <rect key="frame" x="329.33333333333331" y="27.333333333333329" width="49" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="Cancel"/>
+                                        <state key="normal" title="Clear"/>
                                         <connections>
                                             <action selector="cancelBtn:" destination="3fb-x1-3U7" eventType="touchUpInside" id="9Pe-3M-NC3"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lc5-Gp-I3g">
+                                        <rect key="frame" x="26" y="27" width="46" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backPressed:" destination="3fb-x1-3U7" eventType="touchUpInside" id="slq-4U-PE7"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1871,8 +2032,9 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FS-wD-8jZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FS-wD-8jZ" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
                                         <rect key="frame" x="154" y="224" width="90" height="30"/>
+                                        <color key="backgroundColor" red="0.94475126266479492" green="0.6142844557762146" blue="0.72945058345794678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="96A-4v-icc"/>
                                             <constraint firstAttribute="width" constant="90" id="BEu-Rw-mis"/>
@@ -1965,12 +2127,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E4t-He-9Fs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1031.8840579710145" y="3475.271739130435"/>
+            <point key="canvasLocation" x="2374" y="3450"/>
         </scene>
-        <!--View Controller-->
+        <!--AboutVC-->
         <scene sceneID="aMn-qP-4ID">
             <objects>
-                <viewController id="aCv-Ld-A8R" sceneMemberID="viewController">
+                <viewController id="aCv-Ld-A8R" customClass="AboutVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c0b-2N-9Zt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="614"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1979,15 +2141,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="417" height="77"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q9s-bY-bec">
-                                        <rect key="frame" x="168" y="28" width="80" height="38"/>
+                                        <rect key="frame" x="155" y="28" width="80" height="38"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="31"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bpu-Ub-WkO">
-                                        <rect key="frame" x="16" y="28" width="59" height="38"/>
+                                        <rect key="frame" x="16" y="28" width="46" height="38"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                        <state key="normal" title="&lt;Back"/>
+                                        <state key="normal" title="Back"/>
+                                        <connections>
+                                            <action selector="backPressed:" destination="aCv-Ld-A8R" eventType="touchUpInside" id="Kr6-rf-WmP"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1998,6 +2163,7 @@
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Q9s-bY-bec" secondAttribute="trailing" constant="20" symbolic="YES" id="UJl-z1-ZQ9"/>
                                     <constraint firstItem="Q9s-bY-bec" firstAttribute="leading" secondItem="Bpu-Ub-WkO" secondAttribute="trailing" constant="93" id="Zib-3c-Yoc"/>
                                     <constraint firstItem="Bpu-Ub-WkO" firstAttribute="top" secondItem="Q9s-bY-bec" secondAttribute="top" id="eZh-dY-MtR"/>
+                                    <constraint firstAttribute="height" constant="77" id="gqT-cd-M1w"/>
                                 </constraints>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Who we are " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uz9-5H-TSc">
@@ -2033,7 +2199,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N5G-Zv-48l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="159" y="3022"/>
+            <point key="canvasLocation" x="3484" y="3322"/>
         </scene>
     </scenes>
     <resources>
@@ -2055,6 +2221,7 @@
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VdD-2h-53k"/>
+        <segue reference="749-SK-JO0"/>
+        <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>

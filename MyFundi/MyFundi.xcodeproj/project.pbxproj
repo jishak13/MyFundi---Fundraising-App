@@ -26,6 +26,7 @@
 		26E2B70B1F80467F00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B70A1F80467F00AC390F /* Assets.xcassets */; };
 		26E2B70E1F80467F00AC390F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B70C1F80467F00AC390F /* LaunchScreen.storyboard */; };
 		978ABEB46AA930093FD2ED8A /* Pods_MyFundi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */; };
+		C11E21A21FAD5ABD0094714D /* DonateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11E21A11FAD5ABD0094714D /* DonateVC.swift */; };
 		C1394D0F1F982497002AC9AE /* SearchedDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1394D0E1F982497002AC9AE /* SearchedDetailsTableViewController.swift */; };
 		C1394D111F982C3F002AC9AE /* FeedAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1394D101F982C3F002AC9AE /* FeedAddVC.swift */; };
 		C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C7B391F9D6DA100C181AB /* FancyTextView.swift */; };
@@ -35,6 +36,8 @@
 		C16A1E6A1FA6495C0044B125 /* DetailsPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */; };
 		C170BA161FA9452A00E53F3A /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = C170BA151FA9452A00E53F3A /* Card.swift */; };
 		C170BA181FA948EE00E53F3A /* AddCardVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C170BA171FA948EE00E53F3A /* AddCardVC.swift */; };
+		C18211841FAD3B5C005CE0FE /* donateCardPaymentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18211831FAD3B5C005CE0FE /* donateCardPaymentsCell.swift */; };
+		C18CEBC51FAF8D690007F3C2 /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18CEBC41FAF8D690007F3C2 /* AboutVC.swift */; };
 		C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B0AD1A1F93F6C5000E02C0 /* User.swift */; };
 		C1C357251FA94B62002B0CEB /* CardPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */; };
 		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
@@ -78,6 +81,7 @@
 		26E2B70D1F80467F00AC390F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26E2B70F1F80467F00AC390F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B10D887822625C5D4E00BE8 /* Pods-MyFundi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.debug.xcconfig"; sourceTree = "<group>"; };
+		C11E21A11FAD5ABD0094714D /* DonateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateVC.swift; sourceTree = "<group>"; };
 		C1394D0E1F982497002AC9AE /* SearchedDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedDetailsTableViewController.swift; sourceTree = "<group>"; };
 		C1394D101F982C3F002AC9AE /* FeedAddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddVC.swift; sourceTree = "<group>"; };
 		C13C7B391F9D6DA100C181AB /* FancyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextView.swift; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageButton.swift; sourceTree = "<group>"; };
 		C170BA151FA9452A00E53F3A /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		C170BA171FA948EE00E53F3A /* AddCardVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardVC.swift; sourceTree = "<group>"; };
+		C18211831FAD3B5C005CE0FE /* donateCardPaymentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = donateCardPaymentsCell.swift; sourceTree = "<group>"; };
+		C18CEBC41FAF8D690007F3C2 /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		C1B0AD1A1F93F6C5000E02C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentCell.swift; sourceTree = "<group>"; };
 		C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFundraiserDetailsVC.swift; sourceTree = "<group>"; };
@@ -200,6 +206,7 @@
 				C13C7B391F9D6DA100C181AB /* FancyTextView.swift */,
 				C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */,
 				C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */,
+				C18211831FAD3B5C005CE0FE /* donateCardPaymentsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -215,6 +222,8 @@
 				C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */,
 				26898BFA1FA67C480052BB58 /* ResultDetailsVC.swift */,
 				C170BA171FA948EE00E53F3A /* AddCardVC.swift */,
+				C11E21A11FAD5ABD0094714D /* DonateVC.swift */,
+				C18CEBC41FAF8D690007F3C2 /* AboutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -427,6 +436,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18CEBC51FAF8D690007F3C2 /* AboutVC.swift in Sources */,
 				26732A271F82D88500365AE5 /* CircleView.swift in Sources */,
 				26732A1C1F80909A00365AE5 /* FancyField.swift in Sources */,
 				26898BFB1FA67C480052BB58 /* ResultDetailsVC.swift in Sources */,
@@ -440,9 +450,11 @@
 				26732A1E1F8091C800365AE5 /* FancyButton.swift in Sources */,
 				C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */,
 				26732A2D1F83511500365AE5 /* DataService.swift in Sources */,
+				C11E21A21FAD5ABD0094714D /* DonateVC.swift in Sources */,
 				C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */,
 				26732A251F81F5FD00365AE5 /* FeedVC.swift in Sources */,
 				C1394D111F982C3F002AC9AE /* FeedAddVC.swift in Sources */,
+				C18211841FAD3B5C005CE0FE /* donateCardPaymentsCell.swift in Sources */,
 				C1C357251FA94B62002B0CEB /* CardPaymentCell.swift in Sources */,
 				26E2B7041F80467F00AC390F /* AppDelegate.swift in Sources */,
 				26732A151F808C8C00365AE5 /* FancyView.swift in Sources */,

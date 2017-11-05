@@ -21,6 +21,7 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var donationGoalLbl: UILabel!
     @IBOutlet weak var currentDonationLbl: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var donateButton: UIButton!
     
     var post: Post!
     var user: User!
@@ -113,5 +114,7 @@ class PostCell: UITableViewCell {
         
         
     }
+    
+    
     
 }

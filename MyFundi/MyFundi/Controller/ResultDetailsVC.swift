@@ -39,8 +39,16 @@ class ResultDetailsVC: UIViewController {
     @IBOutlet weak var percentageLabel: UILabel!
     
     @IBAction func donateNowPressed(_ sender: Any) {
-        
+        performSegue(withIdentifier: "goToDonateFromSearch", sender: self)
      
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDonateFromSearch" {
+            if let donate = segue.destination as? DonateVC {
+                donate.post = self.post
+                donate.sender = "Results"
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -146,14 +154,5 @@ class ResultDetailsVC: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

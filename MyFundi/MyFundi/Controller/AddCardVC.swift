@@ -161,7 +161,14 @@ class AddCardVC: UIViewController, UITableViewDelegate , UITableViewDataSource{
             zipIsValid = true
             zipTextBox.normalBorder()
         }
-        if zipIsValid, dateIsValid, numberIsValid, nameIsValid {
+        if cvvTextBox.text == "" {
+            cvvIsValid = false
+            cvvTextBox.errorBorder()
+        } else {
+            cvvIsValid = true
+            cvvTextBox.normalBorder()
+        }
+        if zipIsValid, dateIsValid, numberIsValid, nameIsValid,cvvIsValid {
             return true
         } else {
             return false
@@ -182,6 +189,11 @@ class AddCardVC: UIViewController, UITableViewDelegate , UITableViewDataSource{
             }
          
 }
+    
+    @IBAction func backPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return cards.count
     }
