@@ -20,7 +20,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     var users = [User]()
     var imagePicker: UIImagePickerController!
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
-     static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
+    static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
     var imageSelected = false
     var user: User!
     var donatePost:Post!
