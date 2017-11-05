@@ -18,6 +18,7 @@ class DetailsPageButton: UIButton {
         layer.shadowRadius = 5.0
         layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
         layer.cornerRadius = 2
+        layer.backgroundColor = UIColor(displayP3Red: 96/255, green: 195/255, blue: 215/255, alpha: 1).cgColor
     }
     
     func HideButton(){
