@@ -1323,7 +1323,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Uz-H6-5qh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2374" y="-1559"/>
+            <point key="canvasLocation" x="2373.5999999999999" y="-1559.3703148425789"/>
         </scene>
         <!--FundraiserDetails-->
         <scene sceneID="uOq-3A-JhA">
@@ -1780,9 +1780,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="3fb-x1-3U7" kind="show" id="pOs-HI-6XP">
-                                                <nil key="action"/>
-                                            </segue>
+                                            <segue destination="3Fn-av-ggR" kind="show" id="Uql-Ro-ZCh"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" id="QSl-KF-Xc2">
@@ -1942,7 +1940,7 @@
             <objects>
                 <viewController id="3fb-x1-3U7" customClass="AddCardVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BqU-RD-SQn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1A-Vl-GhH" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
@@ -1983,10 +1981,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="o7M-hq-FiJ">
-                                <rect key="frame" x="8" y="85" width="300" height="254"/>
+                                <rect key="frame" x="8" y="85" width="359" height="254"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="54A-p9-w3K" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="300" height="40"/>
+                                        <rect key="frame" x="29.5" y="0.0" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="yXI-yG-YZu"/>
                                         </constraints>
@@ -1995,7 +1993,7 @@
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Card Number" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="jn7-Mu-F5L" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="300" height="40"/>
+                                        <rect key="frame" x="29.5" y="56" width="300" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="MJ7-If-j6X"/>
                                         </constraints>
@@ -2004,7 +2002,7 @@
                                         <textInputTraits key="textInputTraits" textContentType="cc-number"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="XJP-Vo-Kbe">
-                                        <rect key="frame" x="0.0" y="112" width="300" height="40"/>
+                                        <rect key="frame" x="29.5" y="112" width="300" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MM/YY" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V8u-Xz-L93" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="146" height="40"/>
@@ -2029,13 +2027,13 @@
                                         </constraints>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VqL-dH-xV2" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
-                                        <rect key="frame" x="80" y="168" width="140" height="40"/>
+                                        <rect key="frame" x="109.5" y="168" width="140" height="40"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6FS-wD-8jZ" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="224" width="90" height="30"/>
+                                        <rect key="frame" x="134.5" y="224" width="90" height="30"/>
                                         <color key="backgroundColor" red="0.94475126266479492" green="0.6142844557762146" blue="0.72945058345794678" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="96A-4v-icc"/>
@@ -2053,33 +2051,33 @@
                                 <color key="backgroundColor" red="0.92942750453948975" green="0.92941009998321533" blue="0.92942190170288086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kjr-f6-lfh">
-                                <rect key="frame" x="0.0" y="347" width="316" height="198"/>
+                                <rect key="frame" x="0.0" y="347" width="375" height="320"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CardPaymentCell" rowHeight="143" id="iWB-bQ-1r1" customClass="CardPaymentCell" customModule="MyFundi" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="316" height="143"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="143"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iWB-bQ-1r1" id="Rx4-VD-67t">
-                                            <rect key="frame" x="0.0" y="0.0" width="316" height="142.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="142.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Joseph G Ishak" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAs-aH-r9n">
-                                                    <rect key="frame" x="99.5" y="8" width="117.5" height="21"/>
+                                                    <rect key="frame" x="129" y="8" width="117.5" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7LY-BB-JwU">
-                                                    <rect key="frame" x="31" y="55" width="254" height="20.5"/>
+                                                    <rect key="frame" x="31" y="55" width="313" height="20.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="xxxx-xxxx-xxxx-2477" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gGX-RG-HPm">
-                                                            <rect key="frame" x="0.0" y="0.0" width="187" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="230.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="12/22" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YEy-mV-kTR">
-                                                            <rect key="frame" x="203" y="0.0" width="51" height="20.5"/>
+                                                            <rect key="frame" x="246.5" y="0.0" width="66.5" height="20.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -2203,6 +2201,38 @@
             </objects>
             <point key="canvasLocation" x="3484" y="3322"/>
         </scene>
+        <!--Credit Card FormVC-->
+        <scene sceneID="VAW-yc-I9h">
+            <objects>
+                <viewController id="3Fn-av-ggR" customClass="CreditCardFormVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="edd-LJ-XlQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6j-Ln-9UW" customClass="CreditCardFormView" customModule="CreditCardForm">
+                                <rect key="frame" x="20" y="36" width="335" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Rbp-UN-9eY"/>
+                                    <constraint firstAttribute="height" constant="200" id="eQQ-Ci-Zmf"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="2Hj-1y-Qj3" firstAttribute="trailing" secondItem="Y6j-Ln-9UW" secondAttribute="trailing" constant="20" id="CNj-dj-yoP"/>
+                            <constraint firstItem="Y6j-Ln-9UW" firstAttribute="leading" secondItem="2Hj-1y-Qj3" secondAttribute="leading" constant="20" id="O4G-8R-PaE"/>
+                            <constraint firstItem="Y6j-Ln-9UW" firstAttribute="top" secondItem="2Hj-1y-Qj3" secondAttribute="top" constant="16" id="Xqj-xB-hJw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2Hj-1y-Qj3"/>
+                    </view>
+                    <connections>
+                        <outlet property="creditCardForm" destination="Y6j-Ln-9UW" id="w5t-f2-Ez6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="U9o-Sg-aX1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1569" y="3504"/>
+        </scene>
     </scenes>
     <resources>
         <image name="VectorBoot-1" width="1619" height="2400"/>
@@ -2223,7 +2253,7 @@
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVA-g4-5qV"/>
+        <segue reference="749-SK-JO0"/>
         <segue reference="VdD-2h-53k"/>
     </inferredMetricsTieBreakers>
 </document>
