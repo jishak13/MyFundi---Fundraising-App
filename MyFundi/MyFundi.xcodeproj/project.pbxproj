@@ -25,6 +25,8 @@
 		26E2B7091F80467F00AC390F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B7071F80467F00AC390F /* Main.storyboard */; };
 		26E2B70B1F80467F00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B70A1F80467F00AC390F /* Assets.xcassets */; };
 		26E2B70E1F80467F00AC390F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B70C1F80467F00AC390F /* LaunchScreen.storyboard */; };
+		26E86B441FAFBEF0006476A7 /* CreditCardFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */; };
+		26E86B461FAFC0D1006476A7 /* MainAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E86B451FAFC0D1006476A7 /* MainAPIClient.swift */; };
 		978ABEB46AA930093FD2ED8A /* Pods_MyFundi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */; };
 		C11E21A21FAD5ABD0094714D /* DonateVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11E21A11FAD5ABD0094714D /* DonateVC.swift */; };
 		C1394D0F1F982497002AC9AE /* SearchedDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1394D0E1F982497002AC9AE /* SearchedDetailsTableViewController.swift */; };
@@ -81,6 +83,8 @@
 		26E2B70A1F80467F00AC390F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26E2B70D1F80467F00AC390F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26E2B70F1F80467F00AC390F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormVC.swift; sourceTree = "<group>"; };
+		26E86B451FAFC0D1006476A7 /* MainAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPIClient.swift; sourceTree = "<group>"; };
 		8B10D887822625C5D4E00BE8 /* Pods-MyFundi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.debug.xcconfig"; sourceTree = "<group>"; };
 		C11E21A11FAD5ABD0094714D /* DonateVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateVC.swift; sourceTree = "<group>"; };
 		C1394D0E1F982497002AC9AE /* SearchedDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				26732A2C1F83511500365AE5 /* DataService.swift */,
+				26E86B451FAFC0D1006476A7 /* MainAPIClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -227,6 +232,7 @@
 				C170BA171FA948EE00E53F3A /* AddCardVC.swift */,
 				C11E21A11FAD5ABD0094714D /* DonateVC.swift */,
 				C18CEBC41FAF8D690007F3C2 /* AboutVC.swift */,
+				26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,22 +405,28 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/CreditCardForm/CreditCardForm.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CreditCardForm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -440,10 +452,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C18CEBC51FAF8D690007F3C2 /* AboutVC.swift in Sources */,
+				26E86B441FAFBEF0006476A7 /* CreditCardFormVC.swift in Sources */,
 				26732A271F82D88500365AE5 /* CircleView.swift in Sources */,
 				26732A1C1F80909A00365AE5 /* FancyField.swift in Sources */,
 				26898BFB1FA67C480052BB58 /* ResultDetailsVC.swift in Sources */,
 				C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */,
+				26E86B461FAFC0D1006476A7 /* MainAPIClient.swift in Sources */,
 				C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */,
 				26E2B7061F80467F00AC390F /* SignInVC.swift in Sources */,
 				C170BA181FA948EE00E53F3A /* AddCardVC.swift in Sources */,
