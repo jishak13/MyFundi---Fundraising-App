@@ -9,6 +9,7 @@
 import UIKit
 import Stripe
 import CreditCardForm
+import Firebase
 
 class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
     
