@@ -2205,11 +2205,11 @@
         <scene sceneID="VAW-yc-I9h">
             <objects>
                 <viewController id="3Fn-av-ggR" customClass="CreditCardFormVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="edd-LJ-XlQ">
+                    <view key="view" contentMode="scaleToFill" id="edd-LJ-XlQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="545"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y6j-Ln-9UW" customClass="CreditCardFormView" customModule="CreditCardForm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6j-Ln-9UW" customClass="CreditCardFormView" customModule="CreditCardForm">
                                 <rect key="frame" x="20" y="36" width="335" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="Rbp-UN-9eY"/>
