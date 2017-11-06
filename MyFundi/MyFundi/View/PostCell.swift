@@ -35,7 +35,7 @@ class PostCell: UITableViewCell {
         likeImage.isUserInteractionEnabled = true
         
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(postImgDoubleTap))
-        tap.numberOfTapsRequired = 2
+        doubleTap.numberOfTapsRequired = 2
         postImg.addGestureRecognizer(doubleTap)
         postImg.isUserInteractionEnabled = true
     }
