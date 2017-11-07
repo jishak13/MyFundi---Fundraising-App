@@ -17,10 +17,10 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var postImg: UIImageView!
     @IBOutlet weak var caption: UITextView!
     @IBOutlet weak var likesLbl: UILabel!
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var donationGoalLbl: UILabel!
     @IBOutlet weak var currentDonationLbl: UILabel!
     @IBOutlet weak var likeImage: UIImageView!
+    @IBOutlet weak var donateButton: UIButton!
     
     var post: Post!
     var user: User!
@@ -33,8 +33,27 @@ class PostCell: UITableViewCell {
         tap.numberOfTapsRequired = 1
         likeImage.addGestureRecognizer(tap)
         likeImage.isUserInteractionEnabled = true
+        
+        let doubleTap = UITapGestureRecognizer(target: self, action: #selector(postImgDoubleTap))
+        doubleTap.numberOfTapsRequired = 2
+        postImg.addGestureRecognizer(doubleTap)
+        postImg.isUserInteractionEnabled = true
     }
     
+    @objc func postImgDoubleTap(sender: UITapGestureRecognizer) {
+        
+        likesRef.observeSingleEvent(of: .value, with: { (snapshot) in
+            if let _ = snapshot.value as? NSNull {
+                self.likeImage.image = UIImage(named: "filled-heart")
+                self.post.adjustLikes(addLike: true)
+                self.likesRef.setValue(true)
+            } else {
+                self.likeImage.image = UIImage(named: "empty-heart")
+                self.post.adjustLikes(addLike: false)
+                self.likesRef.removeValue()
+            }
+        })
+    }
     
     @objc func likeTapped(sender: UITapGestureRecognizer) {
         
@@ -113,5 +132,7 @@ class PostCell: UITableViewCell {
         
         
     }
+    
+    
     
 }

@@ -12,5 +12,11 @@ target 'MyFundi' do
   pod 'Firebase/Storage'
   pod 'FBSDKLoginKit'
   pod 'SwiftKeychainWrapper'
-
+  pod 'Stripe'
+  pod 'Alamofire'
+  pod 'CreditCardForm'
+  pod 'PayPal-iOS-SDK'
+  
 end
+
+

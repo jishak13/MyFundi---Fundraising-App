@@ -32,6 +32,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
     var editMode: Bool  = false
     var stringExpiration: String!
     var newImageUrl: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -226,7 +227,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
             self.present(alertController, animated: true, completion: nil)
             
         }
-        backPressed(self)
+//        backPressed(self)
     }
     func deletePost() {
         let uid = Auth.auth().currentUser!.uid

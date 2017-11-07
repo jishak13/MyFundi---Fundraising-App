@@ -23,10 +23,12 @@ class DataService {
     private var _REF_FUNDRAISERS = DB_BASE.child("fundraisers")
     private var _REF_DONATIONS = DB_BASE.child("donations")
     private var _REF_USERS = DB_BASE.child("users")
+    private var _REF_CARDS = DB_BASE.child("paymentMethods")
     
     // Storage references
     private var _REF_FUND_IMGS = STORAGE_BASE.child("fundraiser-pics")
-     private var _REF_PROF_IMGS = STORAGE_BASE.child("user-pics")
+    private var _REF_PROF_IMGS = STORAGE_BASE.child("user-pics")
+    
     var REF_BASE: DatabaseReference {
         return _REF_BASE
     }
@@ -47,6 +49,9 @@ class DataService {
     
     var REF_USERS: DatabaseReference {
         return _REF_USERS
+    }
+    var REF_CARDS: DatabaseReference {
+        return _REF_CARDS
     }
     
     var REF_FUND_IMGS: StorageReference {
