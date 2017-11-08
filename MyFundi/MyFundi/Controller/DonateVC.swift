@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class DonateVC: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
+class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
    
     
@@ -46,6 +46,16 @@ class DonateVC: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
         titleLabel.text = post?.title
         self.cardPicker.delegate = self
         self.cardPicker.dataSource = self
+        
+        
+        
+        donateAmountTextField.delegate = self
+        
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+//        tap.cancelsTouchesInView = false
+//
+//        view.addGestureRecognizer(tap)
+
        
         self.userID = (Auth.auth().currentUser?.uid)!
         print("JOE: \(userID)")
@@ -71,6 +81,12 @@ class DonateVC: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
         })
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+   
     
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
