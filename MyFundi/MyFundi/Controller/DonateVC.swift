@@ -8,9 +8,10 @@
 
 import UIKit
 import Firebase
-class DonateVC: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource {
 
+class DonateVC: UIViewController, UIPickerViewDelegate,UIPickerViewDataSource {
 
+   
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!

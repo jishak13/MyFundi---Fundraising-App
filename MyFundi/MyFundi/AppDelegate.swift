@@ -24,6 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        
+//        PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AcSpGX2MbnRFkU4m32YJTsmuYACtDS0JlIjNKSVFNTq_8UQNrOgVWAoMCB2fRCU8GxgJYs9QFlwBQUZW",
+//                                                                PayPalEnvironmentSandbox: "ypeng30-facilitator@asu.edu"])
         return true
     }
     

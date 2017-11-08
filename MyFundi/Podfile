@@ -15,7 +15,7 @@ target 'MyFundi' do
   pod 'Stripe'
   pod 'Alamofire'
   pod 'CreditCardForm'
-
+  pod 'PayPal-iOS-SDK', '~> 2.18'
 end
 
 

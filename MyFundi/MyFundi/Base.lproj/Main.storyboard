@@ -566,6 +566,14 @@
                                     <action selector="donateNowPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="68n-RM-fEH"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="SNz-mU-ULB">
+                                <rect key="frame" x="127" y="381" width="121" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" red="0.90198010206222534" green="0.90196311473846436" blue="0.90197461843490601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -1581,7 +1589,7 @@
         <!--Notifications-->
         <scene sceneID="LmW-lX-aEq">
             <objects>
-                <viewController id="LpX-x5-nry" sceneMemberID="viewController">
+                <viewController id="LpX-x5-nry" customClass="NotificationsVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gC1-2c-qx5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1617,16 +1625,127 @@
                                     <constraint firstItem="6xV-gh-8ut" firstAttribute="top" secondItem="ERM-C7-m5i" secondAttribute="top" constant="42" id="rRa-rN-ROm"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H2x-8J-pc3">
+                                <rect key="frame" x="0.0" y="68" width="375" height="661"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="72" id="zI7-Iu-wg0" customClass="LikesCell" customModule="MyFundi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zI7-Iu-wg0" id="87a-82-rpB">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="71.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="N4L-UU-9in">
+                                                    <rect key="frame" x="8" y="12" width="359" height="45"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qOO-e7-bRq">
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="TGQ-rx-uPO"/>
+                                                                <constraint firstAttribute="width" constant="45" id="vlE-tA-big"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joseph Liked Your Fundraiser" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwJ-2r-XJ7">
+                                                            <rect key="frame" x="63.666666666666686" y="0.0" width="232" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="21" id="4Sc-wK-ELo"/>
+                                                                <constraint firstAttribute="width" constant="232" id="Gkg-4e-5gW"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RQc-98-0MC">
+                                                            <rect key="frame" x="314" y="0.0" width="45" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="5rh-CU-Yhm"/>
+                                                                <constraint firstAttribute="width" constant="45" id="6vf-PL-dkS"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="N4L-UU-9in" secondAttribute="trailing" constant="8" id="EnZ-9p-e5e"/>
+                                                <constraint firstItem="N4L-UU-9in" firstAttribute="leading" secondItem="87a-82-rpB" secondAttribute="leading" constant="8" id="Wh3-KR-4ma"/>
+                                                <constraint firstItem="N4L-UU-9in" firstAttribute="top" secondItem="87a-82-rpB" secondAttribute="top" constant="12" id="sXk-bX-Zz7"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fundraiserImage" destination="RQc-98-0MC" id="KZn-yH-5Db"/>
+                                            <outlet property="notificationLabel" destination="cwJ-2r-XJ7" id="gFz-cv-kX7"/>
+                                            <outlet property="profileImage" destination="qOO-e7-bRq" id="jPr-0R-uzF"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="84" id="TeV-tD-Nej" customClass="DonateCell" customModule="MyFundi" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="375" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TeV-tD-Nej" id="oRW-l8-6kP">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="83.666666666666671"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="4KO-rh-ztR">
+                                                    <rect key="frame" x="8" y="12" width="359" height="45"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cT-Da-eDK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="45" id="OMe-Xs-jLH"/>
+                                                                <constraint firstAttribute="width" constant="45" id="mwC-t3-21h"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joseph donated 300 Your Fundraiser" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3iU-Be-H5a">
+                                                            <rect key="frame" x="63.666666666666686" y="0.0" width="232" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="232" id="O7k-Zm-iQV"/>
+                                                                <constraint firstAttribute="height" constant="45" id="fxl-7p-Weg"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uFE-2M-1DM">
+                                                            <rect key="frame" x="314" y="0.0" width="45" height="45"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="45" id="L7x-ho-jMq"/>
+                                                                <constraint firstAttribute="height" constant="45" id="m3Q-WT-RyW"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="4KO-rh-ztR" secondAttribute="trailing" constant="8" id="UhR-Q8-mbg"/>
+                                                <constraint firstItem="4KO-rh-ztR" firstAttribute="top" secondItem="oRW-l8-6kP" secondAttribute="top" constant="12" id="bh5-Dt-sAg"/>
+                                                <constraint firstItem="4KO-rh-ztR" firstAttribute="leading" secondItem="oRW-l8-6kP" secondAttribute="leading" constant="8" id="mnV-fr-AAs"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="fundraiserImage" destination="uFE-2M-1DM" id="Yrm-Ic-P1s"/>
+                                            <outlet property="notificationLabel" destination="3iU-Be-H5a" id="lUQ-oI-efS"/>
+                                            <outlet property="profileImage" destination="2cT-Da-eDK" id="OeM-Pg-4Ea"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="H2x-8J-pc3" firstAttribute="leading" secondItem="uWA-7l-P5v" secondAttribute="leading" id="8Vh-Ow-uK6"/>
                             <constraint firstItem="ERM-C7-m5i" firstAttribute="top" secondItem="gC1-2c-qx5" secondAttribute="top" id="Bqo-GH-z0B"/>
+                            <constraint firstItem="H2x-8J-pc3" firstAttribute="trailing" secondItem="uWA-7l-P5v" secondAttribute="trailing" id="E77-7C-ts4"/>
+                            <constraint firstItem="H2x-8J-pc3" firstAttribute="bottom" secondItem="uWA-7l-P5v" secondAttribute="bottom" id="Vi5-Z3-Ev9"/>
                             <constraint firstItem="ERM-C7-m5i" firstAttribute="trailing" secondItem="uWA-7l-P5v" secondAttribute="trailing" id="gWs-MF-KD3"/>
+                            <constraint firstItem="H2x-8J-pc3" firstAttribute="top" secondItem="ERM-C7-m5i" secondAttribute="bottom" id="kTw-b8-SjR"/>
                             <constraint firstItem="ERM-C7-m5i" firstAttribute="leading" secondItem="uWA-7l-P5v" secondAttribute="leading" id="myg-5n-vHW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uWA-7l-P5v"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Notifications" image="icons8-Notification-25" landscapeImage="icons8-Notification-25" selectedImage="icons8-Notification-25" id="SR0-Pb-X34"/>
+                    <connections>
+                        <outlet property="tableView" destination="H2x-8J-pc3" id="jgX-rJ-qsE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFC-Gb-IGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1944,12 +2063,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBo-6N-4l0" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
-                                        <rect key="frame" x="145.33333333333334" y="42" width="85" height="30"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrt-IH-dbW">
                                         <rect key="frame" x="331" y="42" width="20" height="20"/>
                                         <constraints>
@@ -1958,15 +2071,21 @@
                                         </constraints>
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
+                                        <rect key="frame" x="127" y="37" width="120" height="30"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="rPJ-19-AVe" firstAttribute="centerX" secondItem="NBo-6N-4l0" secondAttribute="centerX" id="3dc-zO-X59"/>
                                     <constraint firstAttribute="trailing" secondItem="Qrt-IH-dbW" secondAttribute="trailing" constant="24" id="7QL-C4-YNg"/>
                                     <constraint firstAttribute="height" constant="68" id="BEG-Vo-oLY"/>
-                                    <constraint firstItem="rPJ-19-AVe" firstAttribute="leading" secondItem="NBo-6N-4l0" secondAttribute="leading" constant="145.33000000000001" id="DtI-oe-phB"/>
+                                    <constraint firstItem="rPJ-19-AVe" firstAttribute="leading" secondItem="NBo-6N-4l0" secondAttribute="leading" constant="127" id="DtI-oe-phB"/>
                                     <constraint firstItem="Qrt-IH-dbW" firstAttribute="top" secondItem="NBo-6N-4l0" secondAttribute="top" constant="42" id="PbL-cf-sB8"/>
-                                    <constraint firstItem="rPJ-19-AVe" firstAttribute="top" secondItem="NBo-6N-4l0" secondAttribute="top" constant="42" id="uZK-dA-1dx"/>
+                                    <constraint firstItem="rPJ-19-AVe" firstAttribute="top" secondItem="NBo-6N-4l0" secondAttribute="top" constant="37" id="uZK-dA-1dx"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0n-KO-uO1">
@@ -1992,7 +2111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ada-LM-a8y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1032" y="2707"/>
+            <point key="canvasLocation" x="1031.2" y="2706.6502463054189"/>
         </scene>
         <!--Add CardVC-->
         <scene sceneID="JB9-55-89U">
