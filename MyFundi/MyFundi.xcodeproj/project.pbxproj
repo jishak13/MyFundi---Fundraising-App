@@ -46,6 +46,7 @@
 		C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B0AD1A1F93F6C5000E02C0 /* User.swift */; };
 		C1C357251FA94B62002B0CEB /* CardPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */; };
 		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
+		C1DB384A1FB2C189002551B6 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DB38491FB2C189002551B6 /* Notification.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		C1B0AD1A1F93F6C5000E02C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentCell.swift; sourceTree = "<group>"; };
 		C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFundraiserDetailsVC.swift; sourceTree = "<group>"; };
+		C1DB38491FB2C189002551B6 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 				C1B0AD1A1F93F6C5000E02C0 /* User.swift */,
 				C16A1E671FA3DA8D0044B125 /* Donation.swift */,
 				C170BA151FA9452A00E53F3A /* Card.swift */,
+				C1DB38491FB2C189002551B6 /* Notification.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				26732A1A1F808EFE00365AE5 /* RoundButton.swift in Sources */,
 				26732A1E1F8091C800365AE5 /* FancyButton.swift in Sources */,
 				C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */,
+				C1DB384A1FB2C189002551B6 /* Notification.swift in Sources */,
 				26732A2D1F83511500365AE5 /* DataService.swift in Sources */,
 				C11E21A21FAD5ABD0094714D /* DonateVC.swift in Sources */,
 				C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */,
