@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NotificationsVC: UIViewController /*UITableViewDelegate, UITableViewDataSource*/{
+class NotificationsVC: UIViewController {
 
     
     @IBOutlet weak var tableView: UITableView!
