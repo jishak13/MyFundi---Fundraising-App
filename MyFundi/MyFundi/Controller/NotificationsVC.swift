@@ -33,7 +33,9 @@ class NotificationsVC: UIViewController , UITableViewDelegate, UITableViewDataSo
         return 2
         
     }
-    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
     /*
     // MARK: - Navigation
 
