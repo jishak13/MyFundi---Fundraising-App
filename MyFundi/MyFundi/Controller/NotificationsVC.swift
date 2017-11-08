@@ -8,15 +8,15 @@
 
 import UIKit
 
-class NotificationsVC: UIViewController , UITableViewDelegate, UITableViewDataSource{
+class NotificationsVC: UITableViewController  {
 
     
-    @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         // Do any additional setup after loading the view.
     }
 
@@ -26,16 +26,26 @@ class NotificationsVC: UIViewController , UITableViewDelegate, UITableViewDataSo
     }
     
 
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-        
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
-    }
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        return 1
+//    }
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 2
+//
+//    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+//
+//
+//
+//            cell.donateButton.tag = indexPath.row
+//
+//
+//            return cell
+//        } else {
+//            return PostCell()
+//        }
+//    }
     /*
     // MARK: - Navigation
 

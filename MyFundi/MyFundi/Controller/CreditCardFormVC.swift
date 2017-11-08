@@ -75,7 +75,7 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
 //
 //        cvv = (textField.cvc as! String)
         
-        print("CARD NUMBER:\(cardNumber) DATE: \(expireDate) CVC:\(cvv)")
+//        print("CARD NUMBER:\(cardNumber) DATE: \(expireDate) CVC:\(cvv)")
         
     }
     
@@ -92,7 +92,7 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
     func paymentCardTextFieldDidEndEditingCVC(_ textField: STPPaymentCardTextField) {
         creditCardForm.paymentCardTextFieldDidEndEditingCVC()
         cvv = textField.cvc as! String
-        print("CARD NUMBER:\(cardNumber) DATE: \(expireDate) CVC:\(cvv)")
+//        print("CARD NUMBER:\(cardNumber) DATE: \(expireDate) CVC:\(cvv)")
     }
     
     func validateValues() ->Bool {
@@ -175,7 +175,8 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
             
             firstNameTextField.text = ""
             zipTextField.text = ""
-           
+            
+
             UpdateFireBaseUser(cardKey: cardKey)
         }else {
             let alertController = UIAlertController(title: "Payment Method Error", message: "Please enter field correctly", preferredStyle: UIAlertControllerStyle.alert)
