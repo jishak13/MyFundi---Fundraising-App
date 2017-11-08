@@ -174,6 +174,7 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
             
             firstNameTextField.text = ""
             zipTextField.text = ""
+            
            
             UpdateFireBaseUser(cardKey: cardKey)
         }else {
