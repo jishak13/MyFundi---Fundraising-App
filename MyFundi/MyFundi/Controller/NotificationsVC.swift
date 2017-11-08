@@ -8,26 +8,28 @@
 
 import UIKit
 
-class NotificationsVC: UIViewController {
+
+class NotificationsVC: UITableViewController  {
+
 
     
-    @IBOutlet weak var tableView: UITableView!
+//    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //tableView.delegate = self
-        //tableView.dataSource = self
+
+//        tableView.delegate = self
+//        tableView.dataSource = self
+
         // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-        
-        
-    }
-    
-//
+
+
+
 //    func numberOfSections(in tableView: UITableView) -> Int {
 //        return 1
 //    }
@@ -35,11 +37,23 @@ class NotificationsVC: UIViewController {
 //        return 2
 //
 //    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//    }
+
     
+
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell") as? PostCell {
+//
+//
+//
+//            cell.donateButton.tag = indexPath.row
+//
+//
+//            return cell
+//        } else {
+//            return PostCell()
+//        }
+//    }
+
     /*
     // MARK: - Navigation
 
@@ -51,3 +65,5 @@ class NotificationsVC: UIViewController {
     */
 
 }
+}
+
