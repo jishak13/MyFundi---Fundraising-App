@@ -53,6 +53,7 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
         
         view.addSubview(paymentTextField)
         
+        
         NSLayoutConstraint.activate([
             paymentTextField.topAnchor.constraint(equalTo: creditCardForm.bottomAnchor, constant: 50),
             paymentTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -176,14 +177,19 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
             firstNameTextField.text = ""
             zipTextField.text = ""
             
+            
+            
 
             UpdateFireBaseUser(cardKey: cardKey)
+            self.dismiss(animated: true, completion: nil)
         }else {
             let alertController = UIAlertController(title: "Payment Method Error", message: "Please enter field correctly", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
         }
+        
+        
     }
     
     func UpdateFireBaseUser(cardKey: String){
