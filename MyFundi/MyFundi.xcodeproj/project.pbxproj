@@ -26,7 +26,6 @@
 		26E2B70B1F80467F00AC390F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B70A1F80467F00AC390F /* Assets.xcassets */; };
 		26E2B70E1F80467F00AC390F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B70C1F80467F00AC390F /* LaunchScreen.storyboard */; };
 		26E86B441FAFBEF0006476A7 /* CreditCardFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */; };
-		26E86B461FAFC0D1006476A7 /* MainAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E86B451FAFC0D1006476A7 /* MainAPIClient.swift */; };
 		978ABEB46AA930093FD2ED8A /* Pods_MyFundi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */; };
 		C11630771FB29C6D0024DBCA /* NotificationsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11630761FB29C6D0024DBCA /* NotificationsVC.swift */; };
 		C11630791FB29C8D0024DBCA /* LikesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C11630781FB29C8D0024DBCA /* LikesCell.swift */; };
@@ -87,7 +86,6 @@
 		26E2B70D1F80467F00AC390F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		26E2B70F1F80467F00AC390F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormVC.swift; sourceTree = "<group>"; };
-		26E86B451FAFC0D1006476A7 /* MainAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAPIClient.swift; sourceTree = "<group>"; };
 		8B10D887822625C5D4E00BE8 /* Pods-MyFundi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.debug.xcconfig"; sourceTree = "<group>"; };
 		C11630751FB295790024DBCA /* MyFundi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyFundi-Bridging-Header.h"; sourceTree = "<group>"; };
 		C11630761FB29C6D0024DBCA /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
@@ -152,7 +150,6 @@
 			isa = PBXGroup;
 			children = (
 				26732A2C1F83511500365AE5 /* DataService.swift */,
-				26E86B451FAFC0D1006476A7 /* MainAPIClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -469,7 +466,6 @@
 				26732A1C1F80909A00365AE5 /* FancyField.swift in Sources */,
 				26898BFB1FA67C480052BB58 /* ResultDetailsVC.swift in Sources */,
 				C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */,
-				26E86B461FAFC0D1006476A7 /* MainAPIClient.swift in Sources */,
 				C116307B1FB29CA00024DBCA /* DonateCell.swift in Sources */,
 				C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */,
 				26E2B7061F80467F00AC390F /* SignInVC.swift in Sources */,
