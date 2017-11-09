@@ -1777,6 +1777,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="tableView" destination="sks-GI-Bv1" id="Pgu-2s-eX7"/>
+                        <outlet property="view" destination="sks-GI-Bv1" id="Ea7-XO-crZ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HB-TE-q3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
