@@ -41,6 +41,7 @@ class NotificationsVC: UITableViewController  {
 
         
 
+        self.fundraiserKeys = [String]()
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let userDict = snapshot.value as? Dictionary<String,AnyObject> {
                 print ("JOE: USER DICT \(userDict)")
@@ -76,11 +77,12 @@ class NotificationsVC: UITableViewController  {
 //                }
 //            }
 //        })
-//
+////
+//        var notifs = [Notification]()
         DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 
-                var donationKeys = [String]()
+               
                 
                 for snap in snapshot {
                     print("SNAP: \(snap)")
@@ -90,10 +92,11 @@ class NotificationsVC: UITableViewController  {
                                 if self.fundraiserKeys.contains(don.key){
                                     print("JOE: USER DONATED TO YOUR FUNDRAISER!")
                                      self.user1 = User(userKey: snap.key,userData: userDict)
-                                     DataService.ds.REF_DONATIONS.child(don.key).observeSingleEvent(of: .value, with: { (snapshot) in
+                                     DataService.ds.REF_FUNDRAISERS.child(don.key).observeSingleEvent(of: .value, with: { (snapshot) in
                                         if let postDict = snapshot.value as? Dictionary<String,AnyObject> {
                                             self.post = Post(postKey: don.key,postData: postDict)
                                             var notification = Notification(user: self.user1!, post: self.post!,type: "Donate")
+                                            
                                             self.notifications.append(notification)
                                         }
                                     })
@@ -105,7 +108,6 @@ class NotificationsVC: UITableViewController  {
                                 if self.fundraiserKeys.contains(like.key) {
                                     print("JOE: USER LIKED TO YOUR FUNDRAISER!")
                                     self.user1 = User(userKey:snap.key,userData: userDict)
-                                    
                                     DataService.ds.REF_FUNDRAISERS.child(like.key).observeSingleEvent(of: .value, with: { (snapshot) in
                                         if let postDict = snapshot.value as? Dictionary<String,AnyObject> {
                                             self.post = Post(postKey: like.key,postData: postDict)
@@ -120,6 +122,7 @@ class NotificationsVC: UITableViewController  {
                     }
                 }
             }
+//            self.notifications = notifs
             self.tableView.reloadData()
         })
 
