@@ -540,11 +540,11 @@
                                     <constraint firstItem="Ee7-cM-86m" firstAttribute="top" secondItem="5kW-qd-jTh" secondAttribute="bottom" constant="26.329999999999998" id="yD1-6Q-0O5"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount to Donate" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6up-em-W2b" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount to Donate" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6up-em-W2b" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="20" y="255" width="334" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" enablesReturnKeyAutomatically="YES"/>
                                 <connections>
                                     <action selector="amountValueChanged:" destination="DB7-do-9Rw" eventType="valueChanged" id="rE6-Y3-log"/>
                                 </connections>
@@ -2530,7 +2530,7 @@
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="749-SK-JO0"/>
-        <segue reference="3AY-5i-bwn"/>
+        <segue reference="lVA-g4-5qV"/>
+        <segue reference="VdD-2h-53k"/>
     </inferredMetricsTieBreakers>
 </document>
