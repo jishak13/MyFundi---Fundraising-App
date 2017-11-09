@@ -12,6 +12,9 @@ import Firebase
 class NotificationsVC: UITableViewController  {
 
   
+ 
+//    @IBOutlet weak var refreshControl: UIRefreshControl!
+    
     var notifications = [Notification]()
     var userID: String = ""
     var user : User!
@@ -33,13 +36,10 @@ class NotificationsVC: UITableViewController  {
         
 //        refreshControl = UIRefreshControl()
 //        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        refreshControl!.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//
 //        tableView.addSubview(refreshControl!)
 
-        refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor.blue
-        refreshControl?.tintColor = UIColor.lightGray
-
+        
 
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let userDict = snapshot.value as? Dictionary<String,AnyObject> {
@@ -123,15 +123,20 @@ class NotificationsVC: UITableViewController  {
             self.tableView.reloadData()
         })
 
+        
+//        refreshControl = UIRefreshControl()
+//        self.refreshControl?.backgroundColor = UIColor.blue
+//        self.refreshControl?.tintColor = UIColor.lightGray
+//        self.refreshControl!.addTarget(self, action: #selector(handleRefresh(refreshControl: )), for: UIControlEvents.valueChanged)
         // Do any additional setup after loading the view.
     }
     
-//    func handleRefresh(refreshControl: UIRefreshControl) {
-//
-//
-//        self.tableView.reloadData()
-//        refreshControl.endRefreshing()
-//    }
+    @IBAction func handleRefresh(_ sender: Any) {
+        self.tableView.reloadData()
+        refreshControl?.endRefreshing()
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

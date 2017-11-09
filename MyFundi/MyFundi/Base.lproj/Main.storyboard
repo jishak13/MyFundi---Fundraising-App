@@ -1771,12 +1771,13 @@
                             <outlet property="delegate" destination="4fi-Fx-VEh" id="dMY-4x-dga"/>
                         </connections>
                     </tableView>
-                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="HQS-nC-Hh2">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="UNH-he-Dtw">
                         <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="handleRefresh:" destination="4fi-Fx-VEh" eventType="valueChanged" id="Prr-6L-ZGW"/>
+                        </connections>
                     </refreshControl>
                     <connections>
-                        <outlet property="tableView" destination="sks-GI-Bv1" id="Pgu-2s-eX7"/>
                         <outlet property="view" destination="sks-GI-Bv1" id="Ea7-XO-crZ"/>
                     </connections>
                 </tableViewController>
