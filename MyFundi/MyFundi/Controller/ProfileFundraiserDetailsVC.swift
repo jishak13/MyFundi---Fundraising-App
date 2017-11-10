@@ -117,6 +117,8 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
             editMode  = true
             titleTextField.isUserInteractionEnabled = true
             captionTextView.isUserInteractionEnabled = true
+//            captionTextView.allowsEditingTextAttributes = true
+            captionTextView.isEditable = true
             goalTextField.isUserInteractionEnabled = true
             expirationDateTime.isUserInteractionEnabled = true
             editImage.isUserInteractionEnabled = true
@@ -127,6 +129,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
         {
             titleTextField.isUserInteractionEnabled = false
             captionTextView.isUserInteractionEnabled = false
+          
             goalTextField.isUserInteractionEnabled = false
             expirationDateTime.isUserInteractionEnabled = false
             editImage.isUserInteractionEnabled = false

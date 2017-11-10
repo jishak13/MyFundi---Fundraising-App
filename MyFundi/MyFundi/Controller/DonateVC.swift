@@ -135,17 +135,19 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         }
     }
     
-    func validateCard(){
+    func validateCard(row: Int){
         var cardDate = self.currentCard?.ExpireDate
         var chars = Array(cardDate!)
         var newDate = "\(chars[0])\(chars[1])-01-20\(chars[3])\(chars[4])"
         print("JOE: THE DATE \(newDate)")
        var formattedExpire = dateFormatter.date(from: newDate)
-        if formattedExpire! <= Date() {
+        if formattedExpire! < Date() {
             let alertController = UIAlertController(title: "Card Has Expires", message: "Please select an card that has not expired.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
+            cardPickerData.remove(at: row)
+            self.cardPicker.reloadAllComponents()
         }
         else{
             
@@ -153,7 +155,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         currentCard  = cards[row]
-        self.validateCard()
+        self.validateCard(row: row)
         
     }
     @IBAction func chooseMethodPressed(_ sender: Any) {

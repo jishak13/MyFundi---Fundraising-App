@@ -122,16 +122,8 @@ class NotificationsVC: UITableViewController  {
                     }
                 }
             }
-//            self.notifications = notifs
-            self.tableView.reloadData()
+            self.handleRefresh(self)
         })
-
-        
-//        refreshControl = UIRefreshControl()
-//        self.refreshControl?.backgroundColor = UIColor.blue
-//        self.refreshControl?.tintColor = UIColor.lightGray
-//        self.refreshControl!.addTarget(self, action: #selector(handleRefresh(refreshControl: )), for: UIControlEvents.valueChanged)
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func handleRefresh(_ sender: Any) {
@@ -139,8 +131,6 @@ class NotificationsVC: UITableViewController  {
         refreshControl?.endRefreshing()
     }
     
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

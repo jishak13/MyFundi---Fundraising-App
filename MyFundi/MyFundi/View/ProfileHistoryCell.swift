@@ -13,7 +13,8 @@ class ProfileHistoryCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
- 
+    @IBOutlet weak var dateTypeLabel: UILabel!
+    
     var post: Post!
     var donation: Donation!
     
@@ -30,7 +31,7 @@ class ProfileHistoryCell: UITableViewCell {
         self.titleLabel.text = post.title
         self.amountLabel.text = "\(post.donationGoal)"
         self.dateLabel.text = post.StartDate 
-        
+        self.dateTypeLabel.text = "Posted On"
         
         
     }
@@ -40,8 +41,16 @@ class ProfileHistoryCell: UITableViewCell {
         
         print("JOE2: \(postTitle)")
 //        self.titleLabel.text = postTitle
-        self.amountLabel.text = "\(donation.DonationAmount)"
+        self.dateTypeLabel.text = "Donated on"
+        self.amountLabel.text = "$\(donation.DonationAmount)"
         self.dateLabel.text = self.donation.DonationDate
+        
+        DataService.ds.REF_FUNDRAISERS.child(donation.FundraiserKey).observeSingleEvent(of: .value, with:  { (snapshot)  in
+              if let fundDict = snapshot.value as? Dictionary<String,AnyObject> {
+                self.titleLabel.text = fundDict["title"] as! String
+            }
+        })
+        
     }
     
 

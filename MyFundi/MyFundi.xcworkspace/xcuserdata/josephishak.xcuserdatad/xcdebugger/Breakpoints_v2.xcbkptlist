@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.762492"
+            timestampString = "532047431.977787"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.763149"
+            timestampString = "532047431.981736"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.763929"
+            timestampString = "532047431.982186"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
@@ -250,11 +250,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileFundraiserDetailsVC.swift"
-            timestampString = "531443989.046753"
+            timestampString = "532047431.982556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "backPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -314,7 +314,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.764612"
+            timestampString = "532047431.982686"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "233"
@@ -330,7 +330,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.764999"
+            timestampString = "532047431.983037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "35"
@@ -408,7 +408,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.765348"
+            timestampString = "532047431.983378"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "228"
@@ -424,7 +424,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.7657"
+            timestampString = "532047431.983713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "226"
@@ -440,7 +440,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.766065"
+            timestampString = "532047431.984042"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "82"
@@ -456,7 +456,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileFundraiserDetailsVC.swift"
-            timestampString = "531443989.048005"
+            timestampString = "532047431.984425"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "68"
@@ -504,7 +504,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.766435"
+            timestampString = "532047431.984503"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "166"
@@ -520,7 +520,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileVC.swift"
-            timestampString = "531938971.766776"
+            timestampString = "532047431.984939"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "224"
@@ -536,11 +536,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileFundraiserDetailsVC.swift"
-            timestampString = "531443989.048074"
+            timestampString = "532047431.985363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "196"
+            endingLineNumber = "196"
             landmarkName = "updateFirebaseFundraiser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -552,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileFundraiserDetailsVC.swift"
-            timestampString = "531443989.048117"
+            timestampString = "532047431.985443"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
+            startingLineNumber = "178"
+            endingLineNumber = "178"
             landmarkName = "validateFields()"
             landmarkType = "7">
          </BreakpointContent>
@@ -568,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/ProfileFundraiserDetailsVC.swift"
-            timestampString = "531443989.048171"
+            timestampString = "532047431.985511"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "217"
-            endingLineNumber = "217"
+            startingLineNumber = "220"
+            endingLineNumber = "220"
             landmarkName = "deleteFundraiserTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -902,11 +902,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.393358"
+            timestampString = "532047431.985816"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211">
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "numberOfComponents(in:)"
+            landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -948,11 +950,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.393746"
+            timestampString = "532047431.986345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211">
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "numberOfComponents(in:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -962,11 +966,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.393992"
+            timestampString = "532047431.986778"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211">
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "numberOfComponents(in:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -992,26 +998,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.394254"
+            timestampString = "532047431.987141"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "211"
-            endingLineNumber = "211">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.394489"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
-            landmarkName = "pickerView(_:numberOfRowsInComponent:)"
+            startingLineNumber = "213"
+            endingLineNumber = "213"
+            landmarkName = "numberOfComponents(in:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1022,12 +1014,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.39477"
+            timestampString = "532047431.987467"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "loadPaymentMethods()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFundi/Controller/DonateVC.swift"
+            timestampString = "532047431.987849"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "139"
             endingLineNumber = "139"
-            landmarkName = "pickerView(_:didSelectRow:inComponent:)"
+            landmarkName = "validateCard(row:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1038,11 +1046,27 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.395025"
+            timestampString = "532047431.988228"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "80"
             endingLineNumber = "80"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyFundi/Controller/DonateVC.swift"
+            timestampString = "532047431.988633"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "validateFields()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1053,13 +1077,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "MyFundi/Controller/DonateVC.swift"
-            timestampString = "531797964.395304"
+            filePath = "MyFundi/Controller/CreditCardFormVC.swift"
+            timestampString = "532047431.988985"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
-            landmarkName = "donateNowPressed(_:)"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "submitPressed(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1070,29 +1094,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/CreditCardFormVC.swift"
-            timestampString = "531803217.095527"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "unknown"
-            landmarkType = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFundi/Controller/CreditCardFormVC.swift"
-            timestampString = "531803217.096052"
+            timestampString = "532047431.989067"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
             endingLineNumber = "107"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "validateValues()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1102,7 +1110,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/NotificationsVC.swift"
-            timestampString = "531938971.767603"
+            timestampString = "532047431.989138"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "86"
@@ -1118,12 +1126,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/NotificationsVC.swift"
-            timestampString = "531938971.767699"
+            timestampString = "532047431.989211"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
+            landmarkName = "didReceiveMemoryWarning()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1134,23 +1142,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/NotificationsVC.swift"
-            timestampString = "531938971.767807"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "134"
-            endingLineNumber = "134"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFundi/Controller/NotificationsVC.swift"
-            timestampString = "531938971.7679"
+            timestampString = "532047431.989284"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "90"
@@ -1166,27 +1158,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MyFundi/Controller/NotificationsVC.swift"
-            timestampString = "531938971.76796"
+            timestampString = "532047431.989341"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MyFundi/Controller/NotificationsVC.swift"
-            timestampString = "531938971.768013"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>

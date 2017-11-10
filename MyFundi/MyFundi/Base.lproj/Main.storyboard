@@ -258,7 +258,7 @@
                                                                         <constraint firstAttribute="height" constant="190" id="hSy-nR-M9F"/>
                                                                     </constraints>
                                                                 </imageView>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rkX-Mk-ciu">
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkX-Mk-ciu">
                                                                     <rect key="frame" x="0.0" y="279.66666666666669" width="327" height="150"/>
                                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                     <constraints>
@@ -759,6 +759,7 @@
                                         <connections>
                                             <outlet property="amountLabel" destination="OWD-7J-pPO" id="GZE-fV-77p"/>
                                             <outlet property="dateLabel" destination="OiK-zF-Bo8" id="X5g-hp-yIb"/>
+                                            <outlet property="dateTypeLabel" destination="eq9-bc-MOj" id="HPh-Pu-0SI"/>
                                             <outlet property="titleLabel" destination="Tf9-uc-7O5" id="FBU-h4-Kn1"/>
                                         </connections>
                                     </tableViewCell>
@@ -1440,7 +1441,7 @@
                                     <constraint firstAttribute="height" constant="160" id="Nzx-eU-TzL"/>
                                 </constraints>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mj4-Wv-CFK" customClass="FancyTextView" customModule="MyFundi" customModuleProvider="target">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" indicatorStyle="black" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mj4-Wv-CFK" customClass="FancyTextView" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="16" y="318" width="343" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -1713,11 +1714,11 @@
                                     <outlet property="profileImage" destination="WOM-mW-CBJ" id="2Je-KQ-fZw"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateCell" rowHeight="147" id="sSZ-IG-VuN" customClass="DonateCell" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="166" width="375" height="147"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateCell" rowHeight="104" id="sSZ-IG-VuN" customClass="DonateCell" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="166" width="375" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sSZ-IG-VuN" id="VIQ-xn-itv">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="146.66666666666666"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="103.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="5iH-P6-NgH">
@@ -1773,6 +1774,7 @@
                         </connections>
                     </tableView>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="UNH-he-Dtw">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <connections>
                             <action selector="handleRefresh:" destination="4fi-Fx-VEh" eventType="valueChanged" id="Prr-6L-ZGW"/>
@@ -2533,7 +2535,7 @@
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="749-SK-JO0"/>
+        <segue reference="lVA-g4-5qV"/>
         <segue reference="VdD-2h-53k"/>
     </inferredMetricsTieBreakers>
 </document>
