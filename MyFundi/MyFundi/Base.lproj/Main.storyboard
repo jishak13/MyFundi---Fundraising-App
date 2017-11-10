@@ -640,9 +640,9 @@
                                             <constraint firstAttribute="width" constant="150" id="gVV-q7-Q1f"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-Camera_25" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-2I-dQg">
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-camera-enhance" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-2I-dQg">
                                         <rect key="frame" x="79.999999999999986" y="160" width="40" height="40"/>
-                                        <color key="backgroundColor" red="0.30002018809318542" green="0.6110309362411499" blue="0.67458146810531616" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="backgroundColor" red="0.92942750453948975" green="0.92941009998321533" blue="0.92942190170288086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="1BN-kZ-5HH"/>
@@ -2492,12 +2492,13 @@
         <image name="icons8-Search_50" width="50" height="50"/>
         <image name="icons8-Settings-25" width="25" height="25"/>
         <image name="icons8-User Menu Male-25" width="25" height="25"/>
+        <image name="icons8-camera-enhance" width="30" height="30"/>
         <image name="icons8-edit" width="50" height="50"/>
         <image name="icons8-trash" width="50" height="50"/>
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="749-SK-JO0"/>
-        <segue reference="VdD-2h-53k"/>
+        <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>

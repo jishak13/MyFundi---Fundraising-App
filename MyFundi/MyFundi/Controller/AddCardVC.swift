@@ -9,17 +9,7 @@
 import UIKit
 import Firebase
 
-//extension UIViewController {
-//    func hideKeyboardWhenTappedAroundCardForm() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromCard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboardfromCard() {
-//        view.endEditing(true)
-//    }
-//}
+
 
 class AddCardVC: UIViewController, UITableViewDelegate , UITableViewDataSource{
 

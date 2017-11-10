@@ -10,17 +10,6 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
-//extension UIViewController {
-//    func hideKeyboardWhenTappedAroundProfile() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromProfile))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboardfromProfile() {
-//        view.endEditing(true)
-//    }
-//}
 
 
 

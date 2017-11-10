@@ -9,17 +9,7 @@
 import UIKit
 import Firebase
 
-//extension UIViewController {
-//    func hideKeyboardWhenTappedAroundSearch() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromSearch))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboardfromSearch() {
-//        view.endEditing(true)
-//    }
-//}
+
 
 class SearchedDetailsTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource , UISearchResultsUpdating {
 

@@ -10,10 +10,6 @@ import UIKit
 import Firebase
 
 class NotificationsVC: UITableViewController  {
-
-  
- 
-//    @IBOutlet weak var refreshControl: UIRefreshControl!
     
     var notifications = [Notification]()
     var userID: String = ""

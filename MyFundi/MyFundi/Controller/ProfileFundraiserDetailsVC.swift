@@ -9,17 +9,6 @@
 import UIKit
 import Firebase
 
-//extension UIViewController {
-//    func hideKeyboardWhenTappedAroundProfileDetails() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromDetails))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//
-//    @objc func dismissKeyboardfromDetails() {
-//        view.endEditing(true)
-//    }
-//}
 
 
 class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
