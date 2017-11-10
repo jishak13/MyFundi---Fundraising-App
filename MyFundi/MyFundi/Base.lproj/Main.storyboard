@@ -456,19 +456,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tz9-kZ-rb1">
-                                        <rect key="frame" x="331" y="42" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="20" id="Cdd-Ca-PJU"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="QWR-9A-wRe"/>
-                                            <constraint firstAttribute="height" constant="20" id="d9E-ux-TMy"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="xsI-2C-PGr"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                        <connections>
-                                            <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="ycD-We-Nej"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ll-5P-zoU">
                                         <rect key="frame" x="24" y="42" width="70" height="20"/>
                                         <constraints>
@@ -491,9 +478,7 @@
                                     <constraint firstItem="7Ll-5P-zoU" firstAttribute="leading" secondItem="cVl-p4-FKq" secondAttribute="leading" constant="24" id="4OK-Mi-aAx"/>
                                     <constraint firstItem="TTs-Ld-vZM" firstAttribute="centerX" secondItem="cVl-p4-FKq" secondAttribute="centerX" id="5NL-Gb-K2V"/>
                                     <constraint firstAttribute="height" constant="68" id="9JC-ku-P3F"/>
-                                    <constraint firstAttribute="trailing" secondItem="tz9-kZ-rb1" secondAttribute="trailing" constant="24" id="V5f-Je-EwK"/>
                                     <constraint firstItem="TTs-Ld-vZM" firstAttribute="top" secondItem="cVl-p4-FKq" secondAttribute="top" constant="42" id="WRw-NS-PcM"/>
-                                    <constraint firstItem="tz9-kZ-rb1" firstAttribute="top" secondItem="cVl-p4-FKq" secondAttribute="top" constant="42" id="aeR-6a-HYz"/>
                                     <constraint firstItem="7Ll-5P-zoU" firstAttribute="top" secondItem="cVl-p4-FKq" secondAttribute="top" constant="42" id="d9t-uH-KRv"/>
                                 </constraints>
                             </view>
@@ -972,6 +957,7 @@
                                         </constraints>
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
+                                            <action selector="signOutTapped:" destination="z8P-ya-cp2" eventType="touchUpInside" id="9ll-Ae-okx"/>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="QUl-Bl-dwh"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="b4r-j6-zdl"/>
                                         </connections>
@@ -1128,10 +1114,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nKu-cU-MTV">
-                                        <rect key="frame" x="24" y="42" width="327" height="20"/>
+                                        <rect key="frame" x="24" y="42" width="327" height="42"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zgS-Dq-Htz">
-                                                <rect key="frame" x="0.0" y="0.0" width="55" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="55" height="42"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="55" id="SJV-0E-vaB"/>
                                                 </constraints>
@@ -1145,23 +1131,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details      " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32c-7e-KBS">
-                                                <rect key="frame" x="55" y="0.0" width="252" height="20"/>
+                                                <rect key="frame" x="55" y="0.0" width="272" height="42"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tWx-ys-wIp">
-                                                <rect key="frame" x="307" y="0.0" width="20" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="FLn-07-tUS"/>
-                                                    <constraint firstAttribute="height" constant="20" id="MVu-om-rim"/>
-                                                </constraints>
-                                                <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                                <connections>
-                                                    <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="Uac-Mg-Gzp"/>
-                                                    <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="wiv-iK-cn4"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -1394,10 +1368,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="XJE-dc-ncw">
-                                        <rect key="frame" x="24" y="42" width="327" height="20"/>
+                                        <rect key="frame" x="24" y="42" width="327" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxb-MW-tHa">
-                                                <rect key="frame" x="0.0" y="0.0" width="42" height="20"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="51.666666666666664" height="30"/>
                                                 <state key="normal" title="Back">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -1406,23 +1380,11 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Campaign Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8z-eV-NCk">
-                                                <rect key="frame" x="42" y="0.0" width="265" height="20"/>
+                                                <rect key="frame" x="51.666666666666657" y="0.0" width="275.33333333333337" height="30"/>
                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6p-rA-Xta">
-                                                <rect key="frame" x="307" y="0.0" width="20" height="20"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="mOI-9e-byy"/>
-                                                    <constraint firstAttribute="height" constant="20" id="rnO-1o-q7y"/>
-                                                </constraints>
-                                                <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                                <connections>
-                                                    <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="0ga-cy-tat"/>
-                                                    <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="vgq-DI-W3k"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                     </stackView>
                                 </subviews>
@@ -2535,7 +2497,7 @@
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVA-g4-5qV"/>
+        <segue reference="749-SK-JO0"/>
         <segue reference="VdD-2h-53k"/>
     </inferredMetricsTieBreakers>
 </document>

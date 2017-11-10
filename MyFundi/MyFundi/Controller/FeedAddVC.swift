@@ -66,7 +66,12 @@ UINavigationControllerDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-   
+    @IBAction func signOutTapped(_ sender: AnyObject) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("KHALID: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "goToSignIn", sender: nil)
+    }
     
   
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
