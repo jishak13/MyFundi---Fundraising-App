@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2655F0C21F83684B003323EF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2655F0C11F83684B003323EF /* Post.swift */; };
+		26572E3B1FB66FE8001313F5 /* NotificationSignoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26572E3A1FB66FE8001313F5 /* NotificationSignoutVC.swift */; };
+		26572E3D1FB6705E001313F5 /* SettingsSignoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26572E3C1FB6705E001313F5 /* SettingsSignoutVC.swift */; };
 		26689D2E1FA91A6D0064635F /* SignInVCTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26689D2D1FA91A6D0064635F /* SignInVCTest.swift */; };
 		26732A151F808C8C00365AE5 /* FancyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A141F808C8C00365AE5 /* FancyView.swift */; };
 		26732A181F808D4B00365AE5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A171F808D4B00365AE5 /* Constants.swift */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		21AAB1E23E94C4E884242A83 /* Pods-MyFundi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.release.xcconfig"; sourceTree = "<group>"; };
 		2655F0C11F83684B003323EF /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		26572E3A1FB66FE8001313F5 /* NotificationSignoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSignoutVC.swift; sourceTree = "<group>"; };
+		26572E3C1FB6705E001313F5 /* SettingsSignoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSignoutVC.swift; sourceTree = "<group>"; };
 		26689D231FA9167C0064635F /* MyFundiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyFundiUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26689D271FA9167C0064635F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26689D2D1FA91A6D0064635F /* SignInVCTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVCTest.swift; sourceTree = "<group>"; };
@@ -244,6 +248,8 @@
 				C18CEBC41FAF8D690007F3C2 /* AboutVC.swift */,
 				26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */,
 				C11630761FB29C6D0024DBCA /* NotificationsVC.swift */,
+				26572E3A1FB66FE8001313F5 /* NotificationSignoutVC.swift */,
+				26572E3C1FB6705E001313F5 /* SettingsSignoutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -471,6 +477,7 @@
 				C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */,
 				C116307B1FB29CA00024DBCA /* DonateCell.swift in Sources */,
 				C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */,
+				26572E3D1FB6705E001313F5 /* SettingsSignoutVC.swift in Sources */,
 				26E2B7061F80467F00AC390F /* SignInVC.swift in Sources */,
 				C170BA181FA948EE00E53F3A /* AddCardVC.swift in Sources */,
 				C1579FB41F93DF1500331C1F /* ProfileHistoryCell.swift in Sources */,
@@ -489,6 +496,7 @@
 				C18CEBC71FAF94A40007F3C2 /* HeaderView.swift in Sources */,
 				26E2B7041F80467F00AC390F /* AppDelegate.swift in Sources */,
 				26732A151F808C8C00365AE5 /* FancyView.swift in Sources */,
+				26572E3B1FB66FE8001313F5 /* NotificationSignoutVC.swift in Sources */,
 				26732A181F808D4B00365AE5 /* Constants.swift in Sources */,
 				C170BA161FA9452A00E53F3A /* Card.swift in Sources */,
 				C16A1E681FA3DA8D0044B125 /* Donation.swift in Sources */,
