@@ -95,7 +95,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "60"
             endingLineNumber = "60"
-            landmarkName = "signOutTapped(_:)"
+            landmarkName = "signOutTappedProfile(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

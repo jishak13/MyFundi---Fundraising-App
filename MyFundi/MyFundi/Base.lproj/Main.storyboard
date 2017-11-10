@@ -611,6 +611,7 @@
                                         <connections>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="gsf-lc-YyE"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="hwu-xx-65u"/>
+                                            <action selector="signOutTappedProfile:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="Rmt-33-4KT"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8t-vL-fZu">
@@ -1585,6 +1586,7 @@
                                             <action selector="signOutTapped:" destination="LpX-x5-nry" eventType="touchUpInside" id="SAC-U1-iHc"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="pOq-HN-99x"/>
                                             <action selector="signOutTapped:" destination="ERM-C7-m5i" eventType="touchUpInside" id="vog-l0-KMH"/>
+                                            <action selector="signOutTappedNotification:" destination="LpX-x5-nry" eventType="touchUpInside" id="l1l-dW-7cZ"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2087,6 +2089,7 @@
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
                                             <action selector="signOutTapped:" destination="i1T-jK-zy7" eventType="touchUpInside" id="IRU-Nc-m5j"/>
+                                            <action selector="signOutTappedSettings:" destination="i1T-jK-zy7" eventType="touchUpInside" id="Sf6-Lg-uKD"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
@@ -2518,7 +2521,7 @@
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="749-SK-JO0"/>
+        <segue reference="lVA-g4-5qV"/>
         <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>

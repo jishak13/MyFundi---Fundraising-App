@@ -70,7 +70,7 @@ UINavigationControllerDelegate,UITextFieldDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func signOutTapped(_ sender: AnyObject) {
+    @IBAction func signOutTappedPost(_ sender: AnyObject) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KHALID: ID removed from keychain \(keychainResult)")
         try! Auth.auth().signOut()
