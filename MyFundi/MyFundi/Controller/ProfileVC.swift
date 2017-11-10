@@ -67,6 +67,13 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         
     }
     
+    @IBAction func signOutTapped(_ sender: AnyObject) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("KHALID: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "goToSignIn", sender: nil)
+    }
+    
     func viewLoadSetup(){
         hideKeyboardWhenTappedAround()
         print("My View has loaded \(count) times")

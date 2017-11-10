@@ -609,8 +609,8 @@
                                         </constraints>
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
-                                            <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="U7L-Bl-Oae"/>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="gsf-lc-YyE"/>
+                                            <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="hwu-xx-65u"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b8t-vL-fZu">
@@ -1545,7 +1545,7 @@
         <!--Notifications-->
         <scene sceneID="LmW-lX-aEq">
             <objects>
-                <viewController id="LpX-x5-nry" sceneMemberID="viewController">
+                <viewController id="LpX-x5-nry" customClass="NotificationSignoutVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gC1-2c-qx5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1568,7 +1568,9 @@
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="66e-yF-Xik"/>
+                                            <action selector="signOutTapped:" destination="LpX-x5-nry" eventType="touchUpInside" id="SAC-U1-iHc"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="pOq-HN-99x"/>
+                                            <action selector="signOutTapped:" destination="ERM-C7-m5i" eventType="touchUpInside" id="vog-l0-KMH"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2054,7 +2056,7 @@
         <!--Settings-->
         <scene sceneID="W7a-s9-V5Z">
             <objects>
-                <viewController id="i1T-jK-zy7" sceneMemberID="viewController">
+                <viewController id="i1T-jK-zy7" customClass="SettingsSignoutVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bao-DI-I2y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2069,6 +2071,9 @@
                                             <constraint firstAttribute="width" constant="20" id="E2q-H7-9BG"/>
                                         </constraints>
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
+                                        <connections>
+                                            <action selector="signOutTapped:" destination="i1T-jK-zy7" eventType="touchUpInside" id="IRU-Nc-m5j"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
                                         <rect key="frame" x="127" y="37" width="120" height="30"/>
@@ -2498,6 +2503,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="749-SK-JO0"/>
-        <segue reference="VdD-2h-53k"/>
+        <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>
