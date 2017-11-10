@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SwiftKeychainWrapper
 
 class SettingsSignoutVC: UIViewController {
 
@@ -16,6 +18,13 @@ class SettingsSignoutVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func signOutTappedSettings(_ sender: AnyObject) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("KHALID: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "goToSignIn", sender: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

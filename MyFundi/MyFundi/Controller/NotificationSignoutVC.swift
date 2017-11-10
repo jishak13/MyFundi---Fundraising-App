@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import SwiftKeychainWrapper
 
 class NotificationSignoutVC: UIViewController {
 
@@ -16,7 +18,7 @@ class NotificationSignoutVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func signOutTapped(_ sender: AnyObject) {
+    @IBAction func signOutTappedNotification(_ sender: AnyObject) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KHALID: ID removed from keychain \(keychainResult)")
         try! Auth.auth().signOut()
