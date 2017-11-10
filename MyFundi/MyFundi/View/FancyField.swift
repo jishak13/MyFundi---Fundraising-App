@@ -8,11 +8,11 @@
 
 import UIKit
 
-class FancyField: UITextField {
+class FancyField: UITextField,UITextFieldDelegate {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.delegate = self
         layer.borderColor = UIColor(displayP3Red: SHADOW_GRAY, green: SHADOW_GRAY, blue: SHADOW_GRAY, alpha: 0.2).cgColor
         layer.borderWidth = 1
         layer.cornerRadius = 2.0
@@ -32,6 +32,11 @@ class FancyField: UITextField {
     
     override func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.insetBy(dx: 10, dy: 5)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.endEditing(true)
+        return false
     }
     
 }

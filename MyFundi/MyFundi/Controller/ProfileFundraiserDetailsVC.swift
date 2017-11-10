@@ -9,6 +9,19 @@
 import UIKit
 import Firebase
 
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAroundProfileDetails() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromDetails))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboardfromDetails() {
+//        view.endEditing(true)
+//    }
+//}
+
+
 class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
 
     @IBOutlet weak var titleTextField: FancyField!
@@ -35,7 +48,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        hideKeyboardWhenTappedAround()
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
         imagePicker = UIImagePickerController()

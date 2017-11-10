@@ -27,7 +27,7 @@ extension UIViewController {
 
 
 class FeedAddVC: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate{
+UINavigationControllerDelegate,UITextFieldDelegate{
     
     @IBOutlet weak var TitleTxt: FancyField!
     @IBOutlet weak var ImageChoose: UIImageView!
@@ -57,6 +57,10 @@ UINavigationControllerDelegate{
 
        dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
+        
+        self.TitleTxt.delegate = self
+       self.NumOfRequest.delegate = self
+        
      //Current time zone
         // Do any additional setup after loading the view.
     }
@@ -68,7 +72,11 @@ UINavigationControllerDelegate{
     
    
     
-  
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return false
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         ImageChoose.image = selectedImage

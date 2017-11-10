@@ -10,6 +10,18 @@ import UIKit
 import Firebase
 import SwiftKeychainWrapper
 
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAroundProfile() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromProfile))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboardfromProfile() {
+//        view.endEditing(true)
+//    }
+//}
+
 
 
 class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -38,6 +50,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
 }
     
     @IBAction func tableSwitched(_ sender: Any) {

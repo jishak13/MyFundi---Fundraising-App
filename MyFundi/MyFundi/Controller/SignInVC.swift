@@ -12,6 +12,18 @@ import FBSDKCoreKit
 import Firebase
 import SwiftKeychainWrapper
 
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAroundSign() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromSign))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboardfromSign() {
+//        view.endEditing(true)
+//    }
+//}
+
 class SignInVC: UIViewController {
     
     @IBOutlet weak var emailField: FancyField!
@@ -19,6 +31,7 @@ class SignInVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewDidAppear(_ animated: Bool) {

@@ -13,6 +13,19 @@ import Stripe
 import CreditCardForm
 import Firebase
 
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAroundCreditCardForm() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromCredit))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboardfromCredit() {
+//        view.endEditing(true)
+//    }
+//}
+
+
 class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
     
     @IBOutlet weak var creditCardForm: CreditCardFormView!
@@ -37,7 +50,7 @@ class CreditCardFormVC: UIViewController, STPPaymentCardTextFieldDelegate {
         super.viewDidLoad()
        
         // Set up stripe textfield
-        
+        hideKeyboardWhenTappedAround()
         paymentTextField.frame = CGRect(x: 15, y: 199, width: self.view.frame.size.width - 30, height: 44)
         paymentTextField.delegate = self
         paymentTextField.translatesAutoresizingMaskIntoConstraints = false

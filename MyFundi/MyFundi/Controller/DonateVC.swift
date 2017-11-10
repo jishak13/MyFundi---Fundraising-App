@@ -9,6 +9,18 @@
 import UIKit
 import Firebase
 
+//extension UIViewController {
+//    func hideKeyboardWhenTappedAroundDonate() {
+//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboardfromDonate))
+//        tap.cancelsTouchesInView = false
+//        view.addGestureRecognizer(tap)
+//    }
+//
+//    @objc func dismissKeyboardfromDonate() {
+//        view.endEditing(true)
+//    }
+//}
+
 class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
    
@@ -37,6 +49,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
         titleLabel.text = post?.title
         raisedLabel.text = "$\(post.currentDonation)"
         goalLabel.text = "$\(post.donationGoal)"
