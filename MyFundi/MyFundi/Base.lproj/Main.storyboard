@@ -975,6 +975,8 @@
                                             <action selector="signOutTapped:" destination="z8P-ya-cp2" eventType="touchUpInside" id="9ll-Ae-okx"/>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="QUl-Bl-dwh"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="b4r-j6-zdl"/>
+                                            <action selector="signOutTappedPost:" destination="z8P-ya-cp2" eventType="touchUpInside" id="5U0-2X-eeA"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromPost" id="800-eY-Bli"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1606,6 +1608,7 @@
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="pOq-HN-99x"/>
                                             <action selector="signOutTapped:" destination="ERM-C7-m5i" eventType="touchUpInside" id="vog-l0-KMH"/>
                                             <action selector="signOutTappedNotification:" destination="LpX-x5-nry" eventType="touchUpInside" id="l1l-dW-7cZ"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromNotification" id="Y9O-WK-JH0"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -2109,6 +2112,7 @@
                                         <connections>
                                             <action selector="signOutTapped:" destination="i1T-jK-zy7" eventType="touchUpInside" id="IRU-Nc-m5j"/>
                                             <action selector="signOutTappedSettings:" destination="i1T-jK-zy7" eventType="touchUpInside" id="Sf6-Lg-uKD"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromSettings" id="tRZ-H0-2Ix"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
@@ -2541,6 +2545,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lVA-g4-5qV"/>
-        <segue reference="3AY-5i-bwn"/>
+        <segue reference="800-eY-Bli"/>
     </inferredMetricsTieBreakers>
 </document>
