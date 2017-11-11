@@ -22,7 +22,7 @@ class NotificationSignoutVC: UIViewController {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KHALID: ID removed from keychain \(keychainResult)")
         try! Auth.auth().signOut()
-        performSegue(withIdentifier: "goToSignIn", sender: nil)
+        performSegue(withIdentifier: "goToSignInFromNotification", sender: nil)
     }
 
     override func didReceiveMemoryWarning() {
