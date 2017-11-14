@@ -271,14 +271,26 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         }
         
     }
+    
+    @IBAction func openCameraButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+            print("Khalid: Open camera")
+        }
+    }
    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImage.image = image
+            profileImage.contentMode = .scaleToFill
         } else {
             print("KHALID: A valid image wasnt selected")
         }
-        imagePicker.dismiss(animated: true, completion: nil)
+        picker.dismiss(animated: true, completion: nil)
         
         if let imgData = UIImageJPEGRepresentation(profileImage.image!, 0.2) {
             
