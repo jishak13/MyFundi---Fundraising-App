@@ -27,7 +27,7 @@ extension UIViewController {
 
 
 class FeedAddVC: UIViewController, UIImagePickerControllerDelegate,
-UINavigationControllerDelegate,UITextFieldDelegate{
+UINavigationControllerDelegate,UITextFieldDelegate {
     
     @IBOutlet weak var TitleTxt: FancyField!
     @IBOutlet weak var ImageChoose: UIImageView!
@@ -45,6 +45,7 @@ UINavigationControllerDelegate,UITextFieldDelegate{
     let currDate = Date()
     var stringExpiration: String!
     var dateFormatter: DateFormatter!
+//    var imagePicker: UIImagePickerController
     
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
     
@@ -82,18 +83,38 @@ UINavigationControllerDelegate,UITextFieldDelegate{
         return false
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let selectedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        ImageChoose.image = selectedImage
-        dismiss(animated: true, completion: nil)
+    @IBAction func openCameraButton(sender: AnyObject) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
+            print("Khalid: Open camera")
+        }
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            ImageChoose.contentMode = .scaleToFill
+            ImageChoose.image = selectedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+        
+//        ImageChoose.image = selectedImage
+//        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    
     @IBAction func editImageTapped(_ sender: Any) {
-        let imagePickerControl = UIImagePickerController()
-        imagePickerControl.allowsEditing = true
-        imagePickerControl.sourceType = .photoLibrary
-        imagePickerControl.delegate = self
-        present(imagePickerControl, animated: true, completion: nil)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = .photoLibrary
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
     
     func validateFields() -> Bool {

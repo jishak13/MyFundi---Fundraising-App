@@ -1067,10 +1067,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0yu-2d-gQj">
+                                <rect key="frame" x="16" y="151" width="72" height="25"/>
+                                <color key="backgroundColor" red="0.9294275045" green="0.92941010000000002" blue="0.92942190170000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="9ZD-Le-HLx"/>
+                                    <constraint firstAttribute="width" constant="89" id="Q3p-PY-Nup"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="ryu-VW-z5P"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="xRU-hP-Xzm"/>
+                                </constraints>
+                                <state key="normal" image="icons8-camera-enhance"/>
+                                <connections>
+                                    <action selector="editImagePressed:" destination="lZy-MN-Zci" eventType="touchUpInside" id="SYO-w2-me3"/>
+                                    <action selector="openCameraButtonWithSender:" destination="z8P-ya-cp2" eventType="touchUpInside" id="AaF-P6-98r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92942750453948975" green="0.92941009998321533" blue="0.92942190170288086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Nib-BE-FJl" firstAttribute="top" secondItem="e1P-yT-iPv" secondAttribute="bottom" constant="8" id="0jN-gs-tyb"/>
+                            <constraint firstItem="0yu-2d-gQj" firstAttribute="leading" secondItem="bK8-YB-Ivt" secondAttribute="leading" constant="16" id="3vi-Jc-Sbu"/>
                             <constraint firstItem="e1P-yT-iPv" firstAttribute="top" secondItem="wjl-vB-X7a" secondAttribute="bottom" constant="16" id="4U5-xX-3hJ"/>
                             <constraint firstItem="H02-kg-MhD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bK8-YB-Ivt" secondAttribute="leading" id="4rV-i8-4lg"/>
                             <constraint firstItem="qU4-1Q-DTE" firstAttribute="top" secondItem="Gw6-Nh-3H6" secondAttribute="bottom" constant="35" id="7B0-bo-11P"/>
@@ -1094,6 +1110,7 @@
                             <constraint firstItem="bK8-YB-Ivt" firstAttribute="trailing" secondItem="wjl-vB-X7a" secondAttribute="trailing" constant="16" id="k2w-Mc-Zbg"/>
                             <constraint firstItem="H02-kg-MhD" firstAttribute="centerX" secondItem="gTX-0f-w2o" secondAttribute="centerX" id="lB8-3l-3Sg"/>
                             <constraint firstItem="cq4-Ji-jHA" firstAttribute="top" secondItem="Nib-BE-FJl" secondAttribute="bottom" constant="8" id="ldx-dF-zkp"/>
+                            <constraint firstItem="0yu-2d-gQj" firstAttribute="top" secondItem="e1P-yT-iPv" secondAttribute="bottom" constant="4" id="njc-61-Lav"/>
                             <constraint firstItem="Gw6-Nh-3H6" firstAttribute="top" secondItem="cq4-Ji-jHA" secondAttribute="bottom" constant="13" id="q9L-f2-2zT"/>
                             <constraint firstItem="sE4-Q3-E26" firstAttribute="leading" secondItem="bK8-YB-Ivt" secondAttribute="leading" id="r6H-cX-b2J"/>
                             <constraint firstItem="bK8-YB-Ivt" firstAttribute="trailing" secondItem="qU4-1Q-DTE" secondAttribute="trailing" constant="118" id="t57-Ex-aL7"/>
@@ -1114,7 +1131,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="doo-kh-gCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051" y="1052"/>
+            <point key="canvasLocation" x="1050.4000000000001" y="1051.4778325123152"/>
         </scene>
         <!--Result DetailsVC-->
         <scene sceneID="EaS-6j-VHN">
@@ -1418,7 +1435,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" indicatorStyle="black" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="mj4-Wv-CFK" customClass="FancyTextView" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="16" y="343" width="343" height="100"/>
+                                <rect key="frame" x="16" y="358" width="343" height="100"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="JNk-PR-uxZ"/>
@@ -1427,7 +1444,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                             </textView>
                             <datePicker userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9pq-JS-hKO">
-                                <rect key="frame" x="27" y="480" width="320" height="134"/>
+                                <rect key="frame" x="27" y="495" width="320" height="134"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="134" id="b3q-k5-kYH"/>
                                 </constraints>
@@ -1442,13 +1459,13 @@
                                 </date>
                             </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donation Expiration Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARg-lV-XE5">
-                                <rect key="frame" x="32" y="451" width="311" height="20.333333333333314"/>
+                                <rect key="frame" x="32" y="466" width="311" height="20.333333333333314"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Campaign Goal " textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ayD-fG-pF3" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="126" y="622" width="123.33333333333331" height="30"/>
+                                <rect key="frame" x="126" y="637" width="123.33333333333331" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
@@ -1482,24 +1499,10 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V7Y-Lp-oQ0">
-                                <rect key="frame" x="148" y="310" width="80" height="25"/>
+                                <rect key="frame" x="148" y="310" width="80" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmE-Po-CB2">
-                                        <rect key="frame" x="0.0" y="0.0" width="40" height="25"/>
-                                        <color key="backgroundColor" red="0.9294275045" green="0.92941010000000002" blue="0.92942190170000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="89" id="Elm-9r-BQW"/>
-                                            <constraint firstAttribute="height" constant="25" id="Rx7-hh-RTS"/>
-                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="fZN-6u-poI"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="40" id="tOg-Ey-lKG"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-camera-enhance"/>
-                                        <connections>
-                                            <action selector="editImagePressed:" destination="lZy-MN-Zci" eventType="touchUpInside" id="noz-CD-79e"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8p0-a4-Mqt">
-                                        <rect key="frame" x="40" y="0.0" width="40" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="80" height="40"/>
                                         <color key="backgroundColor" red="0.92942750453948975" green="0.92941009998321533" blue="0.92942190170288086" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="RU0-KF-Mhi"/>
@@ -1592,8 +1595,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
-                                   
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -1624,7 +1625,6 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="icons8-Notification-25" landscapeImage="icons8-Notification-25" selectedImage="icons8-Notification-25" id="SR0-Pb-X34"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFC-Gb-IGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="FJe-LI-HUC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1030.5" y="1898"/>
         </scene>
@@ -1778,7 +1778,7 @@
             <objects>
                 <tableViewController id="b5X-ZK-SVJ" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Mr6-Wa-MDv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <sections>
@@ -2082,11 +2082,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h0n-KO-uO1">
+                                <rect key="frame" x="0.0" y="90" width="375" height="639"/>
+                                <connections>
+                                    <segue destination="b5X-ZK-SVJ" kind="embed" id="7bN-Zw-PSz"/>
+                                </connections>
+                            </containerView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBo-6N-4l0" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
-
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
                                         <rect key="frame" x="127" y="37" width="120" height="30"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
@@ -2102,21 +2106,18 @@
                                     <constraint firstItem="rPJ-19-AVe" firstAttribute="top" secondItem="NBo-6N-4l0" secondAttribute="top" constant="37" id="uZK-dA-1dx"/>
                                 </constraints>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h0n-KO-uO1">
-                                <rect key="frame" x="0.0" y="97" width="375" height="632"/>
-                                <connections>
-                                    <segue destination="b5X-ZK-SVJ" kind="embed" id="7bN-Zw-PSz"/>
-                                </connections>
-                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NBo-6N-4l0" firstAttribute="top" secondItem="bao-DI-I2y" secondAttribute="top" id="Fpj-fW-nSr"/>
                             <constraint firstItem="G7Z-GH-k9H" firstAttribute="bottom" secondItem="h0n-KO-uO1" secondAttribute="bottom" id="K7d-b3-Fgw"/>
                             <constraint firstItem="h0n-KO-uO1" firstAttribute="leading" secondItem="G7Z-GH-k9H" secondAttribute="leading" id="RpI-Hy-VtT"/>
                             <constraint firstItem="G7Z-GH-k9H" firstAttribute="trailing" secondItem="h0n-KO-uO1" secondAttribute="trailing" id="WgS-vj-wIY"/>
                             <constraint firstItem="NBo-6N-4l0" firstAttribute="leading" secondItem="G7Z-GH-k9H" secondAttribute="leading" id="XfO-tH-KCh"/>
+                            <constraint firstItem="NBo-6N-4l0" firstAttribute="trailing" secondItem="G7Z-GH-k9H" secondAttribute="trailing" id="Xoq-zy-Gkq"/>
                             <constraint firstItem="NBo-6N-4l0" firstAttribute="top" secondItem="bao-DI-I2y" secondAttribute="top" id="eqm-Fy-8FO"/>
-                            <constraint firstItem="h0n-KO-uO1" firstAttribute="top" secondItem="G7Z-GH-k9H" secondAttribute="top" constant="53" id="hkn-pP-8Yl"/>
+                            <constraint firstItem="NBo-6N-4l0" firstAttribute="leading" secondItem="G7Z-GH-k9H" secondAttribute="leading" id="h1I-tJ-80d"/>
+                            <constraint firstItem="h0n-KO-uO1" firstAttribute="top" secondItem="G7Z-GH-k9H" secondAttribute="top" constant="36" id="hkn-pP-8Yl"/>
                             <constraint firstItem="NBo-6N-4l0" firstAttribute="trailing" secondItem="G7Z-GH-k9H" secondAttribute="trailing" id="soy-Tx-Nqp"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="G7Z-GH-k9H"/>
@@ -2322,7 +2323,7 @@
             <objects>
                 <viewController id="aCv-Ld-A8R" customClass="AboutVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="c0b-2N-9Zt">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DzR-hr-JMf" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
@@ -2389,7 +2390,7 @@
             <objects>
                 <viewController id="3Fn-av-ggR" customClass="CreditCardFormVC" customModule="MyFundi" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="edd-LJ-XlQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="632"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="639"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1B-nk-nOn" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
@@ -2429,14 +2430,14 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6j-Ln-9UW" customClass="CreditCardFormView" customModule="CreditCardForm">
-                                <rect key="frame" x="37" y="100" width="300" height="200"/>
+                                <rect key="frame" x="37.666666666666657" y="100" width="300" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="ZxX-4k-uee"/>
                                     <constraint firstAttribute="height" constant="200" id="usH-XE-IAf"/>
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="Gjx-xD-vBc" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="37" y="276" width="300" height="40"/>
+                                <rect key="frame" x="37" y="283" width="300" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="04E-ak-I2A"/>
                                 </constraints>
@@ -2445,13 +2446,13 @@
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VqL-dH-xV2" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="117" y="335" width="140" height="40"/>
+                                <rect key="frame" x="117" y="342" width="140" height="40"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYy-74-sib" customClass="FancyButton" customModule="MyFundi" customModuleProvider="target">
-                                <rect key="frame" x="142" y="505" width="90" height="39"/>
+                                <rect key="frame" x="142" y="512" width="90" height="39"/>
                                 <color key="backgroundColor" red="0.94475126269999998" green="0.61428445580000002" blue="0.72945058350000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <state key="normal" title="Submit">
@@ -2515,6 +2516,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lVA-g4-5qV"/>
-        <segue reference="3AY-5i-bwn"/>
+        <segue reference="800-eY-Bli"/>
     </inferredMetricsTieBreakers>
 </document>

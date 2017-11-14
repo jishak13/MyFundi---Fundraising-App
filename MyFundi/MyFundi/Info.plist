@@ -58,6 +58,8 @@
 	<string>1458879907523501</string>
 	<key>FacebookDisplayName</key>
 	<string>MyFundi</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Access to camera is required for posting</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
