@@ -49,10 +49,28 @@
 		C1C357251FA94B62002B0CEB /* CardPaymentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */; };
 		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
 		C1DB384A1FB2C189002551B6 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DB38491FB2C189002551B6 /* Notification.swift */; };
+		C1DD15071FBA897F00AA9949 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15051FBA896100AA9949 /* Accelerate.framework */; };
+		C1DD15081FBA8A0D00AA9949 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD14FF1FBA896000AA9949 /* AudioToolbox.framework */; };
+		C1DD15091FBA8A0D00AA9949 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15001FBA896100AA9949 /* AVFoundation.framework */; };
+		C1DD150A1FBA8A2400AA9949 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15011FBA896100AA9949 /* CoreLocation.framework */; };
+		C1DD150B1FBA8A2400AA9949 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15021FBA896100AA9949 /* CoreMedia.framework */; };
+		C1DD150C1FBA8A2400AA9949 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15031FBA896100AA9949 /* MessageUI.framework */; };
+		C1DD150D1FBA8A2400AA9949 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD14FE1FBA896000AA9949 /* MobileCoreServices.framework */; };
+		C1DD150E1FBA8A2F00AA9949 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15041FBA896100AA9949 /* SafariServices.framework */; };
+		C1DD150F1FBA8A2F00AA9949 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1DD15061FBA896100AA9949 /* SystemConfiguration.framework */; };
+		C1DD151E1FBA8C1500AA9949 /* ZZZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C1DD151D1FBA8C1500AA9949 /* ZZZAppDelegate.m */; };
+		C1DD15261FBA963C00AA9949 /* PostTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DD15251FBA963C00AA9949 /* PostTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		26689D281FA9167C0064635F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26E2B6F81F80467E00AC390F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26E2B6FF1F80467E00AC390F;
+			remoteInfo = MyFundi;
+		};
+		C1DD15281FBA963C00AA9949 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 26E2B6F81F80467E00AC390F /* Project object */;
 			proxyType = 1;
@@ -92,7 +110,6 @@
 		26E2B70F1F80467F00AC390F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26E86B431FAFBEF0006476A7 /* CreditCardFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardFormVC.swift; sourceTree = "<group>"; };
 		8B10D887822625C5D4E00BE8 /* Pods-MyFundi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.debug.xcconfig"; sourceTree = "<group>"; };
-		C11630751FB295790024DBCA /* MyFundi-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MyFundi-Bridging-Header.h"; sourceTree = "<group>"; };
 		C11630761FB29C6D0024DBCA /* NotificationsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsVC.swift; sourceTree = "<group>"; };
 		C11630781FB29C8D0024DBCA /* LikesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikesCell.swift; sourceTree = "<group>"; };
 		C116307A1FB29CA00024DBCA /* DonateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateCell.swift; sourceTree = "<group>"; };
@@ -113,6 +130,30 @@
 		C1C357241FA94B62002B0CEB /* CardPaymentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentCell.swift; sourceTree = "<group>"; };
 		C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFundraiserDetailsVC.swift; sourceTree = "<group>"; };
 		C1DB38491FB2C189002551B6 /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
+		C1DD14FE1FBA896000AA9949 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C1DD14FF1FBA896000AA9949 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C1DD15001FBA896100AA9949 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C1DD15011FBA896100AA9949 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		C1DD15021FBA896100AA9949 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		C1DD15031FBA896100AA9949 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		C1DD15041FBA896100AA9949 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		C1DD15051FBA896100AA9949 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		C1DD15061FBA896100AA9949 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C1DD15111FBA8A9C00AA9949 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C1DD15131FBA8A9C00AA9949 /* libPayPalMobile.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libPayPalMobile.a; sourceTree = "<group>"; };
+		C1DD15141FBA8A9C00AA9949 /* PayPalConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalConfiguration.h; sourceTree = "<group>"; };
+		C1DD15151FBA8A9C00AA9949 /* PayPalFuturePaymentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalFuturePaymentViewController.h; sourceTree = "<group>"; };
+		C1DD15161FBA8A9C00AA9949 /* PayPalMobile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalMobile.h; sourceTree = "<group>"; };
+		C1DD15171FBA8A9C00AA9949 /* PayPalOAuthScopes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalOAuthScopes.h; sourceTree = "<group>"; };
+		C1DD15181FBA8A9C00AA9949 /* PayPalPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalPayment.h; sourceTree = "<group>"; };
+		C1DD15191FBA8A9C00AA9949 /* PayPalPaymentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalPaymentViewController.h; sourceTree = "<group>"; };
+		C1DD151A1FBA8A9C00AA9949 /* PayPalProfileSharingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PayPalProfileSharingViewController.h; sourceTree = "<group>"; };
+		C1DD151B1FBA8A9C00AA9949 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C1DD151C1FBA8C1400AA9949 /* MyFundi-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyFundi-Bridging-Header.h"; sourceTree = "<group>"; };
+		C1DD151D1FBA8C1500AA9949 /* ZZZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZZZAppDelegate.m; sourceTree = "<group>"; };
+		C1DD15231FBA963C00AA9949 /* PostTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PostTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1DD15251FBA963C00AA9949 /* PostTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTest.swift; sourceTree = "<group>"; };
+		C1DD15271FBA963C00AA9949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -128,7 +169,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1DD150E1FBA8A2F00AA9949 /* SafariServices.framework in Frameworks */,
+				C1DD150F1FBA8A2F00AA9949 /* SystemConfiguration.framework in Frameworks */,
+				C1DD150A1FBA8A2400AA9949 /* CoreLocation.framework in Frameworks */,
+				C1DD150B1FBA8A2400AA9949 /* CoreMedia.framework in Frameworks */,
+				C1DD150C1FBA8A2400AA9949 /* MessageUI.framework in Frameworks */,
+				C1DD150D1FBA8A2400AA9949 /* MobileCoreServices.framework in Frameworks */,
+				C1DD15081FBA8A0D00AA9949 /* AudioToolbox.framework in Frameworks */,
+				C1DD15091FBA8A0D00AA9949 /* AVFoundation.framework in Frameworks */,
+				C1DD15071FBA897F00AA9949 /* Accelerate.framework in Frameworks */,
 				978ABEB46AA930093FD2ED8A /* Pods_MyFundi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1DD15201FBA963C00AA9949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +222,7 @@
 			children = (
 				26E2B7021F80467F00AC390F /* MyFundi */,
 				26689D241FA9167C0064635F /* MyFundiUITests */,
+				C1DD15241FBA963C00AA9949 /* PostTest */,
 				26E2B7011F80467F00AC390F /* Products */,
 				F3796F4F2D7BC7D31CFA0100 /* Pods */,
 				75C99D1472CDE2CC58503BFE /* Frameworks */,
@@ -176,6 +234,7 @@
 			children = (
 				26E2B7001F80467F00AC390F /* MyFundi.app */,
 				26689D231FA9167C0064635F /* MyFundiUITests.xctest */,
+				C1DD15231FBA963C00AA9949 /* PostTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,8 +253,9 @@
 				26E2B70A1F80467F00AC390F /* Assets.xcassets */,
 				26E2B70C1F80467F00AC390F /* LaunchScreen.storyboard */,
 				26E2B70F1F80467F00AC390F /* Info.plist */,
-				C11630751FB295790024DBCA /* MyFundi-Bridging-Header.h */,
 				26732A221F81C9D400365AE5 /* GoogleService-Info.plist */,
+				C1DD151D1FBA8C1500AA9949 /* ZZZAppDelegate.m */,
+				C1DD151C1FBA8C1400AA9949 /* MyFundi-Bridging-Header.h */,
 			);
 			path = MyFundi;
 			sourceTree = "<group>";
@@ -257,11 +317,56 @@
 		75C99D1472CDE2CC58503BFE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C1DD15101FBA8A9C00AA9949 /* PayPal-iOS-SDK */,
+				C1DD15051FBA896100AA9949 /* Accelerate.framework */,
+				C1DD14FF1FBA896000AA9949 /* AudioToolbox.framework */,
+				C1DD15001FBA896100AA9949 /* AVFoundation.framework */,
+				C1DD15011FBA896100AA9949 /* CoreLocation.framework */,
+				C1DD15021FBA896100AA9949 /* CoreMedia.framework */,
+				C1DD15031FBA896100AA9949 /* MessageUI.framework */,
+				C1DD14FE1FBA896000AA9949 /* MobileCoreServices.framework */,
+				C1DD15041FBA896100AA9949 /* SafariServices.framework */,
+				C1DD15061FBA896100AA9949 /* SystemConfiguration.framework */,
 				26732A201F81BB1300365AE5 /* FBSDKLoginKit.framework */,
 				26732A1F1F81BAF600365AE5 /* FBSDKCoreKit.framework */,
 				D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C1DD15101FBA8A9C00AA9949 /* PayPal-iOS-SDK */ = {
+			isa = PBXGroup;
+			children = (
+				C1DD15111FBA8A9C00AA9949 /* LICENSE */,
+				C1DD15121FBA8A9C00AA9949 /* PayPalMobile */,
+				C1DD151B1FBA8A9C00AA9949 /* README.md */,
+			);
+			name = "PayPal-iOS-SDK";
+			path = "Pods/PayPal-iOS-SDK";
+			sourceTree = "<group>";
+		};
+		C1DD15121FBA8A9C00AA9949 /* PayPalMobile */ = {
+			isa = PBXGroup;
+			children = (
+				C1DD15131FBA8A9C00AA9949 /* libPayPalMobile.a */,
+				C1DD15141FBA8A9C00AA9949 /* PayPalConfiguration.h */,
+				C1DD15151FBA8A9C00AA9949 /* PayPalFuturePaymentViewController.h */,
+				C1DD15161FBA8A9C00AA9949 /* PayPalMobile.h */,
+				C1DD15171FBA8A9C00AA9949 /* PayPalOAuthScopes.h */,
+				C1DD15181FBA8A9C00AA9949 /* PayPalPayment.h */,
+				C1DD15191FBA8A9C00AA9949 /* PayPalPaymentViewController.h */,
+				C1DD151A1FBA8A9C00AA9949 /* PayPalProfileSharingViewController.h */,
+			);
+			path = PayPalMobile;
+			sourceTree = "<group>";
+		};
+		C1DD15241FBA963C00AA9949 /* PostTest */ = {
+			isa = PBXGroup;
+			children = (
+				C1DD15251FBA963C00AA9949 /* PostTest.swift */,
+				C1DD15271FBA963C00AA9949 /* Info.plist */,
+			);
+			path = PostTest;
 			sourceTree = "<group>";
 		};
 		F3796F4F2D7BC7D31CFA0100 /* Pods */ = {
@@ -314,13 +419,31 @@
 			productReference = 26E2B7001F80467F00AC390F /* MyFundi.app */;
 			productType = "com.apple.product-type.application";
 		};
+		C1DD15221FBA963C00AA9949 /* PostTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C1DD152A1FBA963C00AA9949 /* Build configuration list for PBXNativeTarget "PostTest" */;
+			buildPhases = (
+				C1DD151F1FBA963C00AA9949 /* Sources */,
+				C1DD15201FBA963C00AA9949 /* Frameworks */,
+				C1DD15211FBA963C00AA9949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C1DD15291FBA963C00AA9949 /* PBXTargetDependency */,
+			);
+			name = PostTest;
+			productName = PostTest;
+			productReference = C1DD15231FBA963C00AA9949 /* PostTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		26E2B6F81F80467E00AC390F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0900;
+				LastSwiftUpdateCheck = 0910;
 				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Bachmanity;
 				TargetAttributes = {
@@ -332,12 +455,18 @@
 					};
 					26E2B6FF1F80467E00AC390F = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
 							};
 						};
+					};
+					C1DD15221FBA963C00AA9949 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 26E2B6FF1F80467E00AC390F;
 					};
 				};
 			};
@@ -356,6 +485,7 @@
 			targets = (
 				26E2B6FF1F80467E00AC390F /* MyFundi */,
 				26689D221FA9167C0064635F /* MyFundiUITests */,
+				C1DD15221FBA963C00AA9949 /* PostTest */,
 			);
 		};
 /* End PBXProject section */
@@ -376,6 +506,13 @@
 				26732A231F81C9D400365AE5 /* GoogleService-Info.plist in Resources */,
 				26E2B70B1F80467F00AC390F /* Assets.xcassets in Resources */,
 				26E2B7091F80467F00AC390F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1DD15211FBA963C00AA9949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,6 +628,7 @@
 				C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */,
 				26732A251F81F5FD00365AE5 /* FeedVC.swift in Sources */,
 				C1394D111F982C3F002AC9AE /* FeedAddVC.swift in Sources */,
+				C1DD151E1FBA8C1500AA9949 /* ZZZAppDelegate.m in Sources */,
 				C18211841FAD3B5C005CE0FE /* donateCardPaymentsCell.swift in Sources */,
 				C1C357251FA94B62002B0CEB /* CardPaymentCell.swift in Sources */,
 				C18CEBC71FAF94A40007F3C2 /* HeaderView.swift in Sources */,
@@ -507,6 +645,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		C1DD151F1FBA963C00AA9949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C1DD15261FBA963C00AA9949 /* PostTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -514,6 +660,11 @@
 			isa = PBXTargetDependency;
 			target = 26E2B6FF1F80467E00AC390F /* MyFundi */;
 			targetProxy = 26689D281FA9167C0064635F /* PBXContainerItemProxy */;
+		};
+		C1DD15291FBA963C00AA9949 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26E2B6FF1F80467E00AC390F /* MyFundi */;
+			targetProxy = C1DD15281FBA963C00AA9949 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -682,6 +833,7 @@
 			baseConfigurationReference = 8B10D887822625C5D4E00BE8 /* Pods-MyFundi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyFundi/MyFundi.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -691,6 +843,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Bachman.MyFundi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyFundi/MyFundi-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -701,6 +855,7 @@
 			baseConfigurationReference = 21AAB1E23E94C4E884242A83 /* Pods-MyFundi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-1";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = MyFundi/MyFundi.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
@@ -710,8 +865,41 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Bachman.MyFundi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MyFundi/MyFundi-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C1DD152B1FBA963C00AA9949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PostTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.captsone.PostTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFundi.app/MyFundi";
+			};
+			name = Debug;
+		};
+		C1DD152C1FBA963C00AA9949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PostTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.captsone.PostTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MyFundi.app/MyFundi";
 			};
 			name = Release;
 		};
@@ -741,6 +929,15 @@
 			buildConfigurations = (
 				26E2B7131F80467F00AC390F /* Debug */,
 				26E2B7141F80467F00AC390F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C1DD152A1FBA963C00AA9949 /* Build configuration list for PBXNativeTarget "PostTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C1DD152B1FBA963C00AA9949 /* Debug */,
+				C1DD152C1FBA963C00AA9949 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

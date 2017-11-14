@@ -526,7 +526,7 @@
                                     <constraint firstItem="Ee7-cM-86m" firstAttribute="top" secondItem="5kW-qd-jTh" secondAttribute="bottom" constant="26.329999999999998" id="yD1-6Q-0O5"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount to Donate" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6up-em-W2b" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6up-em-W2b" customClass="FancyField" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="20" y="255" width="334" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -535,15 +535,15 @@
                                     <action selector="amountValueChanged:" destination="DB7-do-9Rw" eventType="valueChanged" id="rE6-Y3-log"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ct-tg-ROn">
+                            <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ct-tg-ROn">
                                 <rect key="frame" x="52" y="331" width="270" height="30"/>
                                 <state key="normal" title="Choose a payment Method"/>
                                 <connections>
                                     <action selector="chooseMethodPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="wwc-FO-ijO"/>
                                 </connections>
                             </button>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AYe-xr-Ekv">
-                                <rect key="frame" x="8" y="381" width="359" height="216"/>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AYe-xr-Ekv">
+                                <rect key="frame" x="8" y="404" width="359" height="216"/>
                             </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXL-cL-dgQ" customClass="DetailsPageButton" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="76" y="686" width="222" height="30"/>
@@ -552,28 +552,50 @@
                                     <action selector="donateNowPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="68n-RM-fEH"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WKf-F8-oLW">
+                                <rect key="frame" x="82" y="331" width="210" height="29"/>
+                                <segments>
+                                    <segment title="My Cards"/>
+                                    <segment title="Pay Pal"/>
+                                </segments>
+                                <connections>
+                                    <action selector="paymentMethodSwitched:" destination="DB7-do-9Rw" eventType="valueChanged" id="yHC-8u-AOg"/>
+                                </connections>
+                            </segmentedControl>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HYa-aD-Vk4" customClass="DetailsPageButton" customModule="MyFundi" customModuleProvider="target">
+                                <rect key="frame" x="114" y="461" width="147" height="30"/>
+                                <state key="normal" title="Pay Pal" image="icons8-paypal"/>
+                                <connections>
+                                    <action selector="payPalPressed:" destination="DB7-do-9Rw" eventType="touchUpInside" id="0g0-Mw-2Wb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.90198010206222534" green="0.90196311473846436" blue="0.90197461843490601" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="WKf-F8-oLW" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="82" id="8vG-CS-4LL"/>
                             <constraint firstItem="AYe-xr-Ekv" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="8" id="9Nh-gL-Cvw"/>
-                            <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="6up-em-W2b" secondAttribute="trailing" constant="21" id="BEo-Lp-qWT"/>
+                            <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="WKf-F8-oLW" secondAttribute="trailing" constant="83" id="Asb-Jk-kX8"/>
+                            <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="HYa-aD-Vk4" secondAttribute="trailing" constant="114" id="BPF-p2-bzU"/>
                             <constraint firstItem="cVl-p4-FKq" firstAttribute="top" secondItem="Roq-O1-eZK" secondAttribute="top" id="F7l-dc-Y6E"/>
                             <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="8ct-tg-ROn" secondAttribute="trailing" constant="53" id="FXP-1g-uPe"/>
                             <constraint firstItem="JqE-NQ-vBJ" firstAttribute="top" secondItem="cVl-p4-FKq" secondAttribute="bottom" constant="25" id="GPR-ng-VmO"/>
+                            <constraint firstItem="6up-em-W2b" firstAttribute="top" secondItem="JqE-NQ-vBJ" secondAttribute="bottom" constant="37" id="H9w-NZ-gkS"/>
+                            <constraint firstItem="WKf-F8-oLW" firstAttribute="top" secondItem="6up-em-W2b" secondAttribute="bottom" constant="46" id="HmQ-0a-aGB"/>
                             <constraint firstItem="sXL-cL-dgQ" firstAttribute="top" secondItem="AYe-xr-Ekv" secondAttribute="bottom" constant="89" id="KvW-jZ-crL"/>
                             <constraint firstItem="cVl-p4-FKq" firstAttribute="trailing" secondItem="x0G-Xp-zH2" secondAttribute="trailing" id="OyW-hD-0H5"/>
+                            <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="6up-em-W2b" secondAttribute="trailing" constant="21" id="SzQ-bw-pz4"/>
                             <constraint firstItem="JqE-NQ-vBJ" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="16" id="Tgr-ST-Y3L"/>
                             <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="AYe-xr-Ekv" secondAttribute="trailing" constant="8" id="aAq-v9-bgE"/>
                             <constraint firstItem="x0G-Xp-zH2" firstAttribute="bottom" secondItem="sXL-cL-dgQ" secondAttribute="bottom" constant="62" id="aRC-0Y-REu"/>
                             <constraint firstItem="sXL-cL-dgQ" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="76" id="amY-S9-fmh"/>
-                            <constraint firstItem="6up-em-W2b" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="20" id="c71-sR-0fB"/>
+                            <constraint firstItem="HYa-aD-Vk4" firstAttribute="top" secondItem="8ct-tg-ROn" secondAttribute="bottom" constant="100" id="bfs-ac-N3m"/>
                             <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="JqE-NQ-vBJ" secondAttribute="trailing" constant="16" id="chr-IX-ibN"/>
                             <constraint firstItem="8ct-tg-ROn" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="52" id="gJt-66-VxO"/>
-                            <constraint firstItem="8ct-tg-ROn" firstAttribute="top" secondItem="6up-em-W2b" secondAttribute="bottom" constant="46" id="h6h-ZD-f88"/>
                             <constraint firstItem="cVl-p4-FKq" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" id="hNI-Q8-NBF"/>
-                            <constraint firstItem="6up-em-W2b" firstAttribute="top" secondItem="JqE-NQ-vBJ" secondAttribute="bottom" constant="37" id="m2J-EH-Wbf"/>
                             <constraint firstItem="AYe-xr-Ekv" firstAttribute="top" secondItem="8ct-tg-ROn" secondAttribute="bottom" constant="20" id="qyK-cm-geC"/>
                             <constraint firstItem="x0G-Xp-zH2" firstAttribute="trailing" secondItem="sXL-cL-dgQ" secondAttribute="trailing" constant="77" id="r8Q-72-Rp7"/>
+                            <constraint firstItem="6up-em-W2b" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="20" id="ujv-YK-OVa"/>
+                            <constraint firstItem="HYa-aD-Vk4" firstAttribute="leading" secondItem="x0G-Xp-zH2" secondAttribute="leading" constant="114" id="yu9-11-wOS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="x0G-Xp-zH2"/>
                     </view>
@@ -581,6 +603,8 @@
                         <outlet property="cardPicker" destination="AYe-xr-Ekv" id="HMX-L5-pGr"/>
                         <outlet property="donateAmountTextField" destination="6up-em-W2b" id="6hN-gw-Ykw"/>
                         <outlet property="goalLabel" destination="cAH-rl-lEA" id="6aq-LA-2LA"/>
+                        <outlet property="payPalButton" destination="HYa-aD-Vk4" id="z9A-FH-BOa"/>
+                        <outlet property="paymentSwitch" destination="WKf-F8-oLW" id="RlT-lP-vmv"/>
                         <outlet property="progressView" destination="Ee7-cM-86m" id="Vgp-rN-Adn"/>
                         <outlet property="raisedLabel" destination="uoo-yP-QBk" id="zMz-aW-W4C"/>
                         <outlet property="titleLabel" destination="5kW-qd-jTh" id="Ec1-n7-Wzi"/>
@@ -1592,8 +1616,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-
-                                   
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -1624,7 +1646,6 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="icons8-Notification-25" landscapeImage="icons8-Notification-25" selectedImage="icons8-Notification-25" id="SR0-Pb-X34"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFC-Gb-IGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="FJe-LI-HUC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1030.5" y="1898"/>
         </scene>
@@ -2085,8 +2106,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBo-6N-4l0" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
-
-
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
                                         <rect key="frame" x="127" y="37" width="120" height="30"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
@@ -2509,12 +2528,13 @@
         <image name="icons8-User Menu Male-25" width="25" height="25"/>
         <image name="icons8-camera-enhance" width="30" height="30"/>
         <image name="icons8-edit" width="50" height="50"/>
+        <image name="icons8-paypal" width="30" height="30"/>
         <image name="icons8-photo-gallery" width="30" height="30"/>
         <image name="icons8-trash" width="50" height="50"/>
         <image name="profile" width="113" height="155"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lVA-g4-5qV"/>
+        <segue reference="749-SK-JO0"/>
         <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>

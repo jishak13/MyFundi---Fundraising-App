@@ -12,6 +12,7 @@ import FBSDKLoginKit
 import Stripe
 
 @UIApplicationMain
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -20,14 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        
         FirebaseApp.configure()
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         
-//        PayPalMobile .initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AcSpGX2MbnRFkU4m32YJTsmuYACtDS0JlIjNKSVFNTq_8UQNrOgVWAoMCB2fRCU8GxgJYs9QFlwBQUZW",
-//                                                                PayPalEnvironmentSandbox: "ypeng30-facilitator@asu.edu"])
-        return true
+        
+        PayPalMobile.initializeWithClientIds(forEnvironments: [PayPalEnvironmentProduction: "AcSpGX2MbnRFkU4m32YJTsmuYACtDS0JlIjNKSVFNTq_8UQNrOgVWAoMCB2fRCU8GxgJYs9QFlwBQUZW",
+                                                                PayPalEnvironmentSandbox: "ypeng30-facilitator@asu.edu"])
+       return true
     }
     
     /*override init() {

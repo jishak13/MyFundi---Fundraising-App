@@ -11,9 +11,17 @@ import Firebase
 
 
 
-class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate,PayPalPaymentDelegate, PayPalFuturePaymentDelegate {
 
-   
+    var environment:String = PayPalEnvironmentNoNetwork {
+        willSet(newEnvironment) {
+            if (newEnvironment != environment) {
+                PayPalMobile.preconnect(withEnvironment: newEnvironment)
+            }
+        }
+    }
+    
+    var payPalConfig = PayPalConfiguration() // default
     
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
@@ -37,8 +45,26 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     var donatingAmount: Float!
     var sender: String!
     
+    @IBOutlet weak var payPalButton: DetailsPageButton!
+    
+    @IBOutlet weak var paymentSwitch: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        // Do any additional setup after loading the view.
+        // Set up payPalConfig
+        payPalConfig.acceptCreditCards = true
+        payPalConfig.merchantName = "MyFundi, Inc." // Here you can set the name of your company
+        
+        // The Url below are Paypal merchant policy
+        payPalConfig.merchantPrivacyPolicyURL = URL(string: "https://www.paypal.com/webapps/mpp/ua/privacy-full")
+        payPalConfig.merchantUserAgreementURL = URL(string: "https://www.paypal.com/webapps/mpp/ua/useragreement-full")
+        
+        payPalConfig.languageOrLocale = Locale.preferredLanguages[0]
+        
+        payPalConfig.payPalShippingAddressOption = .payPal;
+        
         hideKeyboardWhenTappedAround()
         titleLabel.text = post?.title
         raisedLabel.text = "$\(post.currentDonation)"
@@ -81,6 +107,32 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
          
             
             
+        })
+        loadPaymentMethods()
+    }
+    
+    
+    func payPalPaymentDidCancel(_ paymentViewController: PayPalPaymentViewController) {
+        print("PayPal Payment Cancelled")
+        paymentViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func payPalPaymentViewController(_ paymentViewController: PayPalPaymentViewController, didComplete completedPayment: PayPalPayment) {
+        print("PayPal Payment Success !")
+        paymentViewController.dismiss(animated: true, completion: { () -> Void in
+            // send completed confirmaion to your server
+            print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
+        })
+    }
+    func payPalFuturePaymentDidCancel(_ futurePaymentViewController: PayPalFuturePaymentViewController) {
+        print("PayPal Future Payment Authorization Canceled")
+        futurePaymentViewController.dismiss(animated: true, completion: nil)
+    }
+    
+    func payPalFuturePaymentViewController(_ futurePaymentViewController: PayPalFuturePaymentViewController, didAuthorizeFuturePayment futurePaymentAuthorization: [AnyHashable: Any]) {
+        print("PayPal Future Payment Authorization Success!")
+        // send authorization to your server to get refresh token.
+        futurePaymentViewController.dismiss(animated: true, completion: { () -> Void in
         })
     }
     
@@ -138,12 +190,58 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         }
     }
     
+    
+    @IBAction func paymentMethodSwitched(_ sender: Any) {
+        if paymentSwitch.selectedSegmentIndex == 0 {
+            self.cards = [Card]()
+            self.loadPaymentMethods()
+            cardPicker.isHidden = false
+            payPalButton.isHidden = true
+            
+        }else{
+            cardPicker.isHidden = true
+            payPalButton.isHidden = false
+        }
+    }
+    
+    @IBAction func payPalPressed(_ sender: Any) {
+        
+        let item1 = PayPalItem(name: "Donation Amount", withQuantity: 1, withPrice: NSDecimalNumber(string: donateAmountTextField.text), withCurrency: "USD", withSku: "Hip-0001")
+        
+        let items = [item1]
+        let subtotal = PayPalItem.totalPrice(forItems: items)
+        
+        // Optional: include payment details
+        let shipping = NSDecimalNumber(string: "0.00")
+        let tax = NSDecimalNumber(string: "0.00")
+        let paymentDetails = PayPalPaymentDetails(subtotal: subtotal, withShipping: shipping, withTax: tax)
+        
+        let total = subtotal.adding(shipping).adding(tax)
+        
+        let payment = PayPalPayment(amount: total, currencyCode: "USD", shortDescription: "Donation", intent: .sale)
+        
+        payment.items = items
+        payment.paymentDetails = paymentDetails
+        
+        if (payment.processable) {
+            let paymentViewController = PayPalPaymentViewController(payment: payment, configuration: payPalConfig, delegate: self)
+            present(paymentViewController!, animated: true, completion: nil)
+        }
+        else {
+            // This particular payment will always be processable. If, for
+            // example, the amount was negative or the shortDescription was
+            // empty, this payment wouldn't be processable, and you'd want
+            // to handle that here.
+            print("Payment not processalbe: \(payment)")
+        }
+    }
+    
     func validateCard(row: Int){
-        var cardDate = self.currentCard?.ExpireDate
-        var chars = Array(cardDate!)
-        var newDate = "\(chars[0])\(chars[1])-01-20\(chars[3])\(chars[4])"
+        let cardDate = self.currentCard?.ExpireDate
+        let chars = Array(cardDate!)
+        let newDate = "\(chars[0])\(chars[1])-01-20\(chars[3])\(chars[4])"
         print("JOE: THE DATE \(newDate)")
-       var formattedExpire = dateFormatter.date(from: newDate)
+       let formattedExpire = dateFormatter.date(from: newDate)
         if formattedExpire! < Date() {
             let alertController = UIAlertController(title: "Card Has Expired", message: "Please select an card that has not expired.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))

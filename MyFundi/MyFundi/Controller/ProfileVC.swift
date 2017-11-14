@@ -48,8 +48,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        posts = [Post]()
-        fundraiserKeys = [String]()
+        self.posts = [Post]()
+        self.fundraiserKeys = [String]()
         viewLoadSetup()
         self.tableView.reloadData()
         
@@ -178,7 +178,8 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         
     }
     func loadDonations() {
-        self.donations = [Donation]()
+//        self.donations = [Donation]()
+        var dons = [Donation]()
         DataService.ds.REF_DONATIONS.observe(.value, with: { (snapshot) in
             
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
@@ -189,7 +190,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                                 let key = snap.key
                                 let donation = Donation(donationKey: key, donationDict: donateDict)
                                 
-                                self.donations.append(donation)
+                                dons.append(donation)
                                 print("JOE: \(self.donations.count)")
                                 
                             }
@@ -197,6 +198,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     }
                 }
             }
+            self.donations = dons
             self.tableView.reloadData()
         })
         
