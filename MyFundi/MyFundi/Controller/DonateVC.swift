@@ -145,7 +145,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         print("JOE: THE DATE \(newDate)")
        var formattedExpire = dateFormatter.date(from: newDate)
         if formattedExpire! < Date() {
-            let alertController = UIAlertController(title: "Card Has Expires", message: "Please select an card that has not expired.", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "Card Has Expired", message: "Please select an card that has not expired.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)

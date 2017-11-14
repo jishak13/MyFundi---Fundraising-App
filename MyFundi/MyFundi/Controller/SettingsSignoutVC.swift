@@ -18,7 +18,7 @@ class SettingsSignoutVC: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func signOutTappedSettings(_ sender: AnyObject) {
+    @IBAction func signOutTapped(_ sender: Any) {
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
         print("KHALID: ID removed from keychain \(keychainResult)")
         try! Auth.auth().signOut()

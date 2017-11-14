@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import SwiftKeychainWrapper
 class NotificationsVC: UITableViewController  {
     
     var notifications = [Notification]()
@@ -134,6 +134,12 @@ class NotificationsVC: UITableViewController  {
 }
     
     
+    @IBAction func signOutTappedTVC(_ sender: Any) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("KHALID: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "goToSignInFromNotification", sender: nil)
+    }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

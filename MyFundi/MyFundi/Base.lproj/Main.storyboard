@@ -642,7 +642,7 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Lla-n2-4eE">
-                                        <rect key="frame" x="54.999999999999986" y="160" width="90.000000000000014" height="40"/>
+                                        <rect key="frame" x="51.999999999999986" y="160" width="96.000000000000014" height="40"/>
                                         <subviews>
                                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-photo-gallery" translatesAutoresizingMaskIntoConstraints="NO" id="HD1-2I-dQg">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -656,15 +656,13 @@
                                                     <outletCollection property="gestureRecognizers" destination="ThG-pa-4KR" appends="YES" id="zdd-My-zck"/>
                                                 </connections>
                                             </imageView>
-                                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-camera-enhance" translatesAutoresizingMaskIntoConstraints="NO" id="NPi-1L-0GK">
-                                                <rect key="frame" x="50" y="0.0" width="40" height="40"/>
-                                                <color key="backgroundColor" red="0.9294275045" green="0.92941010000000002" blue="0.92942190170000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <gestureRecognizers/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="40" id="2z1-Pf-hQY"/>
-                                                    <constraint firstAttribute="height" constant="40" id="Om5-ED-sCl"/>
-                                                </constraints>
-                                            </imageView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pyc-tX-2Ql">
+                                                <rect key="frame" x="50" y="0.0" width="46" height="40"/>
+                                                <state key="normal" title="Button"/>
+                                                <connections>
+                                                    <action selector="openCameraButtonWithSender:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="nb6-ok-xXK"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
                                     <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ESS-o2-fO4">
@@ -972,7 +970,6 @@
                                         </constraints>
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
-                                            <action selector="signOutTapped:" destination="z8P-ya-cp2" eventType="touchUpInside" id="9ll-Ae-okx"/>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="QUl-Bl-dwh"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="b4r-j6-zdl"/>
                                             <action selector="signOutTappedPost:" destination="z8P-ya-cp2" eventType="touchUpInside" id="5U0-2X-eeA"/>
@@ -1604,11 +1601,10 @@
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
                                             <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="66e-yF-Xik"/>
-                                            <action selector="signOutTapped:" destination="LpX-x5-nry" eventType="touchUpInside" id="SAC-U1-iHc"/>
                                             <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="pOq-HN-99x"/>
                                             <action selector="signOutTapped:" destination="ERM-C7-m5i" eventType="touchUpInside" id="vog-l0-KMH"/>
-                                            <action selector="signOutTappedNotification:" destination="LpX-x5-nry" eventType="touchUpInside" id="l1l-dW-7cZ"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromNotification" id="Y9O-WK-JH0"/>
+                                            <action selector="signOutTapped:" destination="LpX-x5-nry" eventType="touchUpInside" id="zqU-N7-OdN"/>
+                                            <action selector="signOutTappedTVC:" destination="FJe-LI-HUC" eventType="touchUpInside" id="zAO-3m-0vm"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1643,6 +1639,7 @@
                     <tabBarItem key="tabBarItem" title="Notifications" image="icons8-Notification-25" landscapeImage="icons8-Notification-25" selectedImage="icons8-Notification-25" id="SR0-Pb-X34"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LFC-Gb-IGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="FJe-LI-HUC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1030.5" y="1898"/>
         </scene>
@@ -1784,6 +1781,7 @@
                     </refreshControl>
                     <connections>
                         <outlet property="view" destination="sks-GI-Bv1" id="Ea7-XO-crZ"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromNotifications" id="2IZ-Mm-rTo"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2HB-TE-q3O" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2110,9 +2108,7 @@
                                         </constraints>
                                         <state key="normal" image="icons8-Logout Rounded Left_50"/>
                                         <connections>
-                                            <action selector="signOutTapped:" destination="i1T-jK-zy7" eventType="touchUpInside" id="IRU-Nc-m5j"/>
                                             <action selector="signOutTappedSettings:" destination="i1T-jK-zy7" eventType="touchUpInside" id="Sf6-Lg-uKD"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromSettings" id="tRZ-H0-2Ix"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
@@ -2545,6 +2541,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lVA-g4-5qV"/>
-        <segue reference="800-eY-Bli"/>
+        <segue reference="3AY-5i-bwn"/>
     </inferredMetricsTieBreakers>
 </document>
