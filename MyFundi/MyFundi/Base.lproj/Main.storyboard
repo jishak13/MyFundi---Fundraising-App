@@ -1592,24 +1592,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-<<<<<<< HEAD
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xV-gh-8ut">
-                                        <rect key="frame" x="331" y="42" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="3bh-xM-Wh4"/>
-                                            <constraint firstAttribute="width" constant="20" id="F2c-zI-lDA"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                        <connections>
-                                            <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="66e-yF-Xik"/>
-                                            <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="pOq-HN-99x"/>
-                                            <action selector="signOutTapped:" destination="ERM-C7-m5i" eventType="touchUpInside" id="vog-l0-KMH"/>
-                                            <action selector="signOutTapped:" destination="LpX-x5-nry" eventType="touchUpInside" id="zqU-N7-OdN"/>
-                                            <action selector="signOutTappedTVC:" destination="FJe-LI-HUC" eventType="touchUpInside" id="zAO-3m-0vm"/>
-                                        </connections>
-                                    </button>
-=======
->>>>>>> 50e4274cc9ea8df218be6a7acff6a9992b87d2bd
+
+                                   
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -2101,20 +2085,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBo-6N-4l0" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
-<<<<<<< HEAD
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrt-IH-dbW">
-                                        <rect key="frame" x="331" y="42" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="AwE-Hr-7vB"/>
-                                            <constraint firstAttribute="width" constant="20" id="E2q-H7-9BG"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                        <connections>
-                                            <action selector="signOutTappedSettings:" destination="i1T-jK-zy7" eventType="touchUpInside" id="Sf6-Lg-uKD"/>
-                                        </connections>
-                                    </button>
-=======
->>>>>>> 50e4274cc9ea8df218be6a7acff6a9992b87d2bd
+
+
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
                                         <rect key="frame" x="127" y="37" width="120" height="30"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
