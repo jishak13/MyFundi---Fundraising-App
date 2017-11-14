@@ -18,12 +18,7 @@ class NotificationSignoutVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func signOutTappedNotification(_ sender: AnyObject) {
-        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
-        print("KHALID: ID removed from keychain \(keychainResult)")
-        try! Auth.auth().signOut()
-        performSegue(withIdentifier: "goToSignInFromNotification", sender: nil)
-    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -1595,30 +1595,12 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xV-gh-8ut">
-                                        <rect key="frame" x="331" y="42" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="3bh-xM-Wh4"/>
-                                            <constraint firstAttribute="width" constant="20" id="F2c-zI-lDA"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                        <connections>
-                                            <action selector="signOutTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="66e-yF-Xik"/>
-                                            <action selector="signOutTapped:" destination="LpX-x5-nry" eventType="touchUpInside" id="SAC-U1-iHc"/>
-                                            <action selector="signOutTapped:" destination="kr4-Ni-ixZ" eventType="touchUpInside" id="pOq-HN-99x"/>
-                                            <action selector="signOutTapped:" destination="ERM-C7-m5i" eventType="touchUpInside" id="vog-l0-KMH"/>
-                                            <action selector="signOutTappedNotification:" destination="LpX-x5-nry" eventType="touchUpInside" id="l1l-dW-7cZ"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromNotification" id="Y9O-WK-JH0"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="6xV-gh-8ut" secondAttribute="trailing" constant="24" id="D9K-K0-lrS"/>
                                     <constraint firstAttribute="height" constant="68" id="ROy-5h-lZk"/>
                                     <constraint firstItem="joa-tU-DwK" firstAttribute="top" secondItem="ERM-C7-m5i" secondAttribute="top" constant="42" id="aXA-Ul-coX"/>
                                     <constraint firstItem="joa-tU-DwK" firstAttribute="leading" secondItem="ERM-C7-m5i" secondAttribute="leading" constant="121.67" id="f5J-tE-fLD"/>
-                                    <constraint firstItem="6xV-gh-8ut" firstAttribute="top" secondItem="ERM-C7-m5i" secondAttribute="top" constant="42" id="rRa-rN-ROm"/>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1p9-dV-VLG">
@@ -2102,19 +2084,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NBo-6N-4l0" customClass="HeaderView" customModule="MyFundi" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qrt-IH-dbW">
-                                        <rect key="frame" x="331" y="42" width="20" height="20"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="20" id="AwE-Hr-7vB"/>
-                                            <constraint firstAttribute="width" constant="20" id="E2q-H7-9BG"/>
-                                        </constraints>
-                                        <state key="normal" image="icons8-Logout Rounded Left_50"/>
-                                        <connections>
-                                            <action selector="signOutTapped:" destination="i1T-jK-zy7" eventType="touchUpInside" id="IRU-Nc-m5j"/>
-                                            <action selector="signOutTappedSettings:" destination="i1T-jK-zy7" eventType="touchUpInside" id="Sf6-Lg-uKD"/>
-                                            <segue destination="BYZ-38-t0r" kind="show" identifier="goToSignInFromSettings" id="tRZ-H0-2Ix"/>
-                                        </connections>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rPJ-19-AVe">
                                         <rect key="frame" x="127" y="37" width="120" height="30"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="25"/>
@@ -2125,10 +2094,8 @@
                                 <color key="backgroundColor" red="0.33272615080000001" green="0.40606909990000001" blue="0.73735153679999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstItem="rPJ-19-AVe" firstAttribute="centerX" secondItem="NBo-6N-4l0" secondAttribute="centerX" id="3dc-zO-X59"/>
-                                    <constraint firstAttribute="trailing" secondItem="Qrt-IH-dbW" secondAttribute="trailing" constant="24" id="7QL-C4-YNg"/>
                                     <constraint firstAttribute="height" constant="68" id="BEG-Vo-oLY"/>
                                     <constraint firstItem="rPJ-19-AVe" firstAttribute="leading" secondItem="NBo-6N-4l0" secondAttribute="leading" constant="127" id="DtI-oe-phB"/>
-                                    <constraint firstItem="Qrt-IH-dbW" firstAttribute="top" secondItem="NBo-6N-4l0" secondAttribute="top" constant="42" id="PbL-cf-sB8"/>
                                     <constraint firstItem="rPJ-19-AVe" firstAttribute="top" secondItem="NBo-6N-4l0" secondAttribute="top" constant="37" id="uZK-dA-1dx"/>
                                 </constraints>
                             </view>
