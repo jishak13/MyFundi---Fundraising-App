@@ -121,33 +121,35 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
         var valid: Bool = false
-        
+        var titleValid:Bool = false
+        var descriptionValid: Bool = false
+        var numValid: Bool = false
         if TitleTxt.text == "" {
             TitleTxt.errorBorder()
-            
+            titleValid = false
             
         }
         else {
-            valid = true
+            titleValid = true
             TitleTxt.normalBorder()
         }
         
         if DescriptionTxt.text == "" {
             DescriptionTxt.errorBorder()
-            
+            descriptionValid = false
         }
         else {
-            valid = true
+            descriptionValid = true
             DescriptionTxt.normalBorder()
         }
         
         
         if NumOfRequest.text == "" {
             NumOfRequest.errorBorder()
-            
+            numValid = false
         }
         else {
-            valid = true
+            numValid = true
             NumOfRequest.normalBorder()
         }
         
@@ -157,14 +159,23 @@ UINavigationControllerDelegate,UITextFieldDelegate {
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
                 
                 self.present(alertController, animated: true, completion: nil)
-                
+                valid = false
             } else
         {
             valid = true
         }
         
-          return valid
+        if valid, titleValid, numValid,descriptionValid{
+            return true
+        } else{
+            let alertController = UIAlertController(title: "Fields Are Missing", message: "Please enter fields in red", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
+            valid = false
+            return false
         }
+    }
   
     
     

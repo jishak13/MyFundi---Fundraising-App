@@ -49,7 +49,9 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.posts = [Post]()
+        self.donations = [Donation]()
         self.fundraiserKeys = [String]()
+        self.donationKeys = [String]()
         viewLoadSetup()
         self.tableView.reloadData()
         

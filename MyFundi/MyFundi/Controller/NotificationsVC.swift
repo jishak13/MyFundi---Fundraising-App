@@ -123,6 +123,7 @@ class NotificationsVC: UITableViewController  {
     }
     
     @IBAction func handleRefresh(_ sender: Any) {
+        
         self.tableView.reloadData()
         refreshControl?.endRefreshing()
     }
