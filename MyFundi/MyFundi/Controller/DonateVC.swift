@@ -148,7 +148,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     }
     func validateFields() -> Bool {
         
-        if case let amount = (self.donateAmountTextField.text as! NSString).floatValue{
+        if case let amount = (self.donateAmountTextField.text as! NSString).floatValue {
             if amount > 0 {
                 donateAmountTextField.normalBorder()
                 self.donatingAmount = amount
@@ -183,7 +183,11 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             progressView.setProgress(newAmount/(post?.donationGoal)!, animated: true)
             raisedLabel.text = "$\(newAmount)"
             donateAmountTextField.text = nil
-            cardPicker.isHidden = true
+            
+            let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
         }
         else{
             
@@ -247,7 +251,15 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     func validateCard(row: Int){
         let cardDate = self.currentCard?.ExpireDate
         let chars = Array(cardDate!)
-        let newDate = "\(chars[0])\(chars[1])-01-20\(chars[3])\(chars[4])"
+        print("JOE CHARS: \(chars)")
+        var newDate: String = ""
+        if chars.count == 5{
+              newDate = "\(chars[0])\(chars[1])-01-20\(chars[3])\(chars[4])"
+        }else{
+              newDate = "0\(chars[0])-01-20\(chars[2])\(chars[3])"
+        }
+        
+        
         print("JOE: THE DATE \(newDate)")
        let formattedExpire = dateFormatter.date(from: newDate)
         if formattedExpire! < Date() {
@@ -256,6 +268,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             
             self.present(alertController, animated: true, completion: nil)
             cardPickerData.remove(at: row)
+            cards.remove(at: row)
             self.cardPicker.reloadAllComponents()
         }
         else{
