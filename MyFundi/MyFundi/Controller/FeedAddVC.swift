@@ -39,7 +39,7 @@ UINavigationControllerDelegate,UITextFieldDelegate {
     
     
     var userID: String = ""
-    
+    var errors = [String]()
     var posts = [Post]()
 //    var formattedDate: Date!
     let currDate = Date()
@@ -118,7 +118,7 @@ UINavigationControllerDelegate,UITextFieldDelegate {
     }
     
     func validateFields() -> Bool {
-        
+        errors = [String]()
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
         var valid: Bool = false
         var titleValid:Bool = false
@@ -126,6 +126,7 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         var numValid: Bool = false
         if TitleTxt.text == "" {
             TitleTxt.errorBorder()
+            errors.append("Campaign must have a Title")
             titleValid = false
             
         }
@@ -137,6 +138,7 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         if DescriptionTxt.text == "" {
             DescriptionTxt.errorBorder()
             descriptionValid = false
+              errors.append("Campaign must have a short Description")
         }
         else {
             descriptionValid = true
@@ -144,9 +146,10 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         }
         
         
-        if NumOfRequest.text == "" {
+        if NumOfRequest.text == "" ||  (NumOfRequest.text as! NSString).floatValue <= 0{
             NumOfRequest.errorBorder()
             numValid = false
+              errors.append("Campaign must have an Amount to be Raised in a numerical format.")
         }
         else {
             numValid = true
@@ -154,21 +157,25 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         }
         
         if ImageChoose.image == nil {
-                
-            let alertController = UIAlertController(title: "Campaign Field Missing", message: "Please select an image", preferredStyle: UIAlertControllerStyle.alert)
-                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-                
-                self.present(alertController, animated: true, completion: nil)
-                valid = false
+            errors.append("Campaign must have an Image")
+//            let alertController = UIAlertController(title: "Campaign Field Missing", message: "Please select an image", preferredStyle: UIAlertControllerStyle.alert)
+//                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+//
+//                self.present(alertController, animated: true, completion: nil)
+//                valid = false
             } else
         {
             valid = true
         }
         
-        if valid, titleValid, numValid,descriptionValid{
+        if errors.count == 0 {
             return true
         } else{
-            let alertController = UIAlertController(title: "Fields Are Missing", message: "Please enter fields in red", preferredStyle: UIAlertControllerStyle.alert)
+            var errorMessage: String = ""
+            for errs in errors {
+                errorMessage += "\(errs)\n"
+            }
+            let alertController = UIAlertController(title: "Fields Are Missing", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
@@ -244,6 +251,10 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         DescriptionTxt.text = ""
             
         UpdateFireBaseUser(fundKey:fundKey)
+            let alertController = UIAlertController(title: "Campaign Posted Succesfully", message: "Your campaign is now live. To update or modify your campaign, please navigate to your profile.", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            
+            self.present(alertController, animated: true, completion: nil)
         
     }
        

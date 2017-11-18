@@ -36,10 +36,13 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
     var userRef: DatabaseReference!
     var selectedPost: Post!
     var tmpPost: Post!
+    var dateFormatter: DateFormatter!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         hideKeyboardWhenTappedAround()
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
 }
     
     @IBAction func tableSwitched(_ sender: Any) {
@@ -109,6 +112,12 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                         self.loadDonations()
                     }
                 }
+                self.posts.sort(by: { self.dateFormatter.date(from: $0.StartDate)! > self.dateFormatter.date(from: $1.StartDate)!
+                })
+                self.donations.sort(by: { self.dateFormatter.date(from: $0.DonationDate)! > self.dateFormatter.date(from: $1.DonationDate)!
+                })
+                
+            
                 self.tableView.reloadData()
                 
                 

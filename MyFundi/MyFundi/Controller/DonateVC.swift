@@ -122,7 +122,13 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         paymentViewController.dismiss(animated: true, completion: { () -> Void in
             // send completed confirmaion to your server
             print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
+            self.addDonationToFirebase(type: 1)
         })
+        
+        let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     func payPalFuturePaymentDidCancel(_ futurePaymentViewController: PayPalFuturePaymentViewController) {
         print("PayPal Future Payment Authorization Canceled")
@@ -142,7 +148,31 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return false
     }
    
-    
+    func addDonationToFirebase(type:Int){
+        let donation: Dictionary<String, AnyObject> = [
+            "donationAmount": (donateAmountTextField.text as! NSString).floatValue as AnyObject,
+            "donationDate": dateFormatter.string(from: Date()) as AnyObject,
+            "fundraiser": post?.postKey as AnyObject
+        ]
+        
+        let firebaseDonation = DataService.ds.REF_DONATIONS.childByAutoId()
+        var donKey = firebaseDonation.key
+        firebaseDonation.setValue(donation)
+       
+        if type == 0 {
+            DataService.ds.REF_USERS.child(self.userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
+        }
+        else {
+            DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue("PayPal")
+        }
+        
+        let newAmount = ( (post?.currentDonation)! + self.donatingAmount)
+        print("JOE: \(newAmount)")
+        DataService.ds.REF_FUNDRAISERS.child((post?.postKey)!).updateChildValues(["currentDonation": newAmount])
+        progressView.setProgress(newAmount/(post?.donationGoal)!, animated: true)
+        raisedLabel.text = "$\(newAmount)"
+        donateAmountTextField.text = nil
+    }
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -166,24 +196,25 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBAction func donateNowPressed(_ sender: Any) {
         
         if validateFields() {
-            let donation: Dictionary<String, AnyObject> = [
-                "donationAmount": (donateAmountTextField.text as! NSString).floatValue as AnyObject,
-                "donationDate": dateFormatter.string(from: Date()) as AnyObject,
-                "fundraiser": post?.postKey as AnyObject
-            ]
-          
-            let firebaseDonation = DataService.ds.REF_DONATIONS.childByAutoId()
-            var donKey = firebaseDonation.key
-            firebaseDonation.setValue(donation)
-        DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
-            
-            let newAmount = ( (post?.currentDonation)! + self.donatingAmount)
-            print("JOE: \(newAmount)")
-            DataService.ds.REF_FUNDRAISERS.child((post?.postKey)!).updateChildValues(["currentDonation": newAmount])
-            progressView.setProgress(newAmount/(post?.donationGoal)!, animated: true)
-            raisedLabel.text = "$\(newAmount)"
-            donateAmountTextField.text = nil
-            
+//            let donation: Dictionary<String, AnyObject> = [
+//                "donationAmount": (donateAmountTextField.text as! NSString).floatValue as AnyObject,
+//                "donationDate": dateFormatter.string(from: Date()) as AnyObject,
+//                "fundraiser": post?.postKey as AnyObject
+//            ]
+//
+//            let firebaseDonation = DataService.ds.REF_DONATIONS.childByAutoId()
+//            var donKey = firebaseDonation.key
+//            firebaseDonation.setValue(donation)
+//        DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
+//
+//            let newAmount = ( (post?.currentDonation)! + self.donatingAmount)
+//            print("JOE: \(newAmount)")
+//            DataService.ds.REF_FUNDRAISERS.child((post?.postKey)!).updateChildValues(["currentDonation": newAmount])
+//            progressView.setProgress(newAmount/(post?.donationGoal)!, animated: true)
+//            raisedLabel.text = "$\(newAmount)"
+//            donateAmountTextField.text = nil
+//
+        addDonationToFirebase(type: 0)
             let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             

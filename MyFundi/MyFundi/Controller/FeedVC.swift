@@ -16,6 +16,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var addImage: CircleView!
     @IBOutlet weak var captionField: FancyField!
     
+    @IBOutlet weak var feelFilter: UISegmentedControl!
     var posts = [Post]()
     var users = [User]()
     var imagePicker: UIImagePickerController!
@@ -24,9 +25,13 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     var imageSelected = false
     var user: User!
     var donatePost:Post!
+       var dateFormatter: DateFormatter!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
         let userID = (Auth.auth().currentUser?.uid)
         tableView.delegate = self
         tableView.dataSource = self
@@ -77,6 +82,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         donatePost = posts[sender.tag]
         performSegue(withIdentifier: "goToDonateVC", sender: self)
 
+    }
+    
+    
+    @IBAction func feedFilterChanged(_ sender: Any) {
+        if( self.feelFilter.selectedSegmentIndex == 0){
+            self.posts.sort(by: { dateFormatter.date(from: $0.StartDate)! > dateFormatter.date(from: $1.StartDate)!
+            })
+            
+        }
+        tableView.reloadData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
