@@ -106,7 +106,7 @@ class PostCell: UITableViewCell {
          //Add Profile image to the feed
         if profImg != nil {
             self.profileImg.image = img
-        } else {
+        } else if user.ImageUrl != ""{
             //Get the reference to the Profile Image in Firebase
             let ref = Storage.storage().reference(forURL: self.user.ImageUrl)
             ref.getData(maxSize: 2 * 1024 * 1024, completion: { (data, error) in
