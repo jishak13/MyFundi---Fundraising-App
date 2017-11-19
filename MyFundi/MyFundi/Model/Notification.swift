@@ -7,12 +7,15 @@
 //
 
 import Foundation
+//Public Class for a Notification Object
 class Notification {
     
+    //Private Variables/Fields for a Notification Object
     private  var _user: User
     private  var _post: Post
     private  var _type: String
     
+    //Public Properties for a Notification
     var User: User {
         return _user
     }
@@ -23,7 +26,7 @@ class Notification {
     var NType: String {
         return _type
     }
-    
+    //Initializer for a Notification taking in a User, Post and the Type (Like or Donation)
     init(user: User, post: Post, type: String) {
       
             self._user = user

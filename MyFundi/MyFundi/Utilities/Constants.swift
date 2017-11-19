@@ -7,7 +7,7 @@
 //
 //Joseph Ishak
 import UIKit
-
+//Constants for Colors and the Key for User ID in Firebase
 let SHADOW_GRAY : CGFloat = 120.0 / 255.0
 
 let KEY_UID = "uid"

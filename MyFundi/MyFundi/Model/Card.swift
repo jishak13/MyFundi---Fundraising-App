@@ -9,8 +9,10 @@
 import Foundation
 import Firebase
 
+//Public Class for a Card Object
 class Card {
     
+    //Private variable/fields for the Card Object
     private var _cardKey: String
     private var _cardHolderName: String
     private var _cardNumber: Int
@@ -19,6 +21,7 @@ class Card {
     private var _zipCode: Int
     private var _cardRef: DatabaseReference!
     
+    //Public Prperties for a Card Object
     var CardKey: String
     {
         return _cardKey
@@ -42,7 +45,7 @@ class Card {
     var ZipCode: Int {
         return _cvv
     }
-    
+    //Initializer for a Card taking in a Card Dictionary from Firebase, and Card ID
     init(cardKey: String, cardData: Dictionary<String,AnyObject>) {
         
         self._cardKey = cardKey

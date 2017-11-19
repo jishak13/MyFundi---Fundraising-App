@@ -10,6 +10,7 @@ import UIKit
 import SwiftKeychainWrapper
 import Firebase
 
+//Extension Class/ Method that enables the user to click outside the key board and hide the keyboard
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -17,6 +18,7 @@ extension UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    //Function that dismisses the keyboard
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -25,45 +27,47 @@ extension UIViewController {
 
 
 
-
+//Public Class for the Feed Add Vc (Posting a Campaign)
 class FeedAddVC: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,UITextFieldDelegate {
     
+    //Private IBOUTLETS/ Controls
     @IBOutlet weak var TitleTxt: FancyField!
     @IBOutlet weak var ImageChoose: UIImageView!
     @IBOutlet weak var DescriptionTxt: FancyTextView!
     @IBOutlet weak var NumOfRequest: FancyField!
-    
     @IBOutlet weak var ExpDatePicker: UIDatePicker!
     @IBOutlet weak var ExpirationDate: FancyField!
     
     
+    //Private Variables
     var userID: String = ""
     var errors = [String]()
     var posts = [Post]()
-//    var formattedDate: Date!
     let currDate = Date()
     var stringExpiration: String!
     var dateFormatter: DateFormatter!
-//    var imagePicker: UIImagePickerController
-    
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
     
     
+    //When the View loads . . .
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set the User Key from Firebase Authentication
         userID = (Auth.auth().currentUser?.uid)!
         
+        //Enables this view controller to hide the keyboard when tapped around
         self.hideKeyboardWhenTappedAround()
-
-       dateFormatter = DateFormatter()
+        
+        //Initialize the Date Formatter to save dates in the format Ex. 09-12-1992
+        dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
         
+        //Sets the Text Box Delegates to this view controller
         self.TitleTxt.delegate = self
-       self.NumOfRequest.delegate = self
-        
-     //Current time zone
-        // Do any additional setup after loading the view.
+        self.NumOfRequest.delegate = self
+   
     }
     
     override func didReceiveMemoryWarning() {
@@ -71,59 +75,86 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //Method that handles the User Logging Out
     @IBAction func signOutTappedPost(_ sender: AnyObject) {
+        //Set the Key Chain
         let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        //Debug Message
         print("KHALID: ID removed from keychain \(keychainResult)")
+        //Try to sign out
         try! Auth.auth().signOut()
+        //Go back to the sign in page
         performSegue(withIdentifier: "goToSignInFromPost", sender: nil)
     }
     
+    //Method that enables the user to hit the return key and Exit the Keyboard on the screen
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
     
+    //Method to open the Camera
     @IBAction func openCameraButton(sender: AnyObject) {
+        //If the user has allowed the application to use their camera
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            //Initialize an image picker
             let imagePicker = UIImagePickerController()
+            //Set the image picker attributes
             imagePicker.delegate = self
             imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
             imagePicker.allowsEditing = false
+            //Present the image picker to the user
             self.present(imagePicker, animated: true, completion: nil)
+            //Debug Message
             print("Khalid: Open camera")
         }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+       //If an image has been selected
         if let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage{
+           //Set the content mode of the photo chosen to Scale To Fit
             ImageChoose.contentMode = .scaleToFill
+            //Set the image chosen to the Image Chose Control on the View Controller
             ImageChoose.image = selectedImage
         }
+        //Discmiss the picker
         picker.dismiss(animated: true, completion: nil)
-        
-//        ImageChoose.image = selectedImage
-//        dismiss(animated: true, completion: nil)
-        
     }
     
     
+    //Function to handle the Upload Image from Gallery
     @IBAction func editImageTapped(_ sender: Any) {
+        //If the user has allowed the application to use their library
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+           //Initialize an image picker
             let imagePicker = UIImagePickerController()
+            //Set the image picker attributes
             imagePicker.delegate = self
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
+            //Present the image picker to the View Controller
             self.present(imagePicker, animated: true, completion: nil)
         }
     }
     
+    //Function that Validates the Fields when a user tries to enter a Campaign
     func validateFields() -> Bool {
+        //Initialize the Error Array
         errors = [String]()
+        //Intiailize the string version of the expiration date
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
+       //Initialize local variables to tell which controls contain invalid input
         var valid: Bool = false
         var titleValid:Bool = false
         var descriptionValid: Bool = false
         var numValid: Bool = false
+       
+        ///The Following Statements validate each control
+        ///If the control is invalid the border of the control will turn red,
+            ///The appropriate variable saying that the control is invalid will be set
+            ///The appropriate error message will be appended to the Error Array
+        ///If the Controls are valid, the valid property will be set
         if TitleTxt.text == "" {
             TitleTxt.errorBorder()
             errors.append("Campaign must have a Title")
@@ -158,46 +189,50 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         
         if ImageChoose.image == nil {
             errors.append("Campaign must have an Image")
-//            let alertController = UIAlertController(title: "Campaign Field Missing", message: "Please select an image", preferredStyle: UIAlertControllerStyle.alert)
-//                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-//
-//                self.present(alertController, animated: true, completion: nil)
-//                valid = false
-            } else
-        {
-            valid = true
-        }
+            }
         
+        //If the error array has 0 elements
         if errors.count == 0 {
+            //Return True because the fields are VALID
             return true
-        } else{
+        } else{//Else
+            //initialize an error string
             var errorMessage: String = ""
+            //For each error in the Error Array
             for errs in errors {
+                //Append it to the Error message
                 errorMessage += "\(errs)\n"
             }
+            
+            //Set the Alert controller with the error message
             let alertController = UIAlertController(title: "Fields Are Missing", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
+            //Present the  Alert
             self.present(alertController, animated: true, completion: nil)
-            valid = false
+            //Return False because at least one field is invalid
             return false
         }
     }
   
     
     
-    
+    //Method that handles the post button being tapped
     @IBAction func PostBtnTapped(_ sender: UIButton) {
-        
+        //If the fields are not valie
         if(self.validateFields()) {
             
-            
+            //Set a temporary image to the image in the Image Choose Control
             let img = ImageChoose.image!
+            //If the image is JPEG
             if let imgData = UIImageJPEGRepresentation(img, 0.2) {
+                //Conver the Image to a String Representation
                 let imgUid = NSUUID().uuidString
+               //Set the meta data
                 let metaData = StorageMetadata()
+               //SEt the meta data type to image / jpeg
                 metaData.contentType = "image/jpeg"
                 
+                //Access the Firebase Storage for Fundraiser Images
                 DataService.ds.REF_FUND_IMGS.child(imgUid).putData(imgData, metadata: metaData) { (metaData, error) in
                     if error  != nil {
                         print("JOE: unable to upload  post image to firebase storage")
@@ -205,30 +240,23 @@ UINavigationControllerDelegate,UITextFieldDelegate {
                         print("JOe: Successfully uploaded post image to firebase storage")
                         let downloadURL = metaData?.downloadURL()?.absoluteString
                         if let url = downloadURL {
+                            //Post the image to firebase storage
                             self.postToFirebase(imgUrl: url)
                         }
                     }
-                }
+                }//End the Fire base function
             }
             
         }
        
     }
-
-        func postToFirebase(imgUrl: String) {
+    //Function to post the image to fire base
+    func postToFirebase(imgUrl: String) {
             
+            //Set the local variables for goal and current date
             var goal = (NumOfRequest.text as! NSString).floatValue
             var stringCurrDate = dateFormatter.string(from: currDate)
-       
-//
-//            print("JOE the date in a string format is \(stringExpiration)")
-//
-//
-//
-//            print("JOE: GOAL \(goal)")
-//
-//            print("JOE: Current Date is \(stringCurrDate)")
-            
+        //Create a Post Dictionary Object
         let post: Dictionary<String, AnyObject> = [
             "caption": DescriptionTxt.text! as AnyObject,
             "imageUrl": imgUrl as AnyObject,
@@ -239,55 +267,28 @@ UINavigationControllerDelegate,UITextFieldDelegate {
             "date": stringCurrDate as AnyObject,
             "title": TitleTxt.text!  as AnyObject
         ]
-        
+        //Create an autogenerated Key for the Post
         let firebasePost = DataService.ds.REF_FUNDRAISERS.childByAutoId()
-       var fundKey = firebasePost.key
+        //Get a local variable for the fundraiser key
+        var fundKey = firebasePost.key
+       //Set the value for the post
         firebasePost.setValue(post)
         
-        
+        //Reset the controls
         TitleTxt.text = ""
         ImageChoose.image = UIImage(named: "add-image")
         NumOfRequest.text = ""
         DescriptionTxt.text = ""
+        
+        //Update Firebase User Function Sending the fundraiser key crated as a parameter
+        DataService.ds.REF_USERS.child(userID).child("fundraisers").child(fundKey).setValue(true)
+
+        //Aler the User the Campaign was Posted Successfully
+        let alertController = UIAlertController(title: "Campaign Posted Succesfully", message: "Your campaign is now live. To update or modify your campaign, please navigate to your profile.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             
-        UpdateFireBaseUser(fundKey:fundKey)
-            let alertController = UIAlertController(title: "Campaign Posted Succesfully", message: "Your campaign is now live. To update or modify your campaign, please navigate to your profile.", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
         
     }
-       
-        func dateformatterDateString(dateString: String) -> NSDate? {
-            
-            let dateFormatter: DateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "mm-dd-yyyy"
-            if dateFormatter.date(from: dateString) != nil {
-                return dateFormatter.date(from: dateString)! as NSDate
-            } else{
-                print("The date was in an incorrect format")
-                return NSDate()
-            }
-        }
-    
-        func UpdateFireBaseUser(fundKey: String){
-            
-   
-            DataService.ds.REF_USERS.child(userID).child("fundraisers").child(fundKey).setValue(true)
-        
-
-
-        }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 

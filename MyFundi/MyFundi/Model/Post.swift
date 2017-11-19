@@ -9,7 +9,9 @@
 import Foundation
 import Firebase
 
+//Public class for a Post Object
 class Post {
+    //Private Variables/Fields for a post
     private var _caption: String!
     private var _imageUrl: String!
     private var _likes: Int!
@@ -21,6 +23,7 @@ class Post {
     private var _postKey: String!
     private var _postRef: DatabaseReference!
     
+    //Public Properties for a Post
     var caption: String {
         return _caption
     }
@@ -56,6 +59,7 @@ class Post {
         return _endDate
     }
     
+    //Initializer for a Post taking in all fields/variables
     init(caption: String, imageUrl: String, likes: Int, currentDonation: Float, donationGoal: Float, title: String,startDate:String,endDate:String) {
         self._caption = caption
         self._imageUrl = imageUrl
@@ -66,7 +70,7 @@ class Post {
         self._startDate = startDate
         self._endDate = endDate
     }
-    
+    //Initializer for a Post taking in a Post Dictionary from Firebase, and post ID
     init(postKey: String, postData: Dictionary<String, AnyObject>) {
         self._postKey = postKey
         
@@ -102,7 +106,7 @@ class Post {
         _postRef = DataService.ds.REF_FUNDRAISERS.child(_postKey)
         
     }
-    
+    //Function to adjust the likes for a Post in firebase
     func adjustLikes(addLike: Bool) {
         if addLike {
             _likes =  _likes + 1

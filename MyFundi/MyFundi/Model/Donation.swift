@@ -8,15 +8,17 @@
 
 import Foundation
 import Firebase
+//Public Class for a Donation Object
 class Donation {
     
+    //PRivate virable/Fields for a Donation
     private var _donationkey: String!
     private var _donationAmount: Double!
     private var _fundriaserKey: String!
     private var _donationDate: String!
     
     private var _donationRef: DatabaseReference!
-    
+    //PUblic Properties for a Donation
     var DonationKey: String{
         return _donationkey
     }
@@ -30,7 +32,7 @@ class Donation {
     var DonationDate: String {
         return _donationDate
     }
-    
+    //Initializer for a Donation taking in a Donation Dictionary from Firebase, and Donation ID
     init(donationKey: String, donationDict: Dictionary<String, AnyObject> ){
         self._donationkey = donationKey
         

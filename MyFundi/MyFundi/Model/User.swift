@@ -9,8 +9,9 @@
 import Foundation
 import Firebase
 
+//Public class for a User object
 class User {
-    
+    //Private Variables/Fields for a User
     private var _userKey: String!
     private var _fundraiserKeys: [String] = [""]
     private var _name: String!
@@ -20,6 +21,8 @@ class User {
     private var _likes: [String]! = [""]
     private var _userRef: DatabaseReference!
 
+    
+    //Public Propertis for a User
     var UserKey: String{
         return _userKey
     }
@@ -42,7 +45,8 @@ class User {
     var Likes: [String] {
         return _likes
     }
-    
+ 
+    //Initializer for a Post taking in a User Dictionary from Firebase, and User ID
     init(userKey: String, userData: Dictionary<String, AnyObject>) {
         self._userKey = userKey
         self._imageUrl = userData["imageUrl"] as? String ?? ""

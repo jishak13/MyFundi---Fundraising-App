@@ -29,6 +29,7 @@ class DataService {
     private var _REF_FUND_IMGS = STORAGE_BASE.child("fundraiser-pics")
     private var _REF_PROF_IMGS = STORAGE_BASE.child("user-pics")
     
+    //Properties for Firebase Entities
     var REF_BASE: DatabaseReference {
         return _REF_BASE
     }
@@ -60,6 +61,8 @@ class DataService {
     var REF_PROF_IMGS: StorageReference {
         return _REF_PROF_IMGS
     }
+    
+    //Function to create a Firebase User
     func createFirebaseDBUser(uid: String, userData: Dictionary<String, String>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
