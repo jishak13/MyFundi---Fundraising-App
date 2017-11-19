@@ -15,24 +15,29 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addImage: CircleView!
     @IBOutlet weak var captionField: FancyField!
-    
     @IBOutlet weak var feelFilter: UISegmentedControl!
+    
+    
+    static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
+    static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
+    
     var posts = [Post]()
     var users = [User]()
     var imagePicker: UIImagePickerController!
-    static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
-    static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
     var imageSelected = false
     var user: User!
     var donatePost:Post!
-       var dateFormatter: DateFormatter!
+    var dateFormatter: DateFormatter!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         
         dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy" //Your date format
+       
         let userID = (Auth.auth().currentUser?.uid)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
