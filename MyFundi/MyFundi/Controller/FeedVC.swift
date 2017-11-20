@@ -17,7 +17,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var feelFilter: UISegmentedControl!
     
-    //Stativ variables for images cache for fundraisers and users
+    //Static variables for images cache for fundraisers and users
     static var imageCache: NSCache<AnyObject, UIImage> = NSCache()
     static var profileImageCache: NSCache<AnyObject, UIImage> = NSCache()
     
