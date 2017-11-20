@@ -148,7 +148,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         return false
     }
    
-    func addDonationToFirebase(type:Int){
+    func addDonationToFirebase(type:Int) {
         let donation: Dictionary<String, AnyObject> = [
             "donationAmount": (donateAmountTextField.text as! NSString).floatValue as AnyObject,
             "donationDate": dateFormatter.string(from: Date()) as AnyObject,
@@ -160,7 +160,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         firebaseDonation.setValue(donation)
        
         if type == 0 {
-            DataService.ds.REF_USERS.child(self.userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
+            DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
         }
         else {
             DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue("PayPal")

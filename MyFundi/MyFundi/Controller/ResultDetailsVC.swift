@@ -129,33 +129,29 @@ class ResultDetailsVC: UIViewController {
                 }
             }
         }
-        
-        let ref1 = Storage.storage().reference(forURL: (user?.ImageUrl)!)
-        ref1.getData(maxSize: 2 * 1024 * 1024) { (data, error) in
-            if error != nil {
-                print("KHALID: unable to download image from Firebase storage")
-            } else {
-                print("KHALID: Image downloaded from Firebase Storage")
-                if let imgData = data {
-                    if let img = UIImage(data: imgData) {
-                        self.profileImage.image = img
+        if user?.ImageUrl != ""{
+            let ref1 = Storage.storage().reference(forURL: (user?.ImageUrl)!)
+            ref1.getData(maxSize: 2 * 1024 * 1024) { (data, error) in
+                if error != nil {
+                    print("KHALID: unable to download image from Firebase storage")
+                } else {
+                    print("KHALID: Image downloaded from Firebase Storage")
+                    if let imgData = data {
+                        if let img = UIImage(data: imgData) {
+                            self.profileImage.image = img
+                        }
                     }
                 }
+                
             }
         }
-        
+        else{
+            
+            }
         
         
     }
-    
-    
-    
-        override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 
+    
 }
