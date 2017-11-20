@@ -106,9 +106,10 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
     @IBAction func feedFilterChanged(_ sender: Any) {
         //If the selected index is 0
         //Sort the array by date posted
-        if( self.feelFilter.selectedSegmentIndex == 0){
-            self.posts.sort(by: { dateFormatter.date(from: $0.StartDate)! > dateFormatter.date(from: $1.StartDate)!
-            })
+        if( self.feelFilter.selectedSegmentIndex == 0) {
+      
+            self.posts.sort(){ dateFormatter.date(from: $0.StartDate)! > dateFormatter.date(from: $1.StartDate)!
+            }
             
         }
         //reload the table view

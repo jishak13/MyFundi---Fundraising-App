@@ -137,11 +137,11 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
                     }
                 }
                 //Sort the posts by date posted
-                self.posts.sort(by: { self.dateFormatter.date(from: $0.StartDate)! > self.dateFormatter.date(from: $1.StartDate)!
-                })
+                self.posts.sort(){ self.dateFormatter.date(from: $0.StartDate)! > self.dateFormatter.date(from: $1.StartDate)!
+                }
                 //Sort the donations by date donated
-                self.donations.sort(by: { self.dateFormatter.date(from: $0.DonationDate)! > self.dateFormatter.date(from: $1.DonationDate)!
-                })
+                self.donations.sort(){ self.dateFormatter.date(from: $0.DonationDate)! > self.dateFormatter.date(from: $1.DonationDate)!
+                }
                 
                 //Reload the table view
                 self.tableView.reloadData()
