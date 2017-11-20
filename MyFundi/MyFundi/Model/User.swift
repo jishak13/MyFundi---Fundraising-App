@@ -60,7 +60,7 @@ class User {
             
         }
         
-        if let donations = userData["donations"] as? [String:AnyObject] {
+        if let donations = userData["donation"] as? [String:AnyObject] {
             for donat in donations {
                 self._donations.append(donat.key)
             }

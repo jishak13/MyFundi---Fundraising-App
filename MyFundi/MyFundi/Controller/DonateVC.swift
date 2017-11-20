@@ -29,13 +29,15 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     @IBOutlet weak var progressView: UIProgressView!
     
     @IBOutlet weak var donateAmountTextField: FancyField!
-    
+    @IBOutlet weak var payPalButton: DetailsPageButton!
+    @IBOutlet weak var submitButton: DetailsPageButton!
+    @IBOutlet weak var paymentSwitch: UISegmentedControl!
     
     var post: Post!
     
     @IBOutlet weak var cardPicker: UIPickerView!
     var cards = [Card]()
-    var userID: String = ""
+    var userID: String!
     var userRef: DatabaseReference!
     var methodKeys = [String]()
     var cardPickerData = [String]()
@@ -44,14 +46,13 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
        var dateFormatter: DateFormatter!
     var donatingAmount: Float!
     var sender: String!
-    
-    @IBOutlet weak var payPalButton: DetailsPageButton!
-    
-    @IBOutlet weak var paymentSwitch: UISegmentedControl!
+    let PP: String = "Pay Pal"
+    var errorArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+      
+        
         // Do any additional setup after loading the view.
         // Set up payPalConfig
         payPalConfig.acceptCreditCards = true
@@ -99,18 +100,11 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                         self.methodKeys.append(method.key)
                         print("JOE: Payment Found for User: \(method.key)")
                     }
-                    
-                    
                 }
-                
             }
-         
-            
-            
         })
         loadPaymentMethods()
     }
-    
     
     func payPalPaymentDidCancel(_ paymentViewController: PayPalPaymentViewController) {
         print("PayPal Payment Cancelled")
@@ -124,11 +118,6 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             print("Here is your proof of payment:\n\n\(completedPayment.confirmation)\n\nSend this to your server for confirmation and fulfillment.")
             self.addDonationToFirebase(type: 1)
         })
-        
-        let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-        
-        self.present(alertController, animated: true, completion: nil)
     }
     func payPalFuturePaymentDidCancel(_ futurePaymentViewController: PayPalFuturePaymentViewController) {
         print("PayPal Future Payment Authorization Canceled")
@@ -142,87 +131,97 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         })
     }
     
-    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
     }
    
     func addDonationToFirebase(type:Int) {
+  
         let donation: Dictionary<String, AnyObject> = [
             "donationAmount": (donateAmountTextField.text as! NSString).floatValue as AnyObject,
             "donationDate": dateFormatter.string(from: Date()) as AnyObject,
             "fundraiser": post?.postKey as AnyObject
         ]
-        
+
         let firebaseDonation = DataService.ds.REF_DONATIONS.childByAutoId()
         var donKey = firebaseDonation.key
         firebaseDonation.setValue(donation)
-       
+
         if type == 0 {
-            DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
+           print("\(userID)")
+            DataService.ds.REF_USERS.child(self.userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
         }
         else {
-            DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue("PayPal")
+            DataService.ds.REF_USERS.child(self.userID).child("donations").child(donKey).setValue(PP)
         }
-        
+
         let newAmount = ( (post?.currentDonation)! + self.donatingAmount)
         print("JOE: \(newAmount)")
         DataService.ds.REF_FUNDRAISERS.child((post?.postKey)!).updateChildValues(["currentDonation": newAmount])
         progressView.setProgress(newAmount/(post?.donationGoal)!, animated: true)
         raisedLabel.text = "$\(newAmount)"
         donateAmountTextField.text = nil
+        
+        let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        self.present(alertController, animated: true, completion: nil)
     }
     @IBAction func backPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     func validateFields() -> Bool {
-        
+        errorArray = [String]()
         if case let amount = (self.donateAmountTextField.text as! NSString).floatValue {
             if amount > 0 {
                 donateAmountTextField.normalBorder()
                 self.donatingAmount = amount
-                return true
+               
             }
-            else {
+            if amount <= 0{
                 donateAmountTextField.errorBorder()
-                return false
+                errorArray.append("-Donation must be numeric\n-Donation must be at least $1")
+                
             }
-        }else{
-            donateAmountTextField.errorBorder()
+        }
+        
+        if errorArray.count == 0 {
+            return true
+        }
+        else{
+            //initialize an error string
+            var errorMessage: String = ""
+            //For each error in the Error Array
+            for errs in errorArray {
+                //Append it to the Error message
+                errorMessage += "\(errs)"
+            }
+            
+            //Set the Alert controller with the error message
+            let alertController = UIAlertController(title: "Fields Are Missing or Incorrect", message: errorMessage, preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            //Present the  Alert
+            self.present(alertController, animated: true, completion: nil)
+            //Return False because at least one field is invalid
             return false
         }
     }
     @IBAction func donateNowPressed(_ sender: Any) {
         
         if validateFields() {
-//            let donation: Dictionary<String, AnyObject> = [
-//                "donationAmount": (donateAmountTextField.text as! NSString).floatValue as AnyObject,
-//                "donationDate": dateFormatter.string(from: Date()) as AnyObject,
-//                "fundraiser": post?.postKey as AnyObject
-//            ]
-//
-//            let firebaseDonation = DataService.ds.REF_DONATIONS.childByAutoId()
-//            var donKey = firebaseDonation.key
-//            firebaseDonation.setValue(donation)
-//        DataService.ds.REF_USERS.child(userID).child("donations").child(donKey).setValue(currentCard?.CardKey)
-//
-//            let newAmount = ( (post?.currentDonation)! + self.donatingAmount)
-//            print("JOE: \(newAmount)")
-//            DataService.ds.REF_FUNDRAISERS.child((post?.postKey)!).updateChildValues(["currentDonation": newAmount])
-//            progressView.setProgress(newAmount/(post?.donationGoal)!, animated: true)
-//            raisedLabel.text = "$\(newAmount)"
-//            donateAmountTextField.text = nil
-//
-        addDonationToFirebase(type: 0)
-            let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
-            
-            self.present(alertController, animated: true, completion: nil)
+
+            if currentCard != nil {
+                   addDonationToFirebase(type: 0)
+            }else{
+                let alertController = UIAlertController(title: "Card Missing", message: "Please select a payment Method from the list. If you do not see any payment methods, navigate back to settings and Add a Card.", preferredStyle: UIAlertControllerStyle.alert)
+                alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+                
+                self.present(alertController, animated: true, completion: nil)
+            }
+
         }
-        else{
-            
-        }
+      
     }
     
     
@@ -232,10 +231,12 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             self.loadPaymentMethods()
             cardPicker.isHidden = false
             payPalButton.isHidden = true
+            submitButton.isHidden = false
             
         }else{
             cardPicker.isHidden = true
             payPalButton.isHidden = false
+            submitButton.isHidden = true
         }
     }
     
@@ -307,9 +308,11 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         }
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentCard  = cards[row]
-        self.validateCard(row: row)
         
+        if  row != 0{
+            currentCard  = cards[row-1]
+        self.validateCard(row: row)
+        }
     }
     @IBAction func chooseMethodPressed(_ sender: Any) {
         
@@ -332,6 +335,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
     func loadPaymentMethods(){
         self.cards = [Card]()
         self.cardPickerData = [String]()
+        cardPickerData.append("Please select a Payment Card")
         DataService.ds.REF_CARDS.observe(.value, with: { (snapshot) in
             var cards = [Card]()
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {

@@ -440,12 +440,12 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         present(imagePicker, animated: true, completion: nil)
     }
     
-//    @IBAction func signOutTapped(_ sender: Any) {
-//        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
-//        print("KHALID: ID removed from keychain \(keychainResult)")
-//        try! Auth.auth().signOut()
-//        performSegue(withIdentifier: "goToSignInFromProf", sender: nil)
-//    }
+    @IBAction func signOutTapped(_ sender: Any) {
+        let keychainResult = KeychainWrapper.standard.removeObject(forKey: KEY_UID)
+        print("KHALID: ID removed from keychain \(keychainResult)")
+        try! Auth.auth().signOut()
+        performSegue(withIdentifier: "goToSignInFromProf", sender: nil)
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Get ready for taking the fundraiser to Details VC
         if segue.identifier == "showFundraiserDetailsVC" {

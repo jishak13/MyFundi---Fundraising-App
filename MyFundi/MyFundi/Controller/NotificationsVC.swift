@@ -75,15 +75,15 @@ class NotificationsVC: UITableViewController  {
 //        })
 ////
 //        var notifs = [Notification]()
+        
         DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
-                
-               
                 
                 for snap in snapshot {
                     print("SNAP: \(snap)")
                     if let userDict = snap.value as? Dictionary<String, AnyObject> {
-                        if let donations = userDict["donations"] as? [String:AnyObject] {
+                        
+                        if let donations = userDict["donation"] as? [String:AnyObject] {
                             for don in donations {
                                 if self.fundraiserKeys.contains(don.key){
                                     print("JOE: USER DONATED TO YOUR FUNDRAISER!")
@@ -99,6 +99,7 @@ class NotificationsVC: UITableViewController  {
                                 }
                             }
                         }
+                        
                         if let likes =  userDict["likes"] as? [String:AnyObject] {
                             for like in likes {
                                 if self.fundraiserKeys.contains(like.key) {
