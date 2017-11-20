@@ -62,16 +62,19 @@ class ResultDetailsVC: UIViewController {
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
                 for snap in snapshot{
                     if let userDict = snap.value as? Dictionary<String,AnyObject> {
-                        for fund in (userDict["fundraisers"] as? [String:AnyObject])! {
-                            if fund.key == self.post?.postKey {
-                                let key = snap.key
-                                let  user = User(userKey: key, userData: userDict)
-                                self.configureInfo(post: self.post!,user: user)
-                                
-                                
-                              
+                        if  let _ = userDict["fundraisers"] {
+                            for fund in  (userDict["fundraisers"] as? [String:AnyObject])!{
+                                if fund.key == self.post?.postKey {
+                                    let key = snap.key
+                                    let  user = User(userKey: key, userData: userDict)
+                                    self.configureInfo(post: self.post!,user: user)
+                                    
+                                    
+                                    
+                                }
                             }
                         }
+                        
                         
                     }
                 }

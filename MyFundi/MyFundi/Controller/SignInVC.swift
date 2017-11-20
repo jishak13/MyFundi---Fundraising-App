@@ -14,6 +14,7 @@ import SwiftKeychainWrapper
 
 //Public class for the Sign IN View Controller
 class SignInVC: UIViewController {
+    
     //Outlet Declarations for the email and password
     @IBOutlet weak var emailField: FancyField!
     @IBOutlet weak var pswdField: FancyField!
@@ -61,6 +62,7 @@ class SignInVC: UIViewController {
             
         }
     }
+    
     //Completes the sign in for the user
     func firebaseAuth(_ credential: AuthCredential) {
         //Call the authentication API with firebase
@@ -111,6 +113,7 @@ class SignInVC: UIViewController {
             })
         }
     }
+    
     //Method to complete Signing In
     func compeleteSignIn(id: String, userData: Dictionary<String, String>) {
         print("JOE USER ID: \(id)")

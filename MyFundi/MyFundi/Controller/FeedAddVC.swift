@@ -24,9 +24,6 @@ extension UIViewController {
     }
 }
 
-
-
-
 //Public Class for the Feed Add Vc (Posting a Campaign)
 class FeedAddVC: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate,UITextFieldDelegate {
@@ -283,7 +280,7 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         //Update Firebase User Function Sending the fundraiser key crated as a parameter
         DataService.ds.REF_USERS.child(userID).child("fundraisers").child(fundKey).setValue(true)
 
-        //Aler the User the Campaign was Posted Successfully
+        //Alert the User the Campaign was Posted Successfully
         let alertController = UIAlertController(title: "Campaign Posted Succesfully", message: "Your campaign is now live. To update or modify your campaign, please navigate to your profile.", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             

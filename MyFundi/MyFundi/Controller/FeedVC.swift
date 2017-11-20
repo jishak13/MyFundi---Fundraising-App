@@ -91,6 +91,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
             }
         })
     }
+    
     //Method to handle a user pressing down on "Donate Now" in each individual post
     @IBAction func donatePressed(_ sender: AnyObject) {
         //Debug Message
@@ -100,6 +101,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         //Perform the segue that brings up the Donation Page
         performSegue(withIdentifier: "goToDonateVC", sender: self)
     }
+    
     //When the feed Filter changes
     @IBAction func feedFilterChanged(_ sender: Any) {
         //If the selected index is 0
@@ -112,6 +114,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         //reload the table view
         tableView.reloadData()
     }
+    
     //Method to prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        //If the segue to be performed is going to Donation VC
@@ -137,6 +140,7 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
       //As many rows as there are post objects in the array
         return posts.count
     }
+    
     //get the current cell object for this table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //Initialize a  post object from the post array at this index path row
