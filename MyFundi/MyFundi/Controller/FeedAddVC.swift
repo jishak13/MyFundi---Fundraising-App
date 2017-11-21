@@ -2,7 +2,7 @@
 //  FeedAddVC.swift
 //  MyFundi
 //
-//  Created by Ivy JianG on 10/15/17.
+//  Created by Joseph Ishak on 10/15/17.
 //  Copyright © 2017 Bachmanity. All rights reserved.
 //
 
@@ -141,53 +141,36 @@ UINavigationControllerDelegate,UITextFieldDelegate {
         errors = [String]()
         //Intiailize the string version of the expiration date
         stringExpiration = dateFormatter.string(from: ExpDatePicker.date)
-       //Initialize local variables to tell which controls contain invalid input
-        var valid: Bool = false
-        var titleValid:Bool = false
-        var descriptionValid: Bool = false
-        var numValid: Bool = false
-       
+     
         ///The Following Statements validate each control
         ///If the control is invalid the border of the control will turn red,
-            ///The appropriate variable saying that the control is invalid will be set
             ///The appropriate error message will be appended to the Error Array
-        ///If the Controls are valid, the valid property will be set
+        ///If the Controls are valid, the  normal border property will be set
         if TitleTxt.text == "" {
             TitleTxt.errorBorder()
             errors.append("Campaign must have a Title")
-            titleValid = false
-            
         }
         else {
-            titleValid = true
             TitleTxt.normalBorder()
         }
         
         if DescriptionTxt.text == "" {
             DescriptionTxt.errorBorder()
-            descriptionValid = false
               errors.append("Campaign must have a short Description")
         }
         else {
-            descriptionValid = true
             DescriptionTxt.normalBorder()
         }
-        
-        
         if NumOfRequest.text == "" ||  (NumOfRequest.text as! NSString).floatValue <= 0{
             NumOfRequest.errorBorder()
-            numValid = false
               errors.append("Campaign must have an Amount to be Raised in a numerical format.")
         }
         else {
-            numValid = true
             NumOfRequest.normalBorder()
         }
-        
         if ImageChoose.image == nil {
             errors.append("Campaign must have an Image")
             }
-        
         //If the error array has 0 elements
         if errors.count == 0 {
             //Return True because the fields are VALID
