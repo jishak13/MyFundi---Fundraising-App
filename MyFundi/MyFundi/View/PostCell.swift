@@ -79,7 +79,7 @@ class PostCell: UITableViewCell {
         self.currentDonationLbl.text = "\(post.currentDonation)"
         self.donationGoalLbl.text = "\(post.donationGoal)"
         self.fundraiserLbl.text = post.title
-        self.donationProgress.setProgress((post.currentDonation/post.donationGoal), animated: false)
+        self.donationProgress.setProgress((Float(post.currentDonation/post.donationGoal)), animated: false)
         
         //Add Fundraiser image to the feed
         if img != nil {

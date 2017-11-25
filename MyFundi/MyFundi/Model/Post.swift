@@ -15,8 +15,8 @@ class Post {
     private var _caption: String!
     private var _imageUrl: String!
     private var _likes: Int!
-    private var _currentDonation: Float!
-    private var _donationGoal: Float!
+    private var _currentDonation: Double!
+    private var _donationGoal: Double!
     private var _title: String!
     private var _startDate: String!
     private var _endDate: String!
@@ -36,11 +36,11 @@ class Post {
         return _likes
     }
     
-    var currentDonation: Float {
+    var currentDonation: Double {
         return _currentDonation
     }
     
-    var donationGoal: Float {
+    var donationGoal: Double {
         return _donationGoal
     }
     
@@ -60,7 +60,7 @@ class Post {
     }
     
     //Initializer for a Post taking in all fields/variables
-    init(caption: String, imageUrl: String, likes: Int, currentDonation: Float, donationGoal: Float, title: String,startDate:String,endDate:String) {
+    init(caption: String, imageUrl: String, likes: Int, currentDonation: Double, donationGoal: Double, title: String,startDate:String,endDate:String) {
         self._caption = caption
         self._imageUrl = imageUrl
         self._likes = likes
@@ -86,11 +86,11 @@ class Post {
             self._likes = likes
         }
         
-        if let currentDonation = postData["currentDonation"] as? Float {
+        if let currentDonation = postData["currentDonation"] as? Double {
             self._currentDonation = currentDonation
         }
         
-        if let donationGoal = postData["donationGoal"] as? Float {
+        if let donationGoal = postData["donationGoal"] as? Double {
             self._donationGoal = donationGoal
         }
         

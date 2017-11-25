@@ -91,7 +91,7 @@ class ResultDetailsVC: UIViewController {
         self.raisedAmountLabel.text = "\(post.currentDonation)"
         self.goalAmountLabel.text = "\(post.donationGoal)"
         self.percentageLabel.text = "\((post.currentDonation/post.donationGoal)*100)%"
-        self.currentRaisedProgress.setProgress((post.currentDonation/post.donationGoal), animated: true)
+        self.currentRaisedProgress.setProgress((Float(post.currentDonation/post.donationGoal)), animated: true)
  
         //Get the fundraiser image from firebase
         let ref = Storage.storage().reference(forURL: post.imageUrl)
