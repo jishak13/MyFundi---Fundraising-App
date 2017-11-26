@@ -88,9 +88,9 @@ class ResultDetailsVC: UIViewController {
         self.userNameLabel.text = user?.Name
         self.postDateLabel.text = post.StartDate
         self.expireDateLabel.text = post.EndDate
-        self.raisedAmountLabel.text = "\(post.currentDonation)"
-        self.goalAmountLabel.text = "\(post.donationGoal)"
-        self.percentageLabel.text = "\((post.currentDonation/post.donationGoal)*100)%"
+        self.raisedAmountLabel.text = "$\(post.currentDonation)"
+        self.goalAmountLabel.text = "$\(post.donationGoal)"
+        self.percentageLabel.text = "\(round((post.currentDonation/post.donationGoal)*100))%"
         self.currentRaisedProgress.setProgress((Float(post.currentDonation/post.donationGoal)), animated: true)
  
         //Get the fundraiser image from firebase

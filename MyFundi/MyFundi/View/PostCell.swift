@@ -76,8 +76,8 @@ class PostCell: UITableViewCell {
         //Variables for the Controls in the Post Feed
         self.caption.text = post.caption
         self.likesLbl.text = "\(post.likes)"
-        self.currentDonationLbl.text = "\(post.currentDonation)"
-        self.donationGoalLbl.text = "\(post.donationGoal)"
+        self.currentDonationLbl.text = "$\(post.currentDonation)"
+        self.donationGoalLbl.text = "$\(post.donationGoal)"
         self.fundraiserLbl.text = post.title
         self.donationProgress.setProgress((Float(post.currentDonation/post.donationGoal)), animated: false)
         

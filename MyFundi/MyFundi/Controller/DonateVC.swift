@@ -406,6 +406,9 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             //Validate the Card
         self.validateCard(row: row)
         }
+        else{
+            currentCard = nil
+        }
     }
     
     //Load the payment methods from firebase
@@ -476,7 +479,21 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         //return the card at this row
         return self.cardPickerData[row]
     }
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let computationString = (textField.text! as NSString).replacingCharacters(in: range, with: string)
+        
+        // Take number of digits present after the decimal point.
+        let arrayOfSubStrings = computationString.components(separatedBy: ".")
+        
+        if arrayOfSubStrings.count == 1 && computationString.characters.count > MAX_BEFORE_DECIMAL_DIGITS {
+            return false
+        } else if arrayOfSubStrings.count == 2 {
+            let stringPostDecimal = arrayOfSubStrings[1]
+            return stringPostDecimal.characters.count <= MAX_AFTER_DECIMAL_DIGITS
+        }
+        
+        return true
+    }
     
 
    

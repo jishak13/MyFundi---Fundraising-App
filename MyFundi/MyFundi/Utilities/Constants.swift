@@ -11,3 +11,5 @@ import UIKit
 let SHADOW_GRAY : CGFloat = 120.0 / 255.0
 
 let KEY_UID = "uid"
+let MAX_BEFORE_DECIMAL_DIGITS = 9
+let MAX_AFTER_DECIMAL_DIGITS = 2

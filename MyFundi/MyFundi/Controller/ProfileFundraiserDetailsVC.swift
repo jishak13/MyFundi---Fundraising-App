@@ -268,11 +268,14 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
             alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }else{
-        //Delete the post from fire base
-         deletePost()
+       
             //Show a sucessfully deleted message
-            let alertController = UIAlertController(title: "Deleted Fundraiser", message: "The fundraiser was deleted sucessfully", preferredStyle: UIAlertControllerStyle.alert)
-            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+            let alertController = UIAlertController(title: "Deleting Fundraiser", message: "Are you sure you want to delete this fundraiser", preferredStyle: UIAlertControllerStyle.alert)
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default,handler: {UIAlertAction in
+                //Delete the post from fire base
+                self.deletePost()
+            }))
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default,handler: nil))
             
             self.present(alertController, animated: true, completion: nil)
             if alertController.isBeingDismissed{
@@ -303,6 +306,11 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
         }
         //Remove the post from firebase fundraisers
         DataService.ds.REF_USERS.child(uid).child("fundraisers").child((self.post?.postKey)!).removeValue()
+        titleTextField.text = nil
+        goalTextField.text = nil
+        captionTextView.text = nil
+        fundraiserImage.image = nil
+        
     }
     //Dismiss the VC
     @IBAction func backPressed(_ sender: Any) {
