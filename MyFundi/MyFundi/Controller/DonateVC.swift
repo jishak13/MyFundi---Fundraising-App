@@ -207,6 +207,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
+        
     }
     
     
@@ -279,14 +280,16 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
                     self.addDonationToFirebase(type: 0)
                     //Present a Success Message
                     self.successMessage()
+                    
                 }))
                 
+                //Cancels action
                 dialogMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: {UIAlertAction in
                     
-                    //Cancels action
                     
                     
-                    self.dismiss(animated: true, completion: nil)
+                    
+//                    self.dismiss(animated: true, completion: nil)
                     
                 }))
                 self.present(dialogMessage, animated: true, completion: nil)
