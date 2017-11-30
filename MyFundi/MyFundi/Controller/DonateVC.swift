@@ -269,9 +269,32 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
 
             //If current card is not nill
             if currentCard != nil {
-                //Add the donation to firebase with a Card(0)
-                   addDonationToFirebase(type: 0)
-            }else{
+                
+                //Show a confirmation message about donation amount
+                let dialogMessage = UIAlertController(title: "Donation Confirmation", message: "Are you sure you want to Donate this amount?", preferredStyle: UIAlertControllerStyle.alert)
+                dialogMessage.addAction(UIAlertAction(title: "Proceed", style: .default,handler: {UIAlertAction in
+                    
+                   
+                     //Add the donation to firebase with a Card(0)
+                    self.addDonationToFirebase(type: 0)
+                    //Present a Success Message
+                    self.successMessage()
+                }))
+                
+                dialogMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: {UIAlertAction in
+                    
+                    //Cancels action
+                    
+                    
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }))
+                self.present(dialogMessage, animated: true, completion: nil)
+                
+                
+                
+               
+            } else{
                 //Present the error message saying the card is missing
                 let alertController = UIAlertController(title: "Card Missing", message: "Please select a payment Method from the list. If you do not see any payment methods, navigate back to settings and Add a Card.", preferredStyle: UIAlertControllerStyle.alert)
                 alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
@@ -281,24 +304,7 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
 
         }
         
-        //Show a confirmation message about donation amount
-        let dialogMessage = UIAlertController(title: "Donation Confirmation", message: "Are you sure you want to Donate this amount?", preferredStyle: UIAlertControllerStyle.alert)
-        dialogMessage.addAction(UIAlertAction(title: "Proceed", style: .default,handler: {UIAlertAction in
-            
-            //Present a Success Message
-            self.successMessage()
-            
-        }))
         
-        dialogMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: {UIAlertAction in
-            
-            //Cancels action
-            
-            if dialogMessage.isBeingDismissed{
-                self.dismiss(animated: true, completion: nil)
-            }
-        }))
-        self.present(dialogMessage, animated: true, completion: nil)
       
     }
     
