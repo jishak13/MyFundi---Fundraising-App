@@ -198,12 +198,18 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
         //Reste the donation amount text field
         donateAmountTextField.text = nil
         
-        //Present a confirmation Message
+        
+    }
+    
+    func successMessage() {
         let alertController = UIAlertController(title: "Successful Donation", message: "You have successfully donated to this campaign. Go to your My Fundi Page and view your Donations to confirm.", preferredStyle: UIAlertControllerStyle.alert)
-        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default,handler: nil))
+        
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: .default,handler: nil))
         
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    
     //function that handles back being pressed
     @IBAction func backPressed(_ sender: Any) {
         //Dismiss the View Controller
@@ -274,6 +280,25 @@ class DonateVC: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, 
             }
 
         }
+        
+        //Show a confirmation message about donation amount
+        let dialogMessage = UIAlertController(title: "Donation Confirmation", message: "Are you sure you want to Donate this amount?", preferredStyle: UIAlertControllerStyle.alert)
+        dialogMessage.addAction(UIAlertAction(title: "Proceed", style: .default,handler: {UIAlertAction in
+            
+            //Present a Success Message
+            self.successMessage()
+            
+        }))
+        
+        dialogMessage.addAction(UIAlertAction(title: "Cancel", style: .cancel,handler: {UIAlertAction in
+            
+            //Cancels action
+            
+            if dialogMessage.isBeingDismissed{
+                self.dismiss(animated: true, completion: nil)
+            }
+        }))
+        self.present(dialogMessage, animated: true, completion: nil)
       
     }
     
