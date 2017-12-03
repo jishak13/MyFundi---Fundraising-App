@@ -380,6 +380,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zdz-yO-l77">
                                                             <rect key="frame" x="151" y="422" width="40" height="30"/>
                                                             <state key="normal" title="Share"/>
+                                                            <connections>
+                                                                <action selector="shareTapped:" destination="Bum-bE-rxR" eventType="touchUpInside" id="5Pd-gC-5Gb"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.87843137250000003" green="0.87843137250000003" blue="0.87843137250000003" alpha="1" colorSpace="calibratedRGB"/>

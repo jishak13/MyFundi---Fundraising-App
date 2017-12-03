@@ -92,6 +92,16 @@ class FeedVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UIIm
         })
     }
     
+    
+    @IBAction func shareTapped(_ sender: Any) {
+        let feedVC = UIActivityViewController(activityItems: ["myfundi.com"], applicationActivities: nil)
+        feedVC.popoverPresentationController?.sourceView = self.view
+        
+        self.present(feedVC, animated: true, completion: nil)
+    }
+    
+    
+    
     //Method to handle a user pressing down on "Donate Now" in each individual post
     @IBAction func donatePressed(_ sender: AnyObject) {
         //Debug Message
