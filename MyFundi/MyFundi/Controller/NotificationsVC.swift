@@ -1,14 +1,15 @@
-//
+
 //  NotificationsVC.swift
 //  MyFundi
 //
 //  Created by Joseph  Ishak on 11/7/17.
 //  Copyright © 2017 Bachmanity. All rights reserved.
-//
+
 
 import UIKit
 import Firebase
 import SwiftKeychainWrapper
+
 //Class that handles the Notifications VC
 class NotificationsVC: UITableViewController  {
    
@@ -22,6 +23,8 @@ class NotificationsVC: UITableViewController  {
     var user1: User?
     var post: Post?
     
+//    @IBOutlet weak var refreshControl: UIRefreshControl!
+    
     //when the View Loads
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,8 +35,19 @@ class NotificationsVC: UITableViewController  {
         //Set the userRef for Firebase Table
         userID = (Auth.auth().currentUser?.uid)!
         userRef = DataService.ds.REF_USERS.child(self.userID)
+     
+        //Refresh
+//        self.handleRefresh(self)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         //Initialize the fundraiser keys
         self.fundraiserKeys = [String]()
+        
         //Ovserver this single user in firebase
         userRef.observeSingleEvent(of: .value, with: { (snapshot) in
             if let userDict = snapshot.value as? Dictionary<String,AnyObject> {
@@ -51,40 +65,31 @@ class NotificationsVC: UITableViewController  {
             }
         })
         
+        
+       
+        notifications = [Notification]()
+        
+        findDonations()
+        findLikes()
+        
+       refreshTableView()
+        
+    
+
+    }
+    
+    func findLikes(){
+        var isMe :Bool = false
         // For all users reference
         DataService.ds.REF_USERS.observe(.value, with: { (snapshot) in
             if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
-                
                 //For each user
                 for snap in snapshot {
+                    if snap.key != self.userID {
                     //Debug Message
                     print("SNAP: \(snap)")
                     //Create a dictionary object
                     if let userDict = snap.value as? Dictionary<String, AnyObject> {
-                        //If the user has donations
-                        if let donations = userDict["donations"] as? [String:AnyObject] {
-                            //for each donations
-                            for don in donations {
-                                //If the user fundriasers are contained in this users donations
-                                if self.fundraiserKeys.contains(don.key){
-                                    //Debug Message
-                                    print("JOE: USER DONATED TO YOUR FUNDRAISER!")
-                                    //Get the user who donated
-                                     self.user1 = User(userKey: snap.key,userData: userDict)
-                                    //Get the fundraiser object from firebase
-                                    DataService.ds.REF_FUNDRAISERS.child(don.key).observeSingleEvent(of: .value, with: { (snapshot) in
-                                        if let postDict = snapshot.value as? Dictionary<String,AnyObject> {
-                                            //Create the post object found
-                                            self.post = Post(postKey: don.key,postData: postDict)
-                                            //Create a notification object with the user who donated and post they donated too
-                                            var notification = Notification(user: self.user1!, post: self.post!,type: "Donate")
-                                            //Apend this notification object to the notifications
-                                            self.notifications.append(notification)
-                                        }
-                                    })
-                                }
-                            }
-                        }
                         //If the user has any likes
                         if let likes =  userDict["likes"] as? [String:AnyObject] {
                             //For each like
@@ -112,10 +117,97 @@ class NotificationsVC: UITableViewController  {
                         }
                     }
                 }
+                }
+                 self.tableView.reloadData()
             }
-            //Refresh
-            self.handleRefresh(self)
+           
         })
+        
+        
+    }
+    func findDonations(){
+        var isMe: Bool = false
+        DataService.ds.REF_DONATIONS.observe(.value, with: { (snapshot) in
+            if let snapshot = snapshot.children.allObjects as? [DataSnapshot] {
+                
+                //For each user
+                for snap in snapshot {
+                    //Debug Message
+                    print("Donation SNAP: \(snap)")
+                    //Create a dictionary object
+                    if let donDict = snap.value as? Dictionary<String, AnyObject> {
+                        
+                        var donate = Donation(donationKey: snap.key, donationDict: donDict)
+                        //If the user has donations
+                        if let donatedFundraiser = donate.FundraiserKey as? String {
+                           
+                                //If the user fundriasers are contained in this users donations
+                                if self.fundraiserKeys.contains(donatedFundraiser){
+                                    //Debug Message
+                                    print("JOE: USER DONATED TO YOUR FUNDRAISER!")
+                                    //Get the user who donated
+                                    DataService.ds.REF_USERS.observe(.value, with: {(snapshot) in
+                                        if let snapshot = snapshot.children.allObjects as? [DataSnapshot]{
+                                            
+                                            for snap in snapshot {
+                                                if let userDict = snap.value as? Dictionary<String, AnyObject> {
+                                                    if let donations = userDict["donations"] as? [String:AnyObject] {
+                                                        for userDon in donations {
+                                                            
+                                                            if donate.DonationKey == userDon.key && snap.key != self.userID{
+                                                                
+                                                                self.user1 = User(userKey: snap.key,userData: userDict)
+                                                            }else{
+                                                                isMe = true
+                                                            }
+                                                        }
+                                                        
+                                                    }
+                                                }
+                                                
+                                            }
+                                            
+                                            
+                                            
+                                        }
+                                       
+                                        
+                                    })
+                                    
+                                    
+                                    if !isMe{
+                                    //Get the fundraiser object from firebase
+                                    DataService.ds.REF_FUNDRAISERS.child(donate.FundraiserKey).observeSingleEvent(of: .value, with: { (snapshot) in
+                                        if let postDict = snapshot.value as? Dictionary<String,AnyObject> {
+                                            //Create the post object found
+                                            self.post = Post(postKey: donate.FundraiserKey,postData: postDict)
+                                            //Create a notification object with the user who donated and post they donated too
+                                            var notification = Notification(user: self.user1!, post: self.post!,type: "Donate")
+                                            //Apend this notification object to the notifications
+                                            self.notifications.append(notification)
+                                        }
+                                    })
+                                        
+                                    }
+                                    
+                                }
+                            
+                        }
+                    }
+                }
+                self.tableView.reloadData()
+            }
+            
+        })
+        
+    }
+    
+    func refreshTableView(){
+        refreshControl?.beginRefreshing()
+        //reload the table view
+        self.tableView.reloadData()
+        //Stop refreshing
+        refreshControl?.endRefreshing()
     }
     //Handle the refresh
     @IBAction func handleRefresh(_ sender: Any) {

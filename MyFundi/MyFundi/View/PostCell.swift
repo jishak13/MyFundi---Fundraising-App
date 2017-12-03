@@ -23,10 +23,12 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var likeImage: UIImageView!
     @IBOutlet weak var donateButton: UIButton!
     
+    
     //Variables for the feed
     var post: Post!
     var user: User!
     var likesRef : DatabaseReference!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -42,11 +44,13 @@ class PostCell: UITableViewCell {
         postImg.isUserInteractionEnabled = true
     }
     
+    
     //function to handle the double tap
     @objc func postImgDoubleTap(sender: UITapGestureRecognizer) {
         
        likeTheImage()
     }
+    
     
     func likeTheImage(){
         likesRef.observeSingleEvent(of: .value, with: { (snapshot) in

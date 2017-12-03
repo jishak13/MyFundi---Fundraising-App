@@ -31,6 +31,8 @@ class LikesCell: UITableViewCell {
         //Vairables for the notification User and Post
         let user = notification.User
         let post = notification.Post
+        var liked : String = "liked"
+        
         //Set the notification text label
         notificationLabel.text = "\(user.Name) liked your fundraiser \(post.title)"
         

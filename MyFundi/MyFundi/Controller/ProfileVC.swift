@@ -51,7 +51,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         self.tableView.reloadData()
         
     }
-    //When the View Appeards
+    //When the View Appears
     override func viewWillAppear(_ animated: Bool) {
         //Appear animated
         super.viewWillAppear(animated)
