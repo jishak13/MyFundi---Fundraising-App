@@ -30,12 +30,12 @@ class SignInVC: UIViewController {
     //When the View Appears
     override func viewDidAppear(_ animated: Bool) {
        //If the keychain wrapper has a value for KEY_UID
-//        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
-//            //Debug Message
-//            print("KHALID: ID found in \(KEY_UID.characters)")
-//           //Go to the Feed VC
-//            performSegue(withIdentifier: "goToFeed", sender: nil)
-//        }
+        if let _ = KeychainWrapper.standard.string(forKey: KEY_UID) {
+            //Debug Message
+            print("KHALID: ID found in \(KEY_UID.characters)")
+           //Go to the Feed VC
+            performSegue(withIdentifier: "goToFeed", sender: nil)
+        }
     }
 
     //when the Facebook Button is tapped

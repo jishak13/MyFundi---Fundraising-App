@@ -142,7 +142,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
             //Set focus to Title
             titleTextField.becomeFirstResponder()
             //SEt the confirmation image 'CheckMark'
-            editPostImage.image = UIImage(named: "checkmark")
+            editPostImage.image = UIImage(named: "check-icon-blue")
         
         }else //Page is in edit mode
         {
@@ -154,7 +154,7 @@ class ProfileFundraiserDetailsVC: UIViewController,UIImagePickerControllerDelega
             goalTextField.isUserInteractionEnabled = false
             expirationDateTime.isUserInteractionEnabled = false
             editImage.isUserInteractionEnabled = false
-            editPostImage.image = UIImage(named: "icons8-edit")
+            editPostImage.image = UIImage(named: "pencil-icon-blue")
             //Update the firebase fundriaser
             self.updateFirebaseFundraiser()
         }

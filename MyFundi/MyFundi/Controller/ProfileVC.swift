@@ -83,7 +83,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
 //        hideKeyboardWhenTappedAround()
         
         //Set the profile gallery photo image
-        editNameImage.image = UIImage(named:"icons8-edit")!
+        editNameImage.image = UIImage(named:"pencil-icon-blue")!
         //Get this users ID
         userID = (Auth.auth().currentUser?.uid)!
         //Set a reference to Firebase
@@ -186,7 +186,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         //If the user is editing
         if editingName == false{
             //SEt the editing image to a checkmark for confirmation
-            editNameImage.image = UIImage(named:"checkmark")!
+            editNameImage.image = UIImage(named:"check-icon-blue")!
             //Allow user interaction and editing to the name field
             nameTextField.isUserInteractionEnabled = true
             nameTextField.allowsEditingTextAttributes = true
@@ -197,7 +197,7 @@ class ProfileVC: UIViewController,  UITableViewDelegate, UITableViewDataSource, 
         }
         else {
             //Set the editing image back to the pencil
-            editNameImage.image = UIImage(named:"icons8-edit")!
+            editNameImage.image = UIImage(named:"pencil-icon-blue")!
             //Dis-allow all interaction
             nameTextField.isUserInteractionEnabled = false
             //Set editing to false
