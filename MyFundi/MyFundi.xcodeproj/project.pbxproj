@@ -18,6 +18,7 @@
 		26732A271F82D88500365AE5 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A261F82D88500365AE5 /* CircleView.swift */; };
 		26732A291F82FE6700365AE5 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A281F82FE6700365AE5 /* PostCell.swift */; };
 		26732A2D1F83511500365AE5 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26732A2C1F83511500365AE5 /* DataService.swift */; };
+		26898BFB1FA67C480052BB58 /* ResultDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26898BFA1FA67C480052BB58 /* ResultDetailsVC.swift */; };
 		26E2B7041F80467F00AC390F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2B7031F80467F00AC390F /* AppDelegate.swift */; };
 		26E2B7061F80467F00AC390F /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E2B7051F80467F00AC390F /* SignInVC.swift */; };
 		26E2B7091F80467F00AC390F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26E2B7071F80467F00AC390F /* Main.storyboard */; };
@@ -26,9 +27,13 @@
 		978ABEB46AA930093FD2ED8A /* Pods_MyFundi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */; };
 		C1394D0F1F982497002AC9AE /* SearchedDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1394D0E1F982497002AC9AE /* SearchedDetailsTableViewController.swift */; };
 		C1394D111F982C3F002AC9AE /* FeedAddVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1394D101F982C3F002AC9AE /* FeedAddVC.swift */; };
+		C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C13C7B391F9D6DA100C181AB /* FancyTextView.swift */; };
 		C1579FB41F93DF1500331C1F /* ProfileHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */; };
 		C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1579FB51F93E60D00331C1F /* ProfileVC.swift */; };
+		C16A1E681FA3DA8D0044B125 /* Donation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A1E671FA3DA8D0044B125 /* Donation.swift */; };
+		C16A1E6A1FA6495C0044B125 /* DetailsPageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */; };
 		C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B0AD1A1F93F6C5000E02C0 /* User.swift */; };
+		C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +52,7 @@
 		26732A261F82D88500365AE5 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		26732A281F82FE6700365AE5 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		26732A2C1F83511500365AE5 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		26898BFA1FA67C480052BB58 /* ResultDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultDetailsVC.swift; sourceTree = "<group>"; };
 		26E2B7001F80467F00AC390F /* MyFundi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFundi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26E2B7031F80467F00AC390F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26E2B7051F80467F00AC390F /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
@@ -57,9 +63,13 @@
 		8B10D887822625C5D4E00BE8 /* Pods-MyFundi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyFundi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyFundi/Pods-MyFundi.debug.xcconfig"; sourceTree = "<group>"; };
 		C1394D0E1F982497002AC9AE /* SearchedDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchedDetailsTableViewController.swift; sourceTree = "<group>"; };
 		C1394D101F982C3F002AC9AE /* FeedAddVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedAddVC.swift; sourceTree = "<group>"; };
+		C13C7B391F9D6DA100C181AB /* FancyTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextView.swift; sourceTree = "<group>"; };
 		C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHistoryCell.swift; sourceTree = "<group>"; };
 		C1579FB51F93E60D00331C1F /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		C16A1E671FA3DA8D0044B125 /* Donation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Donation.swift; sourceTree = "<group>"; };
+		C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPageButton.swift; sourceTree = "<group>"; };
 		C1B0AD1A1F93F6C5000E02C0 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFundraiserDetailsVC.swift; sourceTree = "<group>"; };
 		D3222F0724323A121BB9F375 /* Pods_MyFundi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyFundi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +143,7 @@
 			children = (
 				2655F0C11F83684B003323EF /* Post.swift */,
 				C1B0AD1A1F93F6C5000E02C0 /* User.swift */,
+				C16A1E671FA3DA8D0044B125 /* Donation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -147,6 +158,8 @@
 				26732A261F82D88500365AE5 /* CircleView.swift */,
 				26732A281F82FE6700365AE5 /* PostCell.swift */,
 				C1579FB31F93DF1500331C1F /* ProfileHistoryCell.swift */,
+				C13C7B391F9D6DA100C181AB /* FancyTextView.swift */,
+				C16A1E691FA6495C0044B125 /* DetailsPageButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +172,8 @@
 				26E2B7051F80467F00AC390F /* SignInVC.swift */,
 				26732A241F81F5FD00365AE5 /* FeedVC.swift */,
 				C1579FB51F93E60D00331C1F /* ProfileVC.swift */,
+				C1D8305D1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift */,
+				26898BFA1FA67C480052BB58 /* ResultDetailsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -333,7 +348,9 @@
 			files = (
 				26732A271F82D88500365AE5 /* CircleView.swift in Sources */,
 				26732A1C1F80909A00365AE5 /* FancyField.swift in Sources */,
+				26898BFB1FA67C480052BB58 /* ResultDetailsVC.swift in Sources */,
 				C1579FB61F93E60D00331C1F /* ProfileVC.swift in Sources */,
+				C13C7B3A1F9D6DA100C181AB /* FancyTextView.swift in Sources */,
 				26E2B7061F80467F00AC390F /* SignInVC.swift in Sources */,
 				C1579FB41F93DF1500331C1F /* ProfileHistoryCell.swift in Sources */,
 				2655F0C21F83684B003323EF /* Post.swift in Sources */,
@@ -341,12 +358,15 @@
 				26732A1E1F8091C800365AE5 /* FancyButton.swift in Sources */,
 				C1B0AD1B1F93F6C5000E02C0 /* User.swift in Sources */,
 				26732A2D1F83511500365AE5 /* DataService.swift in Sources */,
+				C1D8305E1FA1020100DFB49B /* ProfileFundraiserDetailsVC.swift in Sources */,
 				26732A251F81F5FD00365AE5 /* FeedVC.swift in Sources */,
 				C1394D111F982C3F002AC9AE /* FeedAddVC.swift in Sources */,
 				26E2B7041F80467F00AC390F /* AppDelegate.swift in Sources */,
 				26732A151F808C8C00365AE5 /* FancyView.swift in Sources */,
 				26732A181F808D4B00365AE5 /* Constants.swift in Sources */,
+				C16A1E681FA3DA8D0044B125 /* Donation.swift in Sources */,
 				26732A291F82FE6700365AE5 /* PostCell.swift in Sources */,
+				C16A1E6A1FA6495C0044B125 /* DetailsPageButton.swift in Sources */,
 				C1394D0F1F982497002AC9AE /* SearchedDetailsTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
